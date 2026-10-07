@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Around 6 in 7 Australian adults were physically active in the past year",
+    "subtitle": "Share of adults (15+) who did any physical activity at least once in the past 12 months, 2025",
+    "anchor": "start",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": 360,
+  "height": 360,
+  "data": {
+    "url": "../data/finalized/1.1Activeness.csv"
+  },
+  "layer": [
+    {
+      "mark": {"type": "arc","innerRadius": 100,"outerRadius": 160,"stroke": "white","strokeWidth": 2},
+      "encoding": {
+        "theta": {"field": "Rate","type": "quantitative"},
+        "color": {
+          "field": "Category","type": "nominal","title": null,
+          "scale": {"domain": ["Active","Non-active"],"range": ["#2e7d5b","#d9d9d9"]},
+          "legend": {"orient": "bottom"}
+        },
+        "tooltip": [
+          {"field": "Category","title": "Category"},
+          {"field": "Rate","title": "Share of adults","format": ".1%"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Category == 'Active'"}],
+      "mark": {"type": "text","fontSize": 36,"fontWeight": "bold","color": "#2e7d5b","dy": -8},
+      "encoding": {"text": {"field": "Rate","type": "quantitative","format": ".1%"}}
+    },
+    {
+      "transform": [{"filter": "datum.Category == 'Active'"}],
+      "mark": {"type": "text","fontSize": 13,"color": "#555","dy": 22},
+      "encoding": {"text": {"value": "were active"}}
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}
