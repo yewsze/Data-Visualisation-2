@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Walking leads by a wide margin; 9 of the top 20 activities are mainly outdoors",
+    "subtitle": "Top 20 activities by share of adults (15+) who took part at least once in the past year, 2025",
+    "anchor": "start", "fontSize": 16, "subtitleFontSize": 12
+  },
+  "width": 520,
+  "height": {"step": 26},
+  "data": {"url": "../data/finalized/1.2ActivityRanking.csv"},
+  "params": [
+    {
+      "name": "settingFilter",
+      "value": "All settings",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All settings",
+          "Mainly outdoors",
+          "Indoors or outdoors",
+          "Mainly indoors"
+        ],
+        "name": "Filter by setting: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "settingFilter == 'All settings' || datum.setting == settingFilter"
+    }
+  ],
+  "encoding": {
+    "y": {"field": "activity", "type": "nominal", "title": null,
+          "sort": {"field": "rate", "op": "max", "order": "descending"},
+          "axis": {"labelLimit": 220, "labelFontSize": 12}},
+    "x": {"field": "rate", "type": "quantitative", "title": "Share of adults",
+          "axis": {"format": "%"}, "scale": {"domain": [0, 0.75]}}
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "color": {
+          "field": "setting", "type": "nominal", "title": null,
+          "scale": {"domain": ["Mainly outdoors", "Indoors or outdoors", "Mainly indoors"],
+                    "range": ["#2e7d5b", "#e9b44c", "#6c7a89"]},
+          "legend": {"orient": "bottom"}
+        },
+        "tooltip": [
+          {"field": "rank", "title": "Rank"},
+          {"field": "activity", "title": "Activity"},
+          {"field": "setting", "title": "Typical setting"},
+          {"field": "rate", "title": "Share of adults", "format": ".1%"},
+          {"field": "adults", "title": "Estimated adults", "format": ",.0f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 11, "color": "#333"},
+      "encoding": {"text": {"field": "label", "type": "nominal"}}
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}
