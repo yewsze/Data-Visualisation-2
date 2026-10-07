@@ -1,0 +1,5 @@
+# Ignore Word temp files
+~$*.docx
+
+# Ignore drafts
+report-draft.docx
