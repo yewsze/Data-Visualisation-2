@@ -16,9 +16,9 @@
         "input": "select",
         "options": [
           "All settings",
-          "Outdoor recreation",
-          "Mixed setting",
-          "Other sport & fitness"
+          "Core outdoor",
+          "Outdoor-capable",
+          "Indoor/facility-based"
         ],
         "name": "Filter by setting: "
       }
@@ -42,7 +42,7 @@
       "encoding": {
         "color": {
           "field": "setting", "type": "nominal", "title": null,
-          "scale": {"domain": ["Outdoor recreation", "Mixed setting", "Other sport & fitness"],
+          "scale": {"domain": ["Core outdoor", "Outdoor-capable", "Indoor/facility-based"],
                     "range": ["#2e7d5b", "#e9b44c", "#6c7a89"]},
           "legend": {"orient": "bottom"}
         },
