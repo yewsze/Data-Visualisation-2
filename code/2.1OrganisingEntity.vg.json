@@ -1,59 +1,65 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "title": {
-    "text": "Organised vs Informal Participation in Activities",
-    "subtitle": "Each activity has two bars side by side",
-    "anchor": "start",
-    "fontSize": 15,
-    "subtitleFontSize": 11
+    "text": "Structured Channels in Top 10 Outdoor Recreational Activities",
+    "subtitle": "Comparing by Organised and Unorganised Participation, 2025",
+    "anchor": "start"
   },
-  "width": 520,
-  "height": {"step": 20},
+
+  "width": 550,
+  "height": {"step": 40},
+
   "data": {
-    "url": "../data/finalized/2.1.2UpdatedOrganisingEntity.csv",
-    "format": {"type": "csv", "parse": {"value": "number"}}
+    "url": "../data/finalized/2.1.UpdatedOrganisingEntity.csv"
   },
+
   "transform": [
     {
-      "calculate": "datum.organisation_type == 'Sports club or association' || datum.organisation_type == 'Recreation club or association' || datum.organisation_type == 'Private or commercial business' || datum.organisation_type == 'Educational institution' || datum.organisation_type == 'Gym/fitness club/sports/leisure centre' ? 'Organised activity' : 'Informal activity'",
-      "as": "activity_type"
-    },
-    {
-      "aggregate": [
-        {"op": "sum", "field": "value", "as": "participation"}
-      ],
-      "groupby": ["activity", "activity_type"]
+      "calculate": "datum['\ufeff\"activity\"'] || datum['\ufeffactivity'] || datum['activity']",
+      "as": "activity_name"
     }
   ],
-  "mark": {"type": "bar", "cornerRadiusEnd": 3},
+
+  "mark": {
+    "type": "bar"
+  },
+
   "encoding": {
     "y": {
-      "field": "activity",
+      "field": "activity_name",
       "type": "nominal",
-      "axis": {"labelLimit": 180, "labelFontSize": 11}
+      "title": null,
+      "axis": {"labelLimit": 220, "labelFontSize": 12}
+    },
+    "yOffset": {
+      "field": "organisation_type"
     },
     "x": {
-      "field": "participation",
+      "field": "value",
       "type": "quantitative",
-      "title": "Participation",
-      "axis": {"format": ".1%"}
+      "title": "Participation"
     },
-    "xOffset": {"field": "activity_type"}, 
     "color": {
-      "field": "activity_type",
+      "field": "organisation_type",
       "type": "nominal",
-      "title": "Activity type",
       "scale": {
-        "domain": ["Organised activity", "Informal activity"],
         "range": ["#2e7d5b", "#e9b44c"]
       },
-      "legend": {"orient": "bottom"}
+      "legend": {
+        "title": "Participation type"
+      }
     },
     "tooltip": [
-      {"field": "activity", "title": "Activity"},
-      {"field": "activity_type", "title": "Activity type"},
-      {"field": "participation", "title": "Participation", "format": ".1%"}
+      {"field": "activity_name", "title": "Activity"},
+      {"field": "organisation_type", "title": "Type"},
+      {"field": "value", "title": "Participation", "format": ","}
     ]
   },
-  "config": {"view": {"stroke": null}}
+
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
 }
