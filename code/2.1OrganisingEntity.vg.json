@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Organised vs Informal Participation in Activities",
+    "subtitle": "Each activity has two bars side by side",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 11
+  },
+  "width": 520,
+  "height": {"step": 20},
+  "data": {
+    "url": "../data/finalized/2.1.2UpdatedOrganisingEntity.csv",
+    "format": {"type": "csv", "parse": {"value": "number"}}
+  },
+  "transform": [
+    {
+      "calculate": "datum.organisation_type == 'Sports club or association' || datum.organisation_type == 'Recreation club or association' || datum.organisation_type == 'Private or commercial business' || datum.organisation_type == 'Educational institution' || datum.organisation_type == 'Gym/fitness club/sports/leisure centre' ? 'Organised activity' : 'Informal activity'",
+      "as": "activity_type"
+    },
+    {
+      "aggregate": [
+        {"op": "sum", "field": "value", "as": "participation"}
+      ],
+      "groupby": ["activity", "activity_type"]
+    }
+  ],
+  "mark": {"type": "bar", "cornerRadiusEnd": 3},
+  "encoding": {
+    "y": {
+      "field": "activity",
+      "type": "nominal",
+      "axis": {"labelLimit": 180, "labelFontSize": 11}
+    },
+    "x": {
+      "field": "participation",
+      "type": "quantitative",
+      "title": "Participation",
+      "axis": {"format": ".1%"}
+    },
+    "xOffset": {"field": "activity_type"}, 
+    "color": {
+      "field": "activity_type",
+      "type": "nominal",
+      "title": "Activity type",
+      "scale": {
+        "domain": ["Organised activity", "Informal activity"],
+        "range": ["#2e7d5b", "#e9b44c"]
+      },
+      "legend": {"orient": "bottom"}
+    },
+    "tooltip": [
+      {"field": "activity", "title": "Activity"},
+      {"field": "activity_type", "title": "Activity type"},
+      {"field": "participation", "title": "Participation", "format": ".1%"}
+    ]
+  },
+  "config": {"view": {"stroke": null}}
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "../data/finalized/2.2ActivityByAge.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "15-17": "number",
+        "18-24": "number",
+        "25-34": "number",
+        "35-44": "number",
+        "45-54": "number",
+        "55-64": "number",
+        "65+": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "classificationFilter",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "core outdoor",
+          "outdoor capable"
+        ],
+        "name": "Show classification: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "lookup": "activity",
+      "from": {
+        "data": {
+          "url": "../data/finalized/0.Classification.csv"
+        },
+        "key": "Activity",
+        "fields": [
+          "Category"
+        ]
+      },
+      "as": [
+        "classification"
+      ]
+    },
+    {
+      "filter": "datum.classification == 'core outdoor' || datum.classification == 'outdoor capable'"
+    },
+    {
+      "filter": "classificationFilter == 'All' || datum.classification == classificationFilter"
+    },
+    {
+      "fold": [
+        "15-17",
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ],
+      "as": [
+        "age_group",
+        "participation_rate"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "ordinal",
+      "title": null,
+      "sort": [
+        "15-17",
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ],
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "activity",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "participation_rate",
+        "op": "mean",
+        "order": "descending"
+      },
+      "axis": {
+        "labelLimit": 220,
+        "labelFontSize": 11
+      }
+    },
+    "color": {
+      "field": "participation_rate",
+      "type": "quantitative",
+      "title": "Participation rate",
+      "scale": {
+        "scheme": "yellowgreenblue",
+        "domain": [
+          0,
+          0.15
+        ]
+      },
+      "legend": {
+        "format": ".1%"
+      }
+  },
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"}
+  }
+}
+}
+

@@ -1,121 +1,121 @@
-rank,activity,setting,entity,adults,share,total_organised,coverage,label
-1,Walking (recreational),Core outdoor,Sports club,60176,0.1574,953278,0.4,953k organised adults (4.2%) *
-1,Walking (recreational),Core outdoor,Recreation club,79553,0.208,953278,0.4,953k organised adults (4.2%) *
-1,Walking (recreational),Core outdoor,Gym / fitness / leisure centre,75843,0.1983,953278,0.4,953k organised adults (4.2%) *
-1,Walking (recreational),Core outdoor,Private business,39577,0.1035,953278,0.4,953k organised adults (4.2%) *
-1,Walking (recreational),Core outdoor,Personal trainer / coach,45456,0.1189,953278,0.4,953k organised adults (4.2%) *
-1,Walking (recreational),Core outdoor,Educational institution,81807,0.2139,953278,0.4,953k organised adults (4.2%) *
-2,Fitness / gym,Indoor/facility-based,Sports club,199417,0.0607,3055458,1.08,3.1M organised adults (13.5%)
-2,Fitness / gym,Indoor/facility-based,Recreation club,138722,0.0422,3055458,1.08,3.1M organised adults (13.5%)
-2,Fitness / gym,Indoor/facility-based,Gym / fitness / leisure centre,1471814,0.4477,3055458,1.08,3.1M organised adults (13.5%)
-2,Fitness / gym,Indoor/facility-based,Private business,667425,0.203,3055458,1.08,3.1M organised adults (13.5%)
-2,Fitness / gym,Indoor/facility-based,Personal trainer / coach,714168,0.2172,3055458,1.08,3.1M organised adults (13.5%)
-2,Fitness / gym,Indoor/facility-based,Educational institution,96050,0.0292,3055458,1.08,3.1M organised adults (13.5%)
-3,Bushwalking,Core outdoor,Sports club,47488,0.1544,507183,0.61,507k organised adults (2.2%) *
-3,Bushwalking,Core outdoor,Recreation club,70307,0.2286,507183,0.61,507k organised adults (2.2%) *
-3,Bushwalking,Core outdoor,Gym / fitness / leisure centre,32735,0.1064,507183,0.61,507k organised adults (2.2%) *
-3,Bushwalking,Core outdoor,Private business,70775,0.2301,507183,0.61,507k organised adults (2.2%) *
-3,Bushwalking,Core outdoor,Personal trainer / coach,26989,0.0877,507183,0.61,507k organised adults (2.2%) *
-3,Bushwalking,Core outdoor,Educational institution,59291,0.1928,507183,0.61,507k organised adults (2.2%) *
-4,Running / jogging,Outdoor-capable,Sports club,157429,0.2297,1114300,0.61,1.1M organised adults (4.9%) *
-4,Running / jogging,Outdoor-capable,Recreation club,118336,0.1727,1114300,0.61,1.1M organised adults (4.9%) *
-4,Running / jogging,Outdoor-capable,Gym / fitness / leisure centre,146370,0.2136,1114300,0.61,1.1M organised adults (4.9%) *
-4,Running / jogging,Outdoor-capable,Private business,72938,0.1064,1114300,0.61,1.1M organised adults (4.9%) *
-4,Running / jogging,Outdoor-capable,Personal trainer / coach,90833,0.1326,1114300,0.61,1.1M organised adults (4.9%) *
-4,Running / jogging,Outdoor-capable,Educational institution,99333,0.145,1114300,0.61,1.1M organised adults (4.9%) *
-5,Swimming,Outdoor-capable,Sports club,109347,0.1911,604711,0.95,605k organised adults (2.7%)
-5,Swimming,Outdoor-capable,Recreation club,60630,0.106,604711,0.95,605k organised adults (2.7%)
-5,Swimming,Outdoor-capable,Gym / fitness / leisure centre,173387,0.303,604711,0.95,605k organised adults (2.7%)
-5,Swimming,Outdoor-capable,Private business,77712,0.1358,604711,0.95,605k organised adults (2.7%)
-5,Swimming,Outdoor-capable,Personal trainer / coach,83697,0.1463,604711,0.95,605k organised adults (2.7%)
-5,Swimming,Outdoor-capable,Educational institution,67367,0.1177,604711,0.95,605k organised adults (2.7%)
-6,Cycling,Core outdoor,Sports club,40683,0.2404,221295,0.76,221k organised adults (1.0%)
-6,Cycling,Core outdoor,Recreation club,31978,0.189,221295,0.76,221k organised adults (1.0%)
-6,Cycling,Core outdoor,Gym / fitness / leisure centre,43069,0.2545,221295,0.76,221k organised adults (1.0%)
-6,Cycling,Core outdoor,Private business,20788,0.1229,221295,0.76,221k organised adults (1.0%)
-6,Cycling,Core outdoor,Personal trainer / coach,21444,0.1267,221295,0.76,221k organised adults (1.0%)
-6,Cycling,Core outdoor,Educational institution,11249,0.0665,221295,0.76,221k organised adults (1.0%)
-7,Pilates,Indoor/facility-based,Sports club,19083,0.0139,1258620,1.09,1.3M organised adults (5.6%)
-7,Pilates,Indoor/facility-based,Recreation club,17220,0.0125,1258620,1.09,1.3M organised adults (5.6%)
-7,Pilates,Indoor/facility-based,Gym / fitness / leisure centre,392114,0.2857,1258620,1.09,1.3M organised adults (5.6%)
-7,Pilates,Indoor/facility-based,Private business,830772,0.6053,1258620,1.09,1.3M organised adults (5.6%)
-7,Pilates,Indoor/facility-based,Personal trainer / coach,98225,0.0716,1258620,1.09,1.3M organised adults (5.6%)
-7,Pilates,Indoor/facility-based,Educational institution,15092,0.011,1258620,1.09,1.3M organised adults (5.6%)
-8,Football / soccer,Outdoor-capable,Sports club,404731,0.4394,819012,1.12,819k organised adults (3.6%)
-8,Football / soccer,Outdoor-capable,Recreation club,151213,0.1642,819012,1.12,819k organised adults (3.6%)
-8,Football / soccer,Outdoor-capable,Gym / fitness / leisure centre,93461,0.1015,819012,1.12,819k organised adults (3.6%)
-8,Football / soccer,Outdoor-capable,Private business,47602,0.0517,819012,1.12,819k organised adults (3.6%)
-8,Football / soccer,Outdoor-capable,Personal trainer / coach,74572,0.081,819012,1.12,819k organised adults (3.6%)
-8,Football / soccer,Outdoor-capable,Educational institution,149565,0.1624,819012,1.12,819k organised adults (3.6%)
-9,Yoga,Indoor/facility-based,Sports club,16113,0.0249,657978,0.98,658k organised adults (2.9%)
-9,Yoga,Indoor/facility-based,Recreation club,26521,0.041,657978,0.98,658k organised adults (2.9%)
-9,Yoga,Indoor/facility-based,Gym / fitness / leisure centre,195138,0.302,657978,0.98,658k organised adults (2.9%)
-9,Yoga,Indoor/facility-based,Private business,350756,0.5429,657978,0.98,658k organised adults (2.9%)
-9,Yoga,Indoor/facility-based,Personal trainer / coach,39049,0.0604,657978,0.98,658k organised adults (2.9%)
-9,Yoga,Indoor/facility-based,Educational institution,18495,0.0286,657978,0.98,658k organised adults (2.9%)
-10,Tennis,Indoor/facility-based,Sports club,197366,0.4277,441458,1.05,441k organised adults (2.0%)
-10,Tennis,Indoor/facility-based,Recreation club,65152,0.1412,441458,1.05,441k organised adults (2.0%)
-10,Tennis,Indoor/facility-based,Gym / fitness / leisure centre,39582,0.0858,441458,1.05,441k organised adults (2.0%)
-10,Tennis,Indoor/facility-based,Private business,38718,0.0839,441458,1.05,441k organised adults (2.0%)
-10,Tennis,Indoor/facility-based,Personal trainer / coach,76785,0.1664,441458,1.05,441k organised adults (2.0%)
-10,Tennis,Indoor/facility-based,Educational institution,43825,0.095,441458,1.05,441k organised adults (2.0%)
-11,Golf,Core outdoor,Sports club,308222,0.6042,510782,1.0,511k organised adults (2.3%)
-11,Golf,Core outdoor,Recreation club,81913,0.1606,510782,1.0,511k organised adults (2.3%)
-11,Golf,Core outdoor,Gym / fitness / leisure centre,19619,0.0385,510782,1.0,511k organised adults (2.3%)
-11,Golf,Core outdoor,Private business,45552,0.0893,510782,1.0,511k organised adults (2.3%)
-11,Golf,Core outdoor,Personal trainer / coach,45011,0.0882,510782,1.0,511k organised adults (2.3%)
-11,Golf,Core outdoor,Educational institution,9815,0.0192,510782,1.0,511k organised adults (2.3%)
-12,Basketball,Outdoor-capable,Sports club,226880,0.3998,520877,1.09,521k organised adults (2.3%)
-12,Basketball,Outdoor-capable,Recreation club,97103,0.1711,520877,1.09,521k organised adults (2.3%)
-12,Basketball,Outdoor-capable,Gym / fitness / leisure centre,67518,0.119,520877,1.09,521k organised adults (2.3%)
-12,Basketball,Outdoor-capable,Private business,29318,0.0517,520877,1.09,521k organised adults (2.3%)
-12,Basketball,Outdoor-capable,Personal trainer / coach,37257,0.0656,520877,1.09,521k organised adults (2.3%)
-12,Basketball,Outdoor-capable,Educational institution,109463,0.1929,520877,1.09,521k organised adults (2.3%)
-13,Cricket,Core outdoor,Sports club,218793,0.525,361917,1.15,362k organised adults (1.6%)
-13,Cricket,Core outdoor,Recreation club,54592,0.131,361917,1.15,362k organised adults (1.6%)
-13,Cricket,Core outdoor,Gym / fitness / leisure centre,35238,0.0845,361917,1.15,362k organised adults (1.6%)
-13,Cricket,Core outdoor,Private business,22702,0.0545,361917,1.15,362k organised adults (1.6%)
-13,Cricket,Core outdoor,Personal trainer / coach,25352,0.0608,361917,1.15,362k organised adults (1.6%)
-13,Cricket,Core outdoor,Educational institution,60091,0.1442,361917,1.15,362k organised adults (1.6%)
-14,Australian football,Core outdoor,Sports club,223957,0.5014,389330,1.15,389k organised adults (1.7%)
-14,Australian football,Core outdoor,Recreation club,58175,0.1303,389330,1.15,389k organised adults (1.7%)
-14,Australian football,Core outdoor,Gym / fitness / leisure centre,47904,0.1073,389330,1.15,389k organised adults (1.7%)
-14,Australian football,Core outdoor,Private business,26919,0.0603,389330,1.15,389k organised adults (1.7%)
-14,Australian football,Core outdoor,Personal trainer / coach,37482,0.0839,389330,1.15,389k organised adults (1.7%)
-14,Australian football,Core outdoor,Educational institution,52182,0.1168,389330,1.15,389k organised adults (1.7%)
-15,Netball,Indoor/facility-based,Sports club,222251,0.5202,419519,1.02,420k organised adults (1.9%)
-15,Netball,Indoor/facility-based,Recreation club,84542,0.1979,419519,1.02,420k organised adults (1.9%)
-15,Netball,Indoor/facility-based,Gym / fitness / leisure centre,37521,0.0878,419519,1.02,420k organised adults (1.9%)
-15,Netball,Indoor/facility-based,Private business,16000,0.0374,419519,1.02,420k organised adults (1.9%)
-15,Netball,Indoor/facility-based,Personal trainer / coach,10576,0.0248,419519,1.02,420k organised adults (1.9%)
-15,Netball,Indoor/facility-based,Educational institution,56343,0.1319,419519,1.02,420k organised adults (1.9%)
-16,Badminton,Indoor/facility-based,Sports club,41478,0.2627,180549,0.87,181k organised adults (0.8%)
-16,Badminton,Indoor/facility-based,Recreation club,23246,0.1472,180549,0.87,181k organised adults (0.8%)
-16,Badminton,Indoor/facility-based,Gym / fitness / leisure centre,13581,0.086,180549,0.87,181k organised adults (0.8%)
-16,Badminton,Indoor/facility-based,Private business,7809,0.0495,180549,0.87,181k organised adults (0.8%)
-16,Badminton,Indoor/facility-based,Personal trainer / coach,15293,0.0968,180549,0.87,181k organised adults (0.8%)
-16,Badminton,Indoor/facility-based,Educational institution,56496,0.3578,180549,0.87,181k organised adults (0.8%)
-17,Table tennis,Indoor/facility-based,Sports club,42793,0.3112,134215,1.02,134k organised adults (0.6%)
-17,Table tennis,Indoor/facility-based,Recreation club,27619,0.2009,134215,1.02,134k organised adults (0.6%)
-17,Table tennis,Indoor/facility-based,Gym / fitness / leisure centre,16932,0.1231,134215,1.02,134k organised adults (0.6%)
-17,Table tennis,Indoor/facility-based,Private business,7355,0.0535,134215,1.02,134k organised adults (0.6%)
-17,Table tennis,Indoor/facility-based,Personal trainer / coach,16289,0.1185,134215,1.02,134k organised adults (0.6%)
-17,Table tennis,Indoor/facility-based,Educational institution,26511,0.1928,134215,1.02,134k organised adults (0.6%)
-18,Dancing (recreational),Outdoor-capable,Sports club,18437,0.0746,245058,1.01,245k organised adults (1.1%)
-18,Dancing (recreational),Outdoor-capable,Recreation club,27575,0.1115,245058,1.01,245k organised adults (1.1%)
-18,Dancing (recreational),Outdoor-capable,Gym / fitness / leisure centre,24689,0.0999,245058,1.01,245k organised adults (1.1%)
-18,Dancing (recreational),Outdoor-capable,Private business,125494,0.5076,245058,1.01,245k organised adults (1.1%)
-18,Dancing (recreational),Outdoor-capable,Personal trainer / coach,28695,0.1161,245058,1.01,245k organised adults (1.1%)
-18,Dancing (recreational),Outdoor-capable,Educational institution,22355,0.0904,245058,1.01,245k organised adults (1.1%)
-19,Surfing,Core outdoor,Sports club,4129,0.123,44381,0.76,44k organised adults (0.2%)
-19,Surfing,Core outdoor,Recreation club,4129,0.123,44381,0.76,44k organised adults (0.2%)
-19,Surfing,Core outdoor,Gym / fitness / leisure centre,3179,0.0947,44381,0.76,44k organised adults (0.2%)
-19,Surfing,Core outdoor,Private business,10079,0.3003,44381,0.76,44k organised adults (0.2%)
-19,Surfing,Core outdoor,Personal trainer / coach,9471,0.2822,44381,0.76,44k organised adults (0.2%)
-19,Surfing,Core outdoor,Educational institution,2573,0.0767,44381,0.76,44k organised adults (0.2%)
-20,"Athletics, track and field",Outdoor-capable,Sports club,57737,0.2726,173135,1.22,173k organised adults (0.8%)
-20,"Athletics, track and field",Outdoor-capable,Recreation club,27033,0.1276,173135,1.22,173k organised adults (0.8%)
-20,"Athletics, track and field",Outdoor-capable,Gym / fitness / leisure centre,25367,0.1198,173135,1.22,173k organised adults (0.8%)
-20,"Athletics, track and field",Outdoor-capable,Private business,21119,0.0997,173135,1.22,173k organised adults (0.8%)
-20,"Athletics, track and field",Outdoor-capable,Personal trainer / coach,33602,0.1586,173135,1.22,173k organised adults (0.8%)
-20,"Athletics, track and field",Outdoor-capable,Educational institution,46974,0.2217,173135,1.22,173k organised adults (0.8%)
+﻿"rank","activity","entity","adults","share","total_organised","coverage","label"
+"1","Walking (Recreational)","Sports club","60176","0.1574","953278","0.4","953k organised adults (4.2%) *"
+"1","Walking (Recreational)","Recreation club","79553","0.208","953278","0.4","953k organised adults (4.2%) *"
+"1","Walking (Recreational)","Gym / fitness / leisure centre","75843","0.1983","953278","0.4","953k organised adults (4.2%) *"
+"1","Walking (Recreational)","Private business","39577","0.1035","953278","0.4","953k organised adults (4.2%) *"
+"1","Walking (Recreational)","Personal trainer / coach","45456","0.1189","953278","0.4","953k organised adults (4.2%) *"
+"1","Walking (Recreational)","Educational institution","81807","0.2139","953278","0.4","953k organised adults (4.2%) *"
+"2","Fitness/Gym","Sports club","199417","0.0607","3055458","1.08","3.1M organised adults (13.5%)"
+"2","Fitness/Gym","Recreation club","138722","0.0422","3055458","1.08","3.1M organised adults (13.5%)"
+"2","Fitness/Gym","Gym / fitness / leisure centre","1471814","0.4477","3055458","1.08","3.1M organised adults (13.5%)"
+"2","Fitness/Gym","Private business","667425","0.203","3055458","1.08","3.1M organised adults (13.5%)"
+"2","Fitness/Gym","Personal trainer / coach","714168","0.2172","3055458","1.08","3.1M organised adults (13.5%)"
+"2","Fitness/Gym","Educational institution","96050","0.0292","3055458","1.08","3.1M organised adults (13.5%)"
+"3","Bush walking","Sports club","47488","0.1544","507183","0.61","507k organised adults (2.2%) *"
+"3","Bush walking","Recreation club","70307","0.2286","507183","0.61","507k organised adults (2.2%) *"
+"3","Bush walking","Gym / fitness / leisure centre","32735","0.1064","507183","0.61","507k organised adults (2.2%) *"
+"3","Bush walking","Private business","70775","0.2301","507183","0.61","507k organised adults (2.2%) *"
+"3","Bush walking","Personal trainer / coach","26989","0.0877","507183","0.61","507k organised adults (2.2%) *"
+"3","Bush walking","Educational institution","59291","0.1928","507183","0.61","507k organised adults (2.2%) *"
+"4","Running/jogging","Sports club","157429","0.2297","1114300","0.61","1.1M organised adults (4.9%) *"
+"4","Running/jogging","Recreation club","118336","0.1727","1114300","0.61","1.1M organised adults (4.9%) *"
+"4","Running/jogging","Gym / fitness / leisure centre","146370","0.2136","1114300","0.61","1.1M organised adults (4.9%) *"
+"4","Running/jogging","Private business","72938","0.1064","1114300","0.61","1.1M organised adults (4.9%) *"
+"4","Running/jogging","Personal trainer / coach","90833","0.1326","1114300","0.61","1.1M organised adults (4.9%) *"
+"4","Running/jogging","Educational institution","99333","0.145","1114300","0.61","1.1M organised adults (4.9%) *"
+"5","Swimming","Sports club","109347","0.1911","604711","0.95","605k organised adults (2.7%)"
+"5","Swimming","Recreation club","60630","0.106","604711","0.95","605k organised adults (2.7%)"
+"5","Swimming","Gym / fitness / leisure centre","173387","0.303","604711","0.95","605k organised adults (2.7%)"
+"5","Swimming","Private business","77712","0.1358","604711","0.95","605k organised adults (2.7%)"
+"5","Swimming","Personal trainer / coach","83697","0.1463","604711","0.95","605k organised adults (2.7%)"
+"5","Swimming","Educational institution","67367","0.1177","604711","0.95","605k organised adults (2.7%)"
+"6","Cycling","Sports club","40683","0.2404","221295","0.76","221k organised adults (1.0%)"
+"6","Cycling","Recreation club","31978","0.189","221295","0.76","221k organised adults (1.0%)"
+"6","Cycling","Gym / fitness / leisure centre","43069","0.2545","221295","0.76","221k organised adults (1.0%)"
+"6","Cycling","Private business","20788","0.1229","221295","0.76","221k organised adults (1.0%)"
+"6","Cycling","Personal trainer / coach","21444","0.1267","221295","0.76","221k organised adults (1.0%)"
+"6","Cycling","Educational institution","11249","0.0665","221295","0.76","221k organised adults (1.0%)"
+"7","Pilates","Sports club","19083","0.0139","1258620","1.09","1.3M organised adults (5.6%)"
+"7","Pilates","Recreation club","17220","0.0125","1258620","1.09","1.3M organised adults (5.6%)"
+"7","Pilates","Gym / fitness / leisure centre","392114","0.2857","1258620","1.09","1.3M organised adults (5.6%)"
+"7","Pilates","Private business","830772","0.6053","1258620","1.09","1.3M organised adults (5.6%)"
+"7","Pilates","Personal trainer / coach","98225","0.0716","1258620","1.09","1.3M organised adults (5.6%)"
+"7","Pilates","Educational institution","15092","0.011","1258620","1.09","1.3M organised adults (5.6%)"
+"8","Football/soccer","Sports club","404731","0.4394","819012","1.12","819k organised adults (3.6%)"
+"8","Football/soccer","Recreation club","151213","0.1642","819012","1.12","819k organised adults (3.6%)"
+"8","Football/soccer","Gym / fitness / leisure centre","93461","0.1015","819012","1.12","819k organised adults (3.6%)"
+"8","Football/soccer","Private business","47602","0.0517","819012","1.12","819k organised adults (3.6%)"
+"8","Football/soccer","Personal trainer / coach","74572","0.081","819012","1.12","819k organised adults (3.6%)"
+"8","Football/soccer","Educational institution","149565","0.1624","819012","1.12","819k organised adults (3.6%)"
+"9","Yoga","Sports club","16113","0.0249","657978","0.98","658k organised adults (2.9%)"
+"9","Yoga","Recreation club","26521","0.041","657978","0.98","658k organised adults (2.9%)"
+"9","Yoga","Gym / fitness / leisure centre","195138","0.302","657978","0.98","658k organised adults (2.9%)"
+"9","Yoga","Private business","350756","0.5429","657978","0.98","658k organised adults (2.9%)"
+"9","Yoga","Personal trainer / coach","39049","0.0604","657978","0.98","658k organised adults (2.9%)"
+"9","Yoga","Educational institution","18495","0.0286","657978","0.98","658k organised adults (2.9%)"
+"10","Tennis","Sports club","197366","0.4277","441458","1.05","441k organised adults (2.0%)"
+"10","Tennis","Recreation club","65152","0.1412","441458","1.05","441k organised adults (2.0%)"
+"10","Tennis","Gym / fitness / leisure centre","39582","0.0858","441458","1.05","441k organised adults (2.0%)"
+"10","Tennis","Private business","38718","0.0839","441458","1.05","441k organised adults (2.0%)"
+"10","Tennis","Personal trainer / coach","76785","0.1664","441458","1.05","441k organised adults (2.0%)"
+"10","Tennis","Educational institution","43825","0.095","441458","1.05","441k organised adults (2.0%)"
+"11","Golf","Sports club","308222","0.6042","510782","1.0","511k organised adults (2.3%)"
+"11","Golf","Recreation club","81913","0.1606","510782","1.0","511k organised adults (2.3%)"
+"11","Golf","Gym / fitness / leisure centre","19619","0.0385","510782","1.0","511k organised adults (2.3%)"
+"11","Golf","Private business","45552","0.0893","510782","1.0","511k organised adults (2.3%)"
+"11","Golf","Personal trainer / coach","45011","0.0882","510782","1.0","511k organised adults (2.3%)"
+"11","Golf","Educational institution","9815","0.0192","510782","1.0","511k organised adults (2.3%)"
+"12","Basketball","Sports club","226880","0.3998","520877","1.09","521k organised adults (2.3%)"
+"12","Basketball","Recreation club","97103","0.1711","520877","1.09","521k organised adults (2.3%)"
+"12","Basketball","Gym / fitness / leisure centre","67518","0.119","520877","1.09","521k organised adults (2.3%)"
+"12","Basketball","Private business","29318","0.0517","520877","1.09","521k organised adults (2.3%)"
+"12","Basketball","Personal trainer / coach","37257","0.0656","520877","1.09","521k organised adults (2.3%)"
+"12","Basketball","Educational institution","109463","0.1929","520877","1.09","521k organised adults (2.3%)"
+"13","Cricket","Sports club","218793","0.525","361917","1.15","362k organised adults (1.6%)"
+"13","Cricket","Recreation club","54592","0.131","361917","1.15","362k organised adults (1.6%)"
+"13","Cricket","Gym / fitness / leisure centre","35238","0.0845","361917","1.15","362k organised adults (1.6%)"
+"13","Cricket","Private business","22702","0.0545","361917","1.15","362k organised adults (1.6%)"
+"13","Cricket","Personal trainer / coach","25352","0.0608","361917","1.15","362k organised adults (1.6%)"
+"13","Cricket","Educational institution","60091","0.1442","361917","1.15","362k organised adults (1.6%)"
+"14","Australian football","Sports club","223957","0.5014","389330","1.15","389k organised adults (1.7%)"
+"14","Australian football","Recreation club","58175","0.1303","389330","1.15","389k organised adults (1.7%)"
+"14","Australian football","Gym / fitness / leisure centre","47904","0.1073","389330","1.15","389k organised adults (1.7%)"
+"14","Australian football","Private business","26919","0.0603","389330","1.15","389k organised adults (1.7%)"
+"14","Australian football","Personal trainer / coach","37482","0.0839","389330","1.15","389k organised adults (1.7%)"
+"14","Australian football","Educational institution","52182","0.1168","389330","1.15","389k organised adults (1.7%)"
+"15","Netball","Sports club","222251","0.5202","419519","1.02","420k organised adults (1.9%)"
+"15","Netball","Recreation club","84542","0.1979","419519","1.02","420k organised adults (1.9%)"
+"15","Netball","Gym / fitness / leisure centre","37521","0.0878","419519","1.02","420k organised adults (1.9%)"
+"15","Netball","Private business","16000","0.0374","419519","1.02","420k organised adults (1.9%)"
+"15","Netball","Personal trainer / coach","10576","0.0248","419519","1.02","420k organised adults (1.9%)"
+"15","Netball","Educational institution","56343","0.1319","419519","1.02","420k organised adults (1.9%)"
+"16","Badminton","Sports club","41478","0.2627","180549","0.87","181k organised adults (0.8%)"
+"16","Badminton","Recreation club","23246","0.1472","180549","0.87","181k organised adults (0.8%)"
+"16","Badminton","Gym / fitness / leisure centre","13581","0.086","180549","0.87","181k organised adults (0.8%)"
+"16","Badminton","Private business","7809","0.0495","180549","0.87","181k organised adults (0.8%)"
+"16","Badminton","Personal trainer / coach","15293","0.0968","180549","0.87","181k organised adults (0.8%)"
+"16","Badminton","Educational institution","56496","0.3578","180549","0.87","181k organised adults (0.8%)"
+"17","Table tennis","Sports club","42793","0.3112","134215","1.02","134k organised adults (0.6%)"
+"17","Table tennis","Recreation club","27619","0.2009","134215","1.02","134k organised adults (0.6%)"
+"17","Table tennis","Gym / fitness / leisure centre","16932","0.1231","134215","1.02","134k organised adults (0.6%)"
+"17","Table tennis","Private business","7355","0.0535","134215","1.02","134k organised adults (0.6%)"
+"17","Table tennis","Personal trainer / coach","16289","0.1185","134215","1.02","134k organised adults (0.6%)"
+"17","Table tennis","Educational institution","26511","0.1928","134215","1.02","134k organised adults (0.6%)"
+"18","Dancing (recreational)","Sports club","18437","0.0746","245058","1.01","245k organised adults (1.1%)"
+"18","Dancing (recreational)","Recreation club","27575","0.1115","245058","1.01","245k organised adults (1.1%)"
+"18","Dancing (recreational)","Gym / fitness / leisure centre","24689","0.0999","245058","1.01","245k organised adults (1.1%)"
+"18","Dancing (recreational)","Private business","125494","0.5076","245058","1.01","245k organised adults (1.1%)"
+"18","Dancing (recreational)","Personal trainer / coach","28695","0.1161","245058","1.01","245k organised adults (1.1%)"
+"18","Dancing (recreational)","Educational institution","22355","0.0904","245058","1.01","245k organised adults (1.1%)"
+"19","Surfing","Sports club","4129","0.123","44381","0.76","44k organised adults (0.2%)"
+"19","Surfing","Recreation club","4129","0.123","44381","0.76","44k organised adults (0.2%)"
+"19","Surfing","Gym / fitness / leisure centre","3179","0.0947","44381","0.76","44k organised adults (0.2%)"
+"19","Surfing","Private business","10079","0.3003","44381","0.76","44k organised adults (0.2%)"
+"19","Surfing","Personal trainer / coach","9471","0.2822","44381","0.76","44k organised adults (0.2%)"
+"19","Surfing","Educational institution","2573","0.0767","44381","0.76","44k organised adults (0.2%)"
+"20","Athletics, track and field","Sports club","57737","0.2726","173135","1.22","173k organised adults (0.8%)"
+"20","Athletics, track and field","Recreation club","27033","0.1276","173135","1.22","173k organised adults (0.8%)"
+"20","Athletics, track and field","Gym / fitness / leisure centre","25367","0.1198","173135","1.22","173k organised adults (0.8%)"
+"20","Athletics, track and field","Private business","21119","0.0997","173135","1.22","173k organised adults (0.8%)"
+"20","Athletics, track and field","Personal trainer / coach","33602","0.1586","173135","1.22","173k organised adults (0.8%)"
+"20","Athletics, track and field","Educational institution","46974","0.2217","173135","1.22","173k organised adults (0.8%)"

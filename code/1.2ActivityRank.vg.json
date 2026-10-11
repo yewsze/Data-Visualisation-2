@@ -14,29 +14,38 @@
   "data": {"url": "../data/finalized/1.2ActivityRank.csv"},
   "params": [
     {
-      "name": "activitySettingFilter",
+      "name": "classificationFilter",
       "value": [
         "Select All",
-        "Core outdoor",
-        "Outdoor-capable",
-        "Indoor/facility-based"
+        "core outdoor",
+        "outdoor capable",
+        "indoor/facility-based"
       ],
       "bind": {
         "input": "select",
         "options": [
           "Select All",
-          "Core outdoor",
-          "Outdoor-capable",
-          "Indoor/facility-based"
+          "core outdoor",
+          "outdoor capable",
+          "indoor/facility-based"
         ],
         "multiple": true,
-        "name": "Filter by setting: "
+        "name": "Filter by classification: "
       }
     }
   ],
   "transform": [
     {
-      "filter": "indexof(activitySettingFilter, 'Select All') >= 0 || indexof(activitySettingFilter, datum.setting) >= 0"
+      "lookup": "activity",
+      "from": {
+        "data": {"url": "../data/finalized/0.Classification.csv"},
+        "key": "Activity",
+        "fields": ["Category"]
+      },
+      "as": ["classification"]
+    },
+    {
+      "filter": "indexof(classificationFilter, 'Select All') >= 0 || indexof(classificationFilter, datum.classification) >= 0"
     },
     {
       "window": [{"op": "row_number", "as": "rank"}],
@@ -65,24 +74,24 @@
       "mark": {"type": "bar", "tooltip": true},
       "encoding": {
         "color": {
-          "field": "setting",
+          "field": "classification",
           "type": "nominal",
           "title": null,
           "scale": {
             "domain": [
-              "Core outdoor",
-              "Outdoor-capable",
-              "Indoor/facility-based"
+              "core outdoor",
+              "outdoor capable",
+              "indoor/facility-based"
             ],
             "range": ["#2e7d5b", "#e9b44c", "#6c7a89"]
           },
-          "legend": {"orient": "bottom", "title": "Setting"}
+          "legend": {"orient": "bottom", "title": "Classification"}
         },
         "tooltip": [
           {"field": "rank", "title": "Rank in selection"},
           {"field": "overall_rank", "title": "Overall rank (of 142)"},
           {"field": "activity", "title": "Activity"},
-          {"field": "setting", "title": "Setting"},
+          {"field": "classification", "title": "Classification"},
           {"field": "rate", "title": "Share of adults", "format": ".1%"},
           {"field": "adults", "title": "Estimated adults", "format": ",.0f"}
         ]

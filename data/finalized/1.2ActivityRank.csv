@@ -1,143 +1,143 @@
-overall_rank,activity,setting,rate,adults,label
-1,Walking (recreational),Core outdoor,0.502,11363621,11.4M adults (50.2%)
-2,Fitness / gym,Indoor/facility-based,0.341,7719043,7.7M adults (34.1%)
-3,Bushwalking,Core outdoor,0.1747,3953952,4.0M adults (17.5%)
-4,Running / jogging,Outdoor-capable,0.1653,3740484,3.7M adults (16.5%)
-5,Swimming,Outdoor-capable,0.1539,3483472,3.5M adults (15.4%)
-6,Cycling,Core outdoor,0.0829,1877339,1.9M adults (8.3%)
-7,Pilates,Indoor/facility-based,0.0718,1625325,1.6M adults (7.2%)
-8,Football / soccer,Outdoor-capable,0.0562,1273027,1.3M adults (5.6%)
-9,Yoga,Indoor/facility-based,0.0507,1148005,1.1M adults (5.1%)
-10,Tennis,Indoor/facility-based,0.0494,1118407,1.1M adults (4.9%)
-11,Golf,Core outdoor,0.0456,1032838,1.0M adults (4.6%)
-12,Basketball,Outdoor-capable,0.0453,1024360,1.0M adults (4.5%)
-13,Cricket,Core outdoor,0.0249,563967,564k adults (2.5%)
-14,Australian football,Core outdoor,0.0242,547129,547k adults (2.4%)
-15,Netball,Indoor/facility-based,0.0211,476973,477k adults (2.1%)
-16,Badminton,Indoor/facility-based,0.0189,426925,427k adults (1.9%)
-17,Table tennis,Indoor/facility-based,0.0179,405253,405k adults (1.8%)
-18,Dancing (recreational),Outdoor-capable,0.0163,368719,369k adults (1.6%)
-19,Surfing,Core outdoor,0.0138,313396,313k adults (1.4%)
-20,"Athletics, track and field",Outdoor-capable,0.0132,298311,298k adults (1.3%)
-21,Pickleball / padel,Indoor/facility-based,0.0131,297347,297k adults (1.3%)
-22,Volleyball (indoor and outdoor),Outdoor-capable,0.0131,295849,296k adults (1.3%)
-23,DanceSport,Indoor/facility-based,0.0112,254166,254k adults (1.1%)
-24,Fishing (recreational),Core outdoor,0.0107,242244,242k adults (1.1%)
-25,Canoeing / kayaking,Core outdoor,0.01,225560,226k adults (1.0%)
-26,Weight lifting,Indoor/facility-based,0.0098,222350,222k adults (1.0%)
-27,Virtual based physical activity,Indoor/facility-based,0.0095,214994,215k adults (0.9%)
-28,Motorcycling,Core outdoor,0.0095,214266,214k adults (0.9%)
-29,Boxing,Indoor/facility-based,0.0085,191913,192k adults (0.8%)
-30,Underwater sports,Outdoor-capable,0.0084,189194,189k adults (0.8%)
-31,Bowls,Core outdoor,0.0083,188846,189k adults (0.8%)
-32,Skiing / snowboarding,Core outdoor,0.0081,183709,184k adults (0.8%)
-33,Rugby league,Core outdoor,0.0076,172717,173k adults (0.8%)
-34,Mountain biking,Core outdoor,0.0073,164226,164k adults (0.7%)
-35,Touch football,Core outdoor,0.0071,161056,161k adults (0.7%)
-36,Crossfit / Functional fitness,Indoor/facility-based,0.0065,146573,147k adults (0.6%)
-37,Tenpin bowling,Indoor/facility-based,0.0063,142358,142k adults (0.6%)
-38,Martial arts,Indoor/facility-based,0.0063,141611,142k adults (0.6%)
-39,Rowing,Core outdoor,0.0059,132416,132k adults (0.6%)
-40,Sport climbing,Outdoor-capable,0.0054,122749,123k adults (0.5%)
-41,Gymnastics,Indoor/facility-based,0.0054,122131,122k adults (0.5%)
-42,Hockey,Core outdoor,0.0051,115928,116k adults (0.5%)
-43,Rock climbing / abseiling / caving,Core outdoor,0.0046,103540,104k adults (0.5%)
-44,Equestrian,Outdoor-capable,0.0044,99949,100k adults (0.4%)
-45,Skate,Outdoor-capable,0.004,89533,90k adults (0.4%)
-46,Squash,Indoor/facility-based,0.0039,88312,88k adults (0.4%)
-47,Rugby union,Core outdoor,0.0037,84648,85k adults (0.4%)
-48,Calisthenics,Indoor/facility-based,0.0036,81353,81k adults (0.4%)
-49,Sailing,Core outdoor,0.0033,74016,74k adults (0.3%)
-50,Baseball,Core outdoor,0.0031,70050,70k adults (0.3%)
-51,Billiards / Snooker / Pool,Indoor/facility-based,0.003,68765,69k adults (0.3%)
-52,Motor sport,Core outdoor,0.0025,57439,57k adults (0.3%)
-53,Flying disc,Outdoor-capable,0.0025,56342,56k adults (0.2%)
-54,Rope skipping,Outdoor-capable,0.0025,56075,56k adults (0.2%)
-55,Air sports,Core outdoor,0.0022,50734,51k adults (0.2%)
-56,Oztag,Core outdoor,0.0022,50577,51k adults (0.2%)
-57,Ice skating,Indoor/facility-based,0.0021,48384,48k adults (0.2%)
-58,eSports,Indoor/facility-based,0.0021,47704,48k adults (0.2%)
-59,Paddle sports,Core outdoor,0.0021,47220,47k adults (0.2%)
-60,Shooting / field,Outdoor-capable,0.002,45996,46k adults (0.2%)
-61,Karate,Indoor/facility-based,0.0019,42201,42k adults (0.2%)
-62,Archery,Outdoor-capable,0.0018,40602,41k adults (0.2%)
-63,Jujitsu,Indoor/facility-based,0.0017,38590,39k adults (0.2%)
-64,Muay Thai,Indoor/facility-based,0.0017,37558,38k adults (0.2%)
-65,Darts,Indoor/facility-based,0.0016,36751,37k adults (0.2%)
-66,Waterskiing / Wakeboarding,Core outdoor,0.0015,33982,34k adults (0.2%)
-67,Triathlon,Core outdoor,0.0014,32394,32k adults (0.1%)
-68,Softball,Core outdoor,0.0014,30818,31k adults (0.1%)
-69,Shooting / range,Outdoor-capable,0.0014,30684,31k adults (0.1%)
-70,Lifesaving surf,Core outdoor,0.0013,29391,29k adults (0.1%)
-71,Taekwondo / Taekwon-do,Indoor/facility-based,0.0011,25962,26k adults (0.1%)
-72,Handball,Indoor/facility-based,0.0011,25911,26k adults (0.1%)
-73,Mountain climbing,Core outdoor,0.001,22439,22k adults (0.1%)
-74,Mixed martial arts,Indoor/facility-based,0.0009,20998,21k adults (0.1%)
-75,Water polo,Indoor/facility-based,0.0009,20906,21k adults (0.1%)
-76,Croquet,Core outdoor,0.0009,20003,20k adults (0.1%)
-77,Scootering,Outdoor-capable,0.0009,19288,19k adults (0.1%)
-78,Dodgeball,Indoor/facility-based,0.0008,17376,17k adults (0.1%)
-79,Adventure racing,Core outdoor,0.0007,16342,16k adults (0.1%)
-80,Orienteering,Core outdoor,0.0007,15854,16k adults (0.1%)
-81,Dragon boat racing,Core outdoor,0.0007,15825,16k adults (0.1%)
-82,Jet skiing,Core outdoor,0.0007,15234,15k adults (0.1%)
-83,Judo,Indoor/facility-based,0.0007,15026,15k adults (0.1%)
-84,Gaelic football,Core outdoor,0.0006,14208,14k adults (0.1%)
-85,Physical Culture,Indoor/facility-based,0.0006,13759,14k adults (0.1%)
-86,Ice hockey,Indoor/facility-based,0.0006,13712,14k adults (0.1%)
-87,Obstacle,Core outdoor,0.0006,12774,13k adults (0.1%)
-88,Synchronised swimming,Indoor/facility-based,0.0005,11842,12k adults (0.1%)
-89,Diving,Outdoor-capable,0.0005,11252,11k adults (0.0%)
-90,Pony Club,Outdoor-capable,0.0005,10306,10k adults (0.0%)
-91,Gridiron,Core outdoor,0.0005,10298,10k adults (0.0%)
-92,Fencing,Indoor/facility-based,0.0005,10275,10k adults (0.0%)
-93,Powerlifting,Indoor/facility-based,0.0004,9543,10k adults (0.0%)
-94,Body building,Indoor/facility-based,0.0004,9330,9k adults (0.0%)
-95,Wrestling,Indoor/facility-based,0.0004,9153,9k adults (0.0%)
-96,Circus,Indoor/facility-based,0.0003,7650,8k adults (0.0%)
-97,Wood chopping,Outdoor-capable,0.0003,7426,7k adults (0.0%)
-98,Geocaching,Core outdoor,0.0003,7282,7k adults (0.0%)
-99,Lacrosse,Core outdoor,0.0003,6843,7k adults (0.0%)
-100,Kendo,Indoor/facility-based,0.0003,6759,7k adults (0.0%)
-101,Floorball,Indoor/facility-based,0.0003,6395,6k adults (0.0%)
-102,BMX,Outdoor-capable,0.0003,6337,6k adults (0.0%)
-103,Eight ball,Indoor/facility-based,0.0003,6104,6k adults (0.0%)
-104,Outrigger canoe,Core outdoor,0.0003,6079,6k adults (0.0%)
-105,Horse racing,Core outdoor,0.0002,5532,6k adults (0.0%)
-106,Sword fighting,Indoor/facility-based,0.0002,5093,5k adults (0.0%)
-107,Parkour,Outdoor-capable,0.0002,5079,5k adults (0.0%)
-108,Scouts,Core outdoor,0.0002,4900,5k adults (0.0%)
-109,Rogaining,Core outdoor,0.0002,4892,5k adults (0.0%)
-110,Boomerang throwing,Core outdoor,0.0001,3392,3k adults (0.0%)
-111,Bocce / Boules,Outdoor-capable,0.0001,3157,3k adults (0.0%)
-112,Roller Derby,Indoor/facility-based,0.0001,3040,3k adults (0.0%)
-113,Kitesurfing / kiteboarding,Core outdoor,0.0001,2987,3k adults (0.0%)
-114,Campdrafting,Outdoor-capable,0.0001,2930,3k adults (0.0%)
-115,Tee ball,Core outdoor,0.0001,2788,3k adults (0.0%)
-116,Paintball,Outdoor-capable,0.0001,2742,3k adults (0.0%)
-117,Baton twirling,Indoor/facility-based,0.0001,2672,3k adults (0.0%)
-118,Marching,Outdoor-capable,0.0001,2669,3k adults (0.0%)
-119,Harness racing,Core outdoor,0.0001,2410,2k adults (0.0%)
-120,Goalball,Indoor/facility-based,0.0001,2292,2k adults (0.0%)
-121,Curling,Indoor/facility-based,0.0001,2213,2k adults (0.0%)
-122,Kung fu wushu,Indoor/facility-based,0.0001,2099,2k adults (0.0%)
-123,Ready Steady Go Kids,Outdoor-capable,0.0001,1721,2k adults (0.0%)
-124,Ice racing / speed skating,Indoor/facility-based,0.0001,1549,2k adults (0.0%)
-125,Biathlon,Core outdoor,0.0001,1309,1k adults (0.0%)
-126,Lifesaving royal,Outdoor-capable,0.0001,1168,1k adults (0.0%)
-127,Korfball,Indoor/facility-based,0.0001,1166,1k adults (0.0%)
-128,Polocrosse,Core outdoor,0.0,1008,1k adults (0.0%)
-129,Guides,Outdoor-capable,0.0,944,1k adults (0.0%)
-130,Petanque,Outdoor-capable,0.0,741,1k adults (0.0%)
-131,Modern pentathlon,Indoor/facility-based,0.0,682,1k adults (0.0%)
-132,Sepak takraw,Indoor/facility-based,0.0,597,1k adults (0.0%)
-133,Skirmish,Outdoor-capable,0.0,596,1k adults (0.0%)
-134,Rodeo,Outdoor-capable,0.0,595,1k adults (0.0%)
-135,Broomball,Indoor/facility-based,0.0,546,1k adults (0.0%)
-136,Tobogganing,Core outdoor,0.0,545,1k adults (0.0%)
-137,Wheelchair rugby,Indoor/facility-based,0.0,520,1k adults (0.0%)
-138,Bobsledding,Outdoor-capable,0.0,428,0k adults (0.0%)
-139,Polo,Core outdoor,0.0,332,0k adults (0.0%)
-140,Boccia,Indoor/facility-based,0.0,0,0k adults (0.0%)
-141,Luging,Outdoor-capable,0.0,0,0k adults (0.0%)
-142,Skeleton,Outdoor-capable,0.0,0,0k adults (0.0%)
+﻿"overall_rank","activity","rate","adults","label"
+"1","Walking (Recreational)","0.502","11363621","11.4M adults (50.2%)"
+"2","Fitness/Gym","0.341","7719043","7.7M adults (34.1%)"
+"3","Bush walking","0.1747","3953952","4.0M adults (17.5%)"
+"4","Running/jogging","0.1653","3740484","3.7M adults (16.5%)"
+"5","Swimming","0.1539","3483472","3.5M adults (15.4%)"
+"6","Cycling","0.0829","1877339","1.9M adults (8.3%)"
+"7","Pilates","0.0718","1625325","1.6M adults (7.2%)"
+"8","Football/soccer","0.0562","1273027","1.3M adults (5.6%)"
+"9","Yoga","0.0507","1148005","1.1M adults (5.1%)"
+"10","Tennis","0.0494","1118407","1.1M adults (4.9%)"
+"11","Golf","0.0456","1032838","1.0M adults (4.6%)"
+"12","Basketball","0.0453","1024360","1.0M adults (4.5%)"
+"13","Cricket","0.0249","563967","564k adults (2.5%)"
+"14","Australian football","0.0242","547129","547k adults (2.4%)"
+"15","Netball","0.0211","476973","477k adults (2.1%)"
+"16","Badminton","0.0189","426925","427k adults (1.9%)"
+"17","Table tennis","0.0179","405253","405k adults (1.8%)"
+"18","Dancing (recreational)","0.0163","368719","369k adults (1.6%)"
+"19","Surfing","0.0138","313396","313k adults (1.4%)"
+"20","Athletics, track and field","0.0132","298311","298k adults (1.3%)"
+"21","Pickleball/padel","0.0131","297347","297k adults (1.3%)"
+"22","Volleyball (indoor and outdoor)","0.0131","295849","296k adults (1.3%)"
+"23","DanceSport","0.0112","254166","254k adults (1.1%)"
+"24","Fishing (recreational)","0.0107","242244","242k adults (1.1%)"
+"25","Canoeing/Kayaking","0.01","225560","226k adults (1.0%)"
+"26","Weight lifting","0.0098","222350","222k adults (1.0%)"
+"27","Virtual based physical activity","0.0095","214994","215k adults (0.9%)"
+"28","Motor cycling","0.0095","214266","214k adults (0.9%)"
+"29","Boxing","0.0085","191913","192k adults (0.8%)"
+"30","Underwater sports","0.0084","189194","189k adults (0.8%)"
+"31","Bowls","0.0083","188846","189k adults (0.8%)"
+"32","Ski & snowboard","0.0081","183709","184k adults (0.8%)"
+"33","Rugby league","0.0076","172717","173k adults (0.8%)"
+"34","Mountain biking","0.0073","164226","164k adults (0.7%)"
+"35","Touch football","0.0071","161056","161k adults (0.7%)"
+"36","Crossfit/Functional fitness","0.0065","146573","147k adults (0.6%)"
+"37","Tenpin bowling","0.0063","142358","142k adults (0.6%)"
+"38","Martial arts","0.0063","141611","142k adults (0.6%)"
+"39","Rowing","0.0059","132416","132k adults (0.6%)"
+"40","Sport climbing","0.0054","122749","123k adults (0.5%)"
+"41","Gymnastics","0.0054","122131","122k adults (0.5%)"
+"42","Hockey","0.0051","115928","116k adults (0.5%)"
+"43","Rock climbing/Abseiling/Caving","0.0046","103540","104k adults (0.5%)"
+"44","Equestrian","0.0044","99949","100k adults (0.4%)"
+"45","Skate","0.004","89533","90k adults (0.4%)"
+"46","Squash","0.0039","88312","88k adults (0.4%)"
+"47","Rugby union","0.0037","84648","85k adults (0.4%)"
+"48","Calisthenics","0.0036","81353","81k adults (0.4%)"
+"49","Sailing","0.0033","74016","74k adults (0.3%)"
+"50","Baseball","0.0031","70050","70k adults (0.3%)"
+"51","Billiards/Snooker/Pool","0.003","68765","69k adults (0.3%)"
+"52","Motor sport","0.0025","57439","57k adults (0.3%)"
+"53","Flying disc","0.0025","56342","56k adults (0.2%)"
+"54","Rope skipping","0.0025","56075","56k adults (0.2%)"
+"55","Air sports","0.0022","50734","51k adults (0.2%)"
+"56","Oztag","0.0022","50577","51k adults (0.2%)"
+"57","Ice skating","0.0021","48384","48k adults (0.2%)"
+"58","eSports","0.0021","47704","48k adults (0.2%)"
+"59","Paddle sports","0.0021","47220","47k adults (0.2%)"
+"60","Shooting/field","0.002","45996","46k adults (0.2%)"
+"61","Karate","0.0019","42201","42k adults (0.2%)"
+"62","Archery","0.0018","40602","41k adults (0.2%)"
+"63","Jujitsu","0.0017","38590","39k adults (0.2%)"
+"64","Muay Thai","0.0017","37558","38k adults (0.2%)"
+"65","Darts","0.0016","36751","37k adults (0.2%)"
+"66","Waterskiing/Wakeboarding","0.0015","33982","34k adults (0.2%)"
+"67","Triathlon","0.0014","32394","32k adults (0.1%)"
+"68","Softball","0.0014","30818","31k adults (0.1%)"
+"69","Shooting/range","0.0014","30684","31k adults (0.1%)"
+"70","Lifesaving surf","0.0013","29391","29k adults (0.1%)"
+"71","Taekwondo/Taekwon-do","0.0011","25962","26k adults (0.1%)"
+"72","Handball","0.0011","25911","26k adults (0.1%)"
+"73","Mountain climbing","0.001","22439","22k adults (0.1%)"
+"74","Mixed martial arts","0.0009","20998","21k adults (0.1%)"
+"75","Water polo","0.0009","20906","21k adults (0.1%)"
+"76","Croquet","0.0009","20003","20k adults (0.1%)"
+"77","Scootering","0.0009","19288","19k adults (0.1%)"
+"78","Dodgeball","0.0008","17376","17k adults (0.1%)"
+"79","Adventure racing","0.0007","16342","16k adults (0.1%)"
+"80","Orienteering","0.0007","15854","16k adults (0.1%)"
+"81","Dragon boat racing","0.0007","15825","16k adults (0.1%)"
+"82","Jet skiing","0.0007","15234","15k adults (0.1%)"
+"83","Judo","0.0007","15026","15k adults (0.1%)"
+"84","Gaelic football","0.0006","14208","14k adults (0.1%)"
+"85","Physical Culture","0.0006","13759","14k adults (0.1%)"
+"86","Ice hockey","0.0006","13712","14k adults (0.1%)"
+"87","Obstacle","0.0006","12774","13k adults (0.1%)"
+"88","Synchronised swimming","0.0005","11842","12k adults (0.1%)"
+"89","Diving","0.0005","11252","11k adults (0.0%)"
+"90","Pony Club","0.0005","10306","10k adults (0.0%)"
+"91","Gridiron","0.0005","10298","10k adults (0.0%)"
+"92","Fencing","0.0005","10275","10k adults (0.0%)"
+"93","Powerlifting","0.0004","9543","10k adults (0.0%)"
+"94","Body building","0.0004","9330","9k adults (0.0%)"
+"95","Wrestling","0.0004","9153","9k adults (0.0%)"
+"96","Circus","0.0003","7650","8k adults (0.0%)"
+"97","Wood chopping","0.0003","7426","7k adults (0.0%)"
+"98","Geocaching","0.0003","7282","7k adults (0.0%)"
+"99","Lacrosse","0.0003","6843","7k adults (0.0%)"
+"100","Kendo","0.0003","6759","7k adults (0.0%)"
+"101","Floorball","0.0003","6395","6k adults (0.0%)"
+"102","BMX","0.0003","6337","6k adults (0.0%)"
+"103","Eight ball","0.0003","6104","6k adults (0.0%)"
+"104","Outrigger canoe","0.0003","6079","6k adults (0.0%)"
+"105","Horse racing","0.0002","5532","6k adults (0.0%)"
+"106","Sword fighting","0.0002","5093","5k adults (0.0%)"
+"107","Parkour","0.0002","5079","5k adults (0.0%)"
+"108","Scouts","0.0002","4900","5k adults (0.0%)"
+"109","Rogaining","0.0002","4892","5k adults (0.0%)"
+"110","Boomerang throwing","0.0001","3392","3k adults (0.0%)"
+"111","Bocce/Boules","0.0001","3157","3k adults (0.0%)"
+"112","Roller Derby","0.0001","3040","3k adults (0.0%)"
+"113","Kitesurfing/kiteboarding","0.0001","2987","3k adults (0.0%)"
+"114","Campdrafting","0.0001","2930","3k adults (0.0%)"
+"115","Tee ball","0.0001","2788","3k adults (0.0%)"
+"116","Paintball","0.0001","2742","3k adults (0.0%)"
+"117","Baton twirling","0.0001","2672","3k adults (0.0%)"
+"118","Marching","0.0001","2669","3k adults (0.0%)"
+"119","Harness racing","0.0001","2410","2k adults (0.0%)"
+"120","Goalball","0.0001","2292","2k adults (0.0%)"
+"121","Curling","0.0001","2213","2k adults (0.0%)"
+"122","Kung fu wushu","0.0001","2099","2k adults (0.0%)"
+"123","Ready Steady Go Kids","0.0001","1721","2k adults (0.0%)"
+"124","Ice racing/speed skating","0.0001","1549","2k adults (0.0%)"
+"125","Biathlon","0.0001","1309","1k adults (0.0%)"
+"126","Lifesaving royal","0.0001","1168","1k adults (0.0%)"
+"127","Korfball","0.0001","1166","1k adults (0.0%)"
+"128","Polocrosse","0.0","1008","1k adults (0.0%)"
+"129","Guides","0.0","944","1k adults (0.0%)"
+"130","Petanque","0.0","741","1k adults (0.0%)"
+"131","Modern pentathlon","0.0","682","1k adults (0.0%)"
+"132","Sepak takraw","0.0","597","1k adults (0.0%)"
+"133","Skirmish","0.0","596","1k adults (0.0%)"
+"134","Rodeo","0.0","595","1k adults (0.0%)"
+"135","Broomball","0.0","546","1k adults (0.0%)"
+"136","Tobogganing","0.0","545","1k adults (0.0%)"
+"137","Wheelchair rugby","0.0","520","1k adults (0.0%)"
+"138","Bobsledding","0.0","428","0k adults (0.0%)"
+"139","Polo","0.0","332","0k adults (0.0%)"
+"140","Boccia","0.0","0","0k adults (0.0%)"
+"141","Luging","0.0","0","0k adults (0.0%)"
+"142","Skeleton","0.0","0","0k adults (0.0%)"
