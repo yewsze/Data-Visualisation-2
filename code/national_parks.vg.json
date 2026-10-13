@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 600,
+  "title": "Selected National Parks of Australia",
+  "projection": {"type": "mercator", "center": [134, -27], "scale": 850},
+  "layer": [
+    {
+      "data": {
+        "url": "../clone-data/spatial_data/commonwealth/topojson/simplified/AUS_2021_AUST_GDA94.json",
+        "format": {"type": "topojson", "feature": "AUS_2021_AUST_GDA94"}
+      },
+      "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
+    },
+    {
+      "data": {"url": "../data/finalized/national_parks.csv"},
+      "mark": {"type": "circle", "size": 45, "color": "#2e7d32", "opacity": 0.85, "stroke": "white", "strokeWidth": 0.8},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "tooltip": [
+          {"field": "park", "type": "nominal", "title": "Park"},
+          {"field": "state", "type": "nominal", "title": "State"}
+        ]
+      }
+    }
+  ]
+}
