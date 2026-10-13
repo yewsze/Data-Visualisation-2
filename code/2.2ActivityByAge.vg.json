@@ -1,5 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Participation in Outdoor Recreational Activities by Age Group",
+    "subtitle": "Comparing participation rates across age groups, 2025",
+    "anchor": "start"
+  },
   "width": {"step": 65},
   "height": {"step": 35},
   "data": {"url": "../data/finalized/2.2ActivityByAge.csv"},
