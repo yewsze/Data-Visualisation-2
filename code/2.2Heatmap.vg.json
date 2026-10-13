@@ -1,127 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "data": {
-    "url": "../data/finalized/2.2ActivityByAge.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "15-17": "number",
-        "18-24": "number",
-        "25-34": "number",
-        "35-44": "number",
-        "45-54": "number",
-        "55-64": "number",
-        "65+": "number"
-      }
-    }
-  },
-  "params": [
-    {
-      "name": "classificationFilter",
-      "value": "All",
-      "bind": {
-        "input": "select",
-        "options": [
-          "All",
-          "core outdoor",
-          "outdoor capable"
-        ],
-        "name": "Show classification: "
-      }
-    }
-  ],
-  "transform": [
-    {
-      "lookup": "activity",
-      "from": {
-        "data": {
-          "url": "../data/finalized/0.Classification.csv"
-        },
-        "key": "Activity",
-        "fields": [
-          "Category"
-        ]
-      },
-      "as": [
-        "classification"
-      ]
-    },
-    {
-      "filter": "datum.classification == 'core outdoor' || datum.classification == 'outdoor capable'"
-    },
-    {
-      "filter": "classificationFilter == 'All' || datum.classification == classificationFilter"
-    },
-    {
-      "fold": [
-        "15-17",
-        "18-24",
-        "25-34",
-        "35-44",
-        "45-54",
-        "55-64",
-        "65+"
-      ],
-      "as": [
-        "age_group",
-        "participation_rate"
-      ]
-    }
-  ],
-  "mark": {
-    "type": "rect",
-    "tooltip": true
-  },
-  "encoding": {
+  "width": {"step": 65},
+  "height": {"step": 35},
+  "data": {"url": "../data/finalized/2.2ActivityByAge.csv"},
+
+"transform": [
+  {"calculate": "datum['\ufeffactivity'] || datum['activity']", "as": "activity_clean"},
+  {
+    "calculate": "format(datum['participation rate'], '.1f') + '%'",
+    "as": "formatted_rate"
+  }
+],
+"encoding": {
+  "y": {"field": "activity_clean", "type": "nominal", "title": null},
     "x": {
-      "field": "age_group",
+      "field": "age group",
       "type": "ordinal",
-      "title": null,
-      "sort": [
-        "15-17",
-        "18-24",
-        "25-34",
-        "35-44",
-        "45-54",
-        "55-64",
-        "65+"
-      ],
-      "axis": {
-        "labelAngle": 0
-      }
-    },
-    "y": {
-      "field": "activity",
-      "type": "nominal",
-      "title": null,
-      "sort": {
-        "field": "participation_rate",
-        "op": "mean",
-        "order": "descending"
-      },
-      "axis": {
-        "labelLimit": 220,
-        "labelFontSize": 11
-      }
-    },
-    "color": {
-      "field": "participation_rate",
-      "type": "quantitative",
-      "title": "Participation rate",
-      "scale": {
-        "scheme": "yellowgreenblue",
-        "domain": [
-          0,
-          0.15
-        ]
-      },
-      "legend": {
-        "format": ".1%"
-      }
+      "title": "Age group",
+      "sort": ["15-17", "18-24", "25-34", "35-44", "45-54", "55-64", "64+"],
+      "axis": {"labelAngle": 0}
+    }
   },
+  "layer": [
+    {
+      "mark": {"type": "rect", "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "participation rate",
+          "type": "quantitative",
+          "title": "Participation Rate (%)",
+          "scale": {"type": "sqrt", "scheme": "blues"},
+          "legend": {"direction": "horizontal", "gradientLength": 120}
+        }
+      }
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "text": {"field": "formatted_rate", "type": "nominal"},
+        "color": {
+          "condition": {"test": "datum['participation rate'] < 4", "value": "black"},
+          "value": "white"
+        }
+      }
+    }
+  ],
   "config": {
-    "axis": {"grid": true, "tickBand": "extent"}
+    "axis": {"grid": false, "domain": false, "ticks": false}
   }
 }
-}
-
