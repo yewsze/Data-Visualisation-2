@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 600,
+  "title": {
+    "text": "Most Visited National Parks in NSW, 2024-25",
+    "subtitle": "Circle area = total visits. Source: NSW NPWS Park Visitation Survey"
+  },
+  "projection": {"type": "mercator", "center": [149.5, -34], "scale": 4200},
+  "layer": [
+    {
+      "data": {
+        "url": "../clone-data/spatial_data/states/nsw/topojson/simplified/CED_2021_NSW_GDA2020.json",
+        "format": {"type": "topojson", "feature": "CED_2021_AUST_GDA2020"}
+      },
+      "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
+    },
+    {
+      "data": {"url": "../data/finalized/top_parks.csv"},
+      "mark": {"type": "circle", "opacity": 0.65, "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "visits_2024_25",
+          "type": "quantitative",
+          "scale": {"type": "linear", "range": [200, 4000]},
+          "legend": {"title": "Visits (2024-25)", "format": ","}
+        },
+        "color": {"value": "#d95f02"},
+        "tooltip": [
+          {"field": "park", "type": "nominal", "title": "Park"},
+          {"field": "visits_2024_25", "type": "quantitative", "format": ",", "title": "Visits"}
+        ]
+      }
+    },
+    {
+      "data": {"url": "../data/finalized/top_parks.csv"},
+      "transform": [{"filter": "datum.visits_2024_25 >= 4000000 || datum.park == 'Kosciuszko'"}],
+      "mark": {"type": "text", "dx": 14, "align": "left", "fontSize": 11},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "park", "type": "nominal"}
+      }
+    }
+  ]
+}
