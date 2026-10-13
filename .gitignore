@@ -5,3 +5,7 @@
 
 # Ignore drafts
 report-draft.docx
+draft.docx
+
+# Ignore excel files
+*.xlsx
