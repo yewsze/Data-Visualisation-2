@@ -1,0 +1,33 @@
+gender,age_group,category,category_order,rate,adults,derived
+All,All ages,Sport only,1,0.1293,2925786,false
+All,All ages,Both sport and non-sport,2,0.3799,8598752,false
+All,All ages,Non-sport only,3,0.3498,7918779,false
+All,All ages,Did not take part,4,0.141,3191790,true
+All,15-17,Sport only,1,0.2261,228199,false
+All,15-17,Both sport and non-sport,2,0.5204,525192,false
+All,15-17,Non-sport only,3,0.1278,128942,false
+All,15-17,Did not take part,4,0.1257,126873,true
+All,18-24,Sport only,1,0.2048,507636,false
+All,18-24,Both sport and non-sport,2,0.4838,1199094,false
+All,18-24,Non-sport only,3,0.1988,492705,false
+All,18-24,Did not take part,4,0.1125,278803,true
+All,25-34,Sport only,1,0.1777,723293,false
+All,25-34,Both sport and non-sport,2,0.4697,1911398,false
+All,25-34,Non-sport only,3,0.2469,1004861,false
+All,25-34,Did not take part,4,0.1057,430147,true
+All,35-44,Sport only,1,0.1524,591803,false
+All,35-44,Both sport and non-sport,2,0.4128,1602802,false
+All,35-44,Non-sport only,3,0.3218,1249287,false
+All,35-44,Did not take part,4,0.113,438839,true
+All,45-54,Sport only,1,0.1111,371218,false
+All,45-54,Both sport and non-sport,2,0.3795,1268329,false
+All,45-54,Non-sport only,3,0.402,1343607,false
+All,45-54,Did not take part,4,0.1075,359310,true
+All,55-64,Sport only,1,0.072,222609,false
+All,55-64,Both sport and non-sport,2,0.3534,1092276,false
+All,55-64,Non-sport only,3,0.4491,1388232,false
+All,55-64,Did not take part,4,0.1255,388068,true
+All,65+,Sport only,1,0.059,281027,false
+All,65+,Both sport and non-sport,2,0.2099,999662,false
+All,65+,Non-sport only,3,0.4854,2311145,false
+All,65+,Did not take part,4,0.2457,1169750,true
