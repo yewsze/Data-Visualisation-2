@@ -1,0 +1,4 @@
+tier,tier_order,rate,adults,squares,derived
+Weekly or more,1,0.6876,15564998,69,false
+Less than weekly,2,0.1713,3878319,17,true
+Did not take part,3,0.141,3191790,14,true
