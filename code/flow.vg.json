@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 600,
+  "title": {
+    "text": "Where Interstate Visitors to NSW National Parks Come From, 2024-25",
+    "subtitle": "Line width = total visits. Excludes visits from within NSW. Source: NSW NPWS Park Visitation Survey"
+  },
+  "projection": {"type": "mercator", "center": [134, -27], "scale": 850},
+  "layer": [
+    {
+      "data": {
+        "url": "../clone-data/spatial_data/commonwealth/topojson/simplified/AUS_2021_AUST_GDA94.json",
+        "format": {"type": "topojson", "feature": "AUS_2021_AUST_GDA94"}
+      },
+      "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
+    },
+    {
+      "data": {"url": "../data/finalized/flow.csv"},
+      "mark": {"type": "rule", "color": "#d95f02", "opacity": 0.6, "strokeCap": "round"},
+      "encoding": {
+        "longitude": {"field": "origin_lon", "type": "quantitative"},
+        "latitude": {"field": "origin_lat", "type": "quantitative"},
+        "longitude2": {"field": "dest_lon"},
+        "latitude2": {"field": "dest_lat"},
+        "strokeWidth": {
+          "field": "visits",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "range": [1.5, 18]},
+          "legend": {
+            "title": "Visits (2024-25)",
+            "values": [100000, 500000, 1000000, 2000000, 4000000],
+            "labelExpr": "format(datum.value, ',')",
+            "symbolType": "stroke",
+            "symbolStrokeColor": "#d95f02"
+          }
+        },
+        "tooltip": [
+          {"field": "origin", "title": "Origin"},
+          {"field": "visits", "type": "quantitative", "format": ",", "title": "Visits"}
+        ]
+      }
+    },
+    {
+      "data": {"url": "../data/finalized/flow.csv"},
+      "mark": {"type": "point", "shape": "triangle", "filled": true, "size": 160, "color": "#d95f02", "opacity": 0.95, "stroke": "white", "strokeWidth": 0.8},
+      "encoding": {
+        "longitude": {"field": "arrow_lon", "type": "quantitative"},
+        "latitude": {"field": "arrow_lat", "type": "quantitative"},
+        "angle": {"field": "angle", "type": "quantitative", "scale": null},
+        "tooltip": [
+          {"field": "origin", "title": "Origin"},
+          {"field": "visits", "type": "quantitative", "format": ",", "title": "Visits"}
+        ]
+      }
+    },
+    {
+      "data": {"url": "../data/finalized/flow.csv"},
+      "mark": {"type": "circle", "size": 60, "color": "#333"},
+      "encoding": {
+        "longitude": {"field": "origin_lon", "type": "quantitative"},
+        "latitude": {"field": "origin_lat", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {"url": "../data/finalized/flow.csv"},
+      "mark": {"type": "text", "dy": -10, "fontSize": 11},
+      "encoding": {
+        "longitude": {"field": "origin_lon", "type": "quantitative"},
+        "latitude": {"field": "origin_lat", "type": "quantitative"},
+        "text": {"field": "origin"}
+      }
+    },
+    {
+      "data": {"values": [{"lon": 150.9, "lat": -33.8, "label": "NSW national parks"}]},
+      "mark": {"type": "circle", "size": 120, "color": "#d95f02", "stroke": "white"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "tooltip": [{"field": "label"}]
+      }
+    }
+  ]
+}
