@@ -1,0 +1,250 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth of adult participation rate by state/territory (AusPlay Table 34, Jan-Dec 2025) with a selector for how often: at least once a year, once a week, or 3+ times a week.",
+  "title": {
+    "text": "The ACT and Northern Territory are the most active, however you measure it",
+    "subtitle": [
+      "Share of adults who took part in sport or physical activity at least as often as selected, by state and territory, Jan-Dec 2025.",
+      "NSW is just below the national average on all three measures. Colours rescale for each measure, and small gaps between states may not be significant."
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitlePadding": 6,
+    "offset": 14
+  },
+  "width": 640,
+  "height": 520,
+  "data": {
+    "url": "../data/finalized/StateParticipation.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "measureSel",
+      "value": "At least once a year",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "At least once a year",
+          "At least once a week",
+          "At least 3 times a week"
+        ],
+        "name": "How often:  "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.year === '2025' && datum.measure === measureSel"
+    },
+    {
+      "calculate": "toNumber(datum.rate)",
+      "as": "rate_n"
+    },
+    {
+      "calculate": "toNumber(datum.national_rate)",
+      "as": "nat_n"
+    },
+    {
+      "calculate": "toNumber(datum.adults)",
+      "as": "adults_n"
+    },
+    {
+      "calculate": "toNumber(datum.label_lon)",
+      "as": "lon"
+    },
+    {
+      "calculate": "toNumber(datum.label_lat)",
+      "as": "lat"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "rate_n",
+          "as": "r_min"
+        },
+        {
+          "op": "max",
+          "field": "rate_n",
+          "as": "r_max"
+        }
+      ]
+    },
+    {
+      "calculate": "(datum.rate_n - datum.r_min) / (datum.r_max - datum.r_min)",
+      "as": "norm"
+    },
+    {
+      "calculate": "(datum.rate_n - datum.nat_n) * 100",
+      "as": "vs_nat"
+    },
+    {
+      "lookup": "state_name",
+      "from": {
+        "data": {
+          "url": "../clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
+          "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA94"}
+        },
+        "key": "properties.STE_NAME21"
+      },
+      "as": "geo"
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -132,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ],
+    "parallels": [
+      -18,
+      -36
+    ],
+    "scale": 820
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "rate_n",
+          "type": "quantitative",
+          "title": "% of adults",
+          "scale": {
+            "range": [
+              "#e6f4ea",
+              "#7cc08c",
+              "#1f7a4d"
+            ],
+            "zero": false,
+            "nice": false
+          },
+          "legend": {
+            "format": ".0%",
+            "orient": "none",
+            "legendX": 6,
+            "legendY": 330,
+            "direction": "vertical",
+            "gradientLength": 120,
+            "titleFontSize": 12
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "rate_n",
+            "type": "quantitative",
+            "title": "Share of adults",
+            "format": ".1%"
+          },
+          {
+            "field": "vs_nat",
+            "type": "quantitative",
+            "title": "Vs Australia (percentage points)",
+            "format": "+.1f"
+          },
+          {
+            "field": "adults_n",
+            "type": "quantitative",
+            "title": "Estimated adults",
+            "format": "~s"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.norm > 0.6 && datum.state !== 'ACT'",
+            "value": "white"
+          },
+          "value": "#1a1a1a"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "align": "center",
+        "baseline": "top",
+        "dy": 6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "rate_n",
+          "type": "quantitative",
+          "format": ".0%"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.norm > 0.6 && datum.state !== 'ACT'",
+            "value": "white"
+          },
+          "value": "#1a1a1a"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter, Helvetica, Arial, sans-serif",
+    "view": {
+      "stroke": null
+    }
+  }
+}

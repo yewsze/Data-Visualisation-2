@@ -1,0 +1,49 @@
+state,state_name,year,measure,measure_order,rate,adults,national_rate,label_lon,label_lat
+ACT,Australian Capital Territory,2024,At least once a year,1,0.9218,357685,0.8529,152.6,-35.4
+NSW,New South Wales,2024,At least once a year,1,0.855,5934032,0.8529,146.6,-32.3
+NT,Northern Territory,2024,At least once a year,1,0.8643,174613,0.8529,133.4,-19.5
+QLD,Queensland,2024,At least once a year,1,0.8291,3755395,0.8529,144.6,-22.6
+SA,South Australia,2024,At least once a year,1,0.8348,1298519,0.8529,135.2,-30.0
+TAS,Tasmania,2024,At least once a year,1,0.8642,415653,0.8529,146.6,-42.1
+VIC,Victoria,2024,At least once a year,1,0.8662,4943695,0.8529,144.6,-36.9
+WA,Western Australia,2024,At least once a year,1,0.8575,2051548,0.8529,122.0,-26.0
+ACT,Australian Capital Territory,2024,At least once a week,2,0.7662,297293,0.6707,152.6,-35.4
+NSW,New South Wales,2024,At least once a week,2,0.6645,4611979,0.6707,146.6,-32.3
+NT,Northern Territory,2024,At least once a week,2,0.6989,141213,0.6707,133.4,-19.5
+QLD,Queensland,2024,At least once a week,2,0.6498,2943421,0.6707,144.6,-22.6
+SA,South Australia,2024,At least once a week,2,0.6511,1012816,0.6707,135.2,-30.0
+TAS,Tasmania,2024,At least once a week,2,0.6965,334987,0.6707,146.6,-42.1
+VIC,Victoria,2024,At least once a week,2,0.6912,3944972,0.6707,144.6,-36.9
+WA,Western Australia,2024,At least once a week,2,0.6688,1600059,0.6707,122.0,-26.0
+ACT,Australian Capital Territory,2024,At least 3 times a week,3,0.5819,225782,0.4826,152.6,-35.4
+NSW,New South Wales,2024,At least 3 times a week,3,0.4727,3280470,0.4826,146.6,-32.3
+NT,Northern Territory,2024,At least 3 times a week,3,0.5042,101868,0.4826,133.4,-19.5
+QLD,Queensland,2024,At least 3 times a week,3,0.4725,2140003,0.4826,144.6,-22.6
+SA,South Australia,2024,At least 3 times a week,3,0.4606,716462,0.4826,135.2,-30.0
+TAS,Tasmania,2024,At least 3 times a week,3,0.5327,256230,0.4826,146.6,-42.1
+VIC,Victoria,2024,At least 3 times a week,3,0.497,2836494,0.4826,144.6,-36.9
+WA,Western Australia,2024,At least 3 times a week,3,0.483,1155546,0.4826,122.0,-26.0
+ACT,Australian Capital Territory,2025,At least once a year,1,0.9224,367094,0.859,152.6,-35.4
+NSW,New South Wales,2025,At least once a year,1,0.8541,6028038,0.859,146.6,-32.3
+NT,Northern Territory,2025,At least once a year,1,0.8934,186157,0.859,133.4,-19.5
+QLD,Queensland,2025,At least once a year,1,0.8392,3882805,0.859,144.6,-22.6
+SA,South Australia,2025,At least once a year,1,0.843,1332909,0.859,135.2,-30.0
+TAS,Tasmania,2025,At least once a year,1,0.8696,420327,0.859,146.6,-42.1
+VIC,Victoria,2025,At least once a year,1,0.8746,5082762,0.859,144.6,-36.9
+WA,Western Australia,2025,At least once a year,1,0.8681,2143227,0.859,122.0,-26.0
+ACT,Australian Capital Territory,2025,At least once a week,2,0.7827,311498,0.6876,152.6,-35.4
+NSW,New South Wales,2025,At least once a week,2,0.6717,4740178,0.6876,146.6,-32.3
+NT,Northern Territory,2025,At least once a week,2,0.7295,152016,0.6876,133.4,-19.5
+QLD,Queensland,2025,At least once a week,2,0.6735,3116228,0.6876,144.6,-22.6
+SA,South Australia,2025,At least once a week,2,0.6705,1060136,0.6876,135.2,-30.0
+TAS,Tasmania,2025,At least once a week,2,0.694,335437,0.6876,146.6,-42.1
+VIC,Victoria,2025,At least once a week,2,0.7052,4098323,0.6876,144.6,-36.9
+WA,Western Australia,2025,At least once a week,2,0.7093,1751181,0.6876,122.0,-26.0
+ACT,Australian Capital Territory,2025,At least 3 times a week,3,0.5918,235511,0.5011,152.6,-35.4
+NSW,New South Wales,2025,At least 3 times a week,3,0.4795,3383897,0.5011,146.6,-32.3
+NT,Northern Territory,2025,At least 3 times a week,3,0.5438,113314,0.5011,133.4,-19.5
+QLD,Queensland,2025,At least 3 times a week,3,0.4961,2295450,0.5011,144.6,-22.6
+SA,South Australia,2025,At least 3 times a week,3,0.4864,769032,0.5011,135.2,-30.0
+TAS,Tasmania,2025,At least 3 times a week,3,0.5126,247739,0.5011,146.6,-42.1
+VIC,Victoria,2025,At least 3 times a week,3,0.5167,3002874,0.5011,144.6,-36.9
+WA,Western Australia,2025,At least 3 times a week,3,0.5247,1295409,0.5011,122.0,-26.0
