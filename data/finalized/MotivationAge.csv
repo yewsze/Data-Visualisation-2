@@ -1,0 +1,129 @@
+motivation,source_label,age_group,rate,adults,overall_rank
+Physical health or fitness,Physical health or fitness,All adults,0.6654,12937517,1
+Physical health or fitness,Physical health or fitness,15-17,0.6151,542720,1
+Physical health or fitness,Physical health or fitness,18-24,0.6213,1366430,1
+Physical health or fitness,Physical health or fitness,25-34,0.6253,2275826,1
+Physical health or fitness,Physical health or fitness,35-44,0.6312,2173923,1
+Physical health or fitness,Physical health or fitness,45-54,0.67,1998746,1
+Physical health or fitness,Physical health or fitness,55-64,0.7057,1907501,1
+Physical health or fitness,Physical health or fitness,65+,0.744,2672372,1
+Fun / enjoyment,Fun/enjoyment,All adults,0.5888,11449168,2
+Fun / enjoyment,Fun/enjoyment,15-17,0.7175,633063,2
+Fun / enjoyment,Fun/enjoyment,18-24,0.6475,1424105,2
+Fun / enjoyment,Fun/enjoyment,25-34,0.6162,2242673,2
+Fun / enjoyment,Fun/enjoyment,35-44,0.6022,2073867,2
+Fun / enjoyment,Fun/enjoyment,45-54,0.5719,1706032,2
+Fun / enjoyment,Fun/enjoyment,55-64,0.5822,1573830,2
+Fun / enjoyment,Fun/enjoyment,65+,0.4999,1795598,2
+Weight control or toning,To lose weight/ keep weight off/tone,All adults,0.5321,10344977,3
+Weight control or toning,To lose weight/ keep weight off/tone,15-17,0.3927,346474,3
+Weight control or toning,To lose weight/ keep weight off/tone,18-24,0.5048,1110260,3
+Weight control or toning,To lose weight/ keep weight off/tone,25-34,0.5467,1989881,3
+Weight control or toning,To lose weight/ keep weight off/tone,35-44,0.5532,1905158,3
+Weight control or toning,To lose weight/ keep weight off/tone,45-54,0.584,1742188,3
+Weight control or toning,To lose weight/ keep weight off/tone,55-64,0.5978,1615997,3
+Weight control or toning,To lose weight/ keep weight off/tone,65+,0.4552,1635019,3
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,All adults,0.5109,9934140,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,15-17,0.4704,415038,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,18-24,0.4667,1026529,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,25-34,0.4907,1785920,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,35-44,0.4965,1709789,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,45-54,0.5163,1540314,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,55-64,0.5751,1554490,4
+To be outdoors / enjoy nature,To be outdoors/to enjoy nature,65+,0.5296,1902059,4
+Social reasons,Social reasons,All adults,0.4422,8596974,5
+Social reasons,Social reasons,15-17,0.5656,499006,5
+Social reasons,Social reasons,18-24,0.5457,1200214,5
+Social reasons,Social reasons,25-34,0.4918,1790052,5
+Social reasons,Social reasons,35-44,0.4222,1454097,5
+Social reasons,Social reasons,45-54,0.3857,1150696,5
+Social reasons,Social reasons,55-64,0.3946,1066776,5
+Social reasons,Social reasons,65+,0.3998,1436133,5
+Mental health or therapy,Psychological/ mental health/ therapy,All adults,0.3763,7316383,6
+Mental health or therapy,Psychological/ mental health/ therapy,15-17,0.271,239124,6
+Mental health or therapy,Psychological/ mental health/ therapy,18-24,0.3652,803251,6
+Mental health or therapy,Psychological/ mental health/ therapy,25-34,0.4239,1542928,6
+Mental health or therapy,Psychological/ mental health/ therapy,35-44,0.4074,1403062,6
+Mental health or therapy,Psychological/ mental health/ therapy,45-54,0.4075,1215703,6
+Mental health or therapy,Psychological/ mental health/ therapy,55-64,0.3867,1045361,6
+Mental health or therapy,Psychological/ mental health/ therapy,65+,0.297,1066953,6
+Sense of achievement,Sense of achievement,All adults,0.3082,5992985,7
+Sense of achievement,Sense of achievement,15-17,0.3755,331278,7
+Sense of achievement,Sense of achievement,18-24,0.3727,819697,7
+Sense of achievement,Sense of achievement,25-34,0.3341,1216023,7
+Sense of achievement,Sense of achievement,35-44,0.2886,994059,7
+Sense of achievement,Sense of achievement,45-54,0.273,814452,7
+Sense of achievement,Sense of achievement,55-64,0.2946,796421,7
+Sense of achievement,Sense of achievement,65+,0.2843,1021055,7
+Hobby,Hobby,All adults,0.2882,5602882,8
+Hobby,Hobby,15-17,0.5346,471665,8
+Hobby,Hobby,18-24,0.4736,1041745,8
+Hobby,Hobby,25-34,0.4108,1494980,8
+Hobby,Hobby,35-44,0.3092,1064728,8
+Hobby,Hobby,45-54,0.2122,632906,8
+Hobby,Hobby,55-64,0.1726,466499,8
+Hobby,Hobby,65+,0.1198,430360,8
+Training,Training purposes,All adults,0.2051,3988107,9
+Training,Training purposes,15-17,0.3458,305077,9
+Training,Training purposes,18-24,0.3105,682951,9
+Training,Training purposes,25-34,0.2728,992868,9
+Training,Training purposes,35-44,0.2184,752129,9
+Training,Training purposes,45-54,0.1881,561057,9
+Training,Training purposes,55-64,0.1499,405243,9
+Training,Training purposes,65+,0.0804,288782,9
+Walk the dog,Walk the dog,All adults,0.1994,3876348,10
+Walk the dog,Walk the dog,15-17,0.1298,114514,10
+Walk the dog,Walk the dog,18-24,0.1607,353403,10
+Walk the dog,Walk the dog,25-34,0.1892,688479,10
+Walk the dog,Walk the dog,35-44,0.1868,643214,10
+Walk the dog,Walk the dog,45-54,0.2341,698451,10
+Walk the dog,Walk the dog,55-64,0.2618,707707,10
+Walk the dog,Walk the dog,65+,0.1867,670581,10
+Learn a new skill,Learn a new skill,All adults,0.147,2857216,11
+Learn a new skill,Learn a new skill,15-17,0.3258,287469,11
+Learn a new skill,Learn a new skill,18-24,0.2619,575981,11
+Learn a new skill,Learn a new skill,25-34,0.2223,809147,11
+Learn a new skill,Learn a new skill,35-44,0.1419,488821,11
+Learn a new skill,Learn a new skill,45-54,0.0922,275120,11
+Learn a new skill,Learn a new skill,55-64,0.0754,203915,11
+Learn a new skill,Learn a new skill,65+,0.0603,216762,11
+Performance or competition,Performance or competition,All adults,0.1399,2720331,12
+Performance or competition,Performance or competition,15-17,0.3448,304214,12
+Performance or competition,Performance or competition,18-24,0.2407,529325,12
+Performance or competition,Performance or competition,25-34,0.1666,606381,12
+Performance or competition,Performance or competition,35-44,0.1257,432992,12
+Performance or competition,Performance or competition,45-54,0.1016,303065,12
+Performance or competition,Performance or competition,55-64,0.0883,238811,12
+Performance or competition,Performance or competition,65+,0.0851,305542,12
+Way of getting around,Way of getting around,All adults,0.1248,2426075,13
+Way of getting around,Way of getting around,15-17,0.1914,168909,13
+Way of getting around,Way of getting around,18-24,0.1604,352733,13
+Way of getting around,Way of getting around,25-34,0.1383,503407,13
+Way of getting around,Way of getting around,35-44,0.134,461542,13
+Way of getting around,Way of getting around,45-54,0.1341,399947,13
+Way of getting around,Way of getting around,55-64,0.1166,315153,13
+Way of getting around,Way of getting around,65+,0.0625,224384,13
+Physio / rehab,Physio/rehab/ physical therapy/post-op,All adults,0.124,2410074,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,15-17,0.0575,50702,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,18-24,0.1051,231065,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,25-34,0.124,451272,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,35-44,0.1095,377134,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,45-54,0.1206,359738,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,55-64,0.1397,377542,14
+Physio / rehab,Physio/rehab/ physical therapy/post-op,65+,0.1566,562620,14
+To be a good role model,To be a good role model,All adults,0.0933,1813289,15
+To be a good role model,To be a good role model,15-17,0.1012,89255,15
+To be a good role model,To be a good role model,18-24,0.0911,200277,15
+To be a good role model,To be a good role model,25-34,0.1063,386931,15
+To be a good role model,To be a good role model,35-44,0.1355,466578,15
+To be a good role model,To be a good role model,45-54,0.1136,338768,15
+To be a good role model,To be a good role model,55-64,0.0619,167394,15
+To be a good role model,To be a good role model,65+,0.0457,164086,15
+Part of my job,Professional/ part of my job,All adults,0.0435,846242,16
+Part of my job,Professional/ part of my job,15-17,0.0601,53021,16
+Part of my job,Professional/ part of my job,18-24,0.0847,186261,16
+Part of my job,Professional/ part of my job,25-34,0.0651,236909,16
+Part of my job,Professional/ part of my job,35-44,0.0438,150950,16
+Part of my job,Professional/ part of my job,45-54,0.038,113330,16
+Part of my job,Professional/ part of my job,55-64,0.0235,63489,16
+Part of my job,Professional/ part of my job,65+,0.0118,42281,16

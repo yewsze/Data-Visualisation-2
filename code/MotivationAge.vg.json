@@ -1,0 +1,417 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap: main reasons adults take part in sport or physical activity (rows, ranked by overall share) by age group (columns), AusPlay Table 12, Jan-Dec 2025.",
+  "title": {
+    "text": "Younger adults play for fun and hobbies; older adults for health and nature",
+    "subtitle": [
+      "Share of adults who took part in sport or physical activity and gave each reason (people could pick several), by age group, Jan-Dec 2025.",
+      "Reasons are ranked by overall share, and the 12 most common are shown. The outlined row is the nature reason."
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitlePadding": 6,
+    "offset": 14
+  },
+  "data": {
+    "url": "../data/finalized/MotivationAge.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "toNumber(datum.rate)",
+      "as": "rate_n"
+    },
+    {
+      "calculate": "toNumber(datum.adults)",
+      "as": "adults_n"
+    },
+    {
+      "calculate": "toNumber(datum.overall_rank)",
+      "as": "overall_rank"
+    },
+    {
+      "filter": "datum.overall_rank <= 12"
+    }
+  ],
+  "spacing": 18,
+  "hconcat": [
+    {
+      "width": {
+        "step": 78
+      },
+      "height": {
+        "step": 30
+      },
+      "transform": [
+        {
+          "filter": {
+            "field": "age_group",
+            "oneOf": [
+              "All adults"
+            ]
+          }
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "stroke": "white",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x": {
+              "field": "age_group",
+              "type": "ordinal",
+              "title": null,
+              "sort": [
+                "All adults"
+              ],
+              "axis": {
+                "orient": "top",
+                "domain": false,
+                "ticks": false,
+                "labelAngle": 0,
+                "labelFontSize": 12,
+                "labelPadding": 6
+              }
+            },
+            "y": {
+              "field": "motivation",
+              "type": "nominal",
+              "title": null,
+              "sort": {
+                "field": "overall_rank",
+                "op": "min",
+                "order": "ascending"
+              },
+              "axis": {
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 8,
+                "labelFontSize": 12,
+                "labelLimit": 220,
+                "labelFontWeight": {
+                  "condition": {
+                    "test": "datum.label === 'To be outdoors / enjoy nature'",
+                    "value": "bold"
+                  },
+                  "value": "normal"
+                }
+              }
+            },
+            "color": {
+              "field": "rate_n",
+              "type": "quantitative",
+              "title": "% of participants",
+              "scale": {
+                "scheme": "tealblues",
+                "domain": [
+                  0,
+                  0.8
+                ]
+              },
+              "legend": {
+                "format": "%",
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 260,
+                "titleFontSize": 12
+              }
+            },
+            "tooltip": [
+              {
+                "field": "motivation",
+                "type": "nominal",
+                "title": "Reason"
+              },
+              {
+                "field": "age_group",
+                "type": "nominal",
+                "title": "Age group"
+              },
+              {
+                "field": "rate_n",
+                "type": "quantitative",
+                "title": "Share of participants",
+                "format": ".1%"
+              },
+              {
+                "field": "adults_n",
+                "type": "quantitative",
+                "title": "Estimated adults",
+                "format": "~s"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 11
+          },
+          "encoding": {
+            "x": {
+              "field": "age_group",
+              "type": "ordinal",
+              "sort": [
+                "All adults"
+              ]
+            },
+            "y": {
+              "field": "motivation",
+              "type": "nominal",
+              "sort": {
+                "field": "overall_rank",
+                "op": "min",
+                "order": "ascending"
+              }
+            },
+            "text": {
+              "field": "rate_n",
+              "type": "quantitative",
+              "format": ".0%"
+            },
+            "color": {
+              "condition": {
+                "test": "datum.rate_n > 0.45",
+                "value": "white"
+              },
+              "value": "#222"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.motivation === 'To be outdoors / enjoy nature'"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": null,
+            "stroke": "#222",
+            "strokeWidth": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "age_group",
+              "type": "ordinal",
+              "sort": [
+                "All adults"
+              ]
+            },
+            "y": {
+              "field": "motivation",
+              "type": "nominal",
+              "sort": {
+                "field": "overall_rank",
+                "op": "min",
+                "order": "ascending"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": {
+        "step": 52
+      },
+      "height": {
+        "step": 30
+      },
+      "transform": [
+        {
+          "filter": {
+            "field": "age_group",
+            "oneOf": [
+              "15-17",
+              "18-24",
+              "25-34",
+              "35-44",
+              "45-54",
+              "55-64",
+              "65+"
+            ]
+          }
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "stroke": "white",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x": {
+              "field": "age_group",
+              "type": "ordinal",
+              "title": null,
+              "sort": [
+                "15-17",
+                "18-24",
+                "25-34",
+                "35-44",
+                "45-54",
+                "55-64",
+                "65+"
+              ],
+              "axis": {
+                "orient": "top",
+                "domain": false,
+                "ticks": false,
+                "labelAngle": 0,
+                "labelFontSize": 12,
+                "labelPadding": 6
+              }
+            },
+            "y": {
+              "field": "motivation",
+              "type": "nominal",
+              "title": null,
+              "sort": {
+                "field": "overall_rank",
+                "op": "min",
+                "order": "ascending"
+              },
+              "axis": null
+            },
+            "color": {
+              "field": "rate_n",
+              "type": "quantitative",
+              "title": "% of participants",
+              "scale": {
+                "scheme": "tealblues",
+                "domain": [
+                  0,
+                  0.8
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "motivation",
+                "type": "nominal",
+                "title": "Reason"
+              },
+              {
+                "field": "age_group",
+                "type": "nominal",
+                "title": "Age group"
+              },
+              {
+                "field": "rate_n",
+                "type": "quantitative",
+                "title": "Share of participants",
+                "format": ".1%"
+              },
+              {
+                "field": "adults_n",
+                "type": "quantitative",
+                "title": "Estimated adults",
+                "format": "~s"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 11
+          },
+          "encoding": {
+            "x": {
+              "field": "age_group",
+              "type": "ordinal",
+              "sort": [
+                "15-17",
+                "18-24",
+                "25-34",
+                "35-44",
+                "45-54",
+                "55-64",
+                "65+"
+              ]
+            },
+            "y": {
+              "field": "motivation",
+              "type": "nominal",
+              "sort": {
+                "field": "overall_rank",
+                "op": "min",
+                "order": "ascending"
+              }
+            },
+            "text": {
+              "field": "rate_n",
+              "type": "quantitative",
+              "format": ".0%"
+            },
+            "color": {
+              "condition": {
+                "test": "datum.rate_n > 0.45",
+                "value": "white"
+              },
+              "value": "#222"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.motivation === 'To be outdoors / enjoy nature'"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": null,
+            "stroke": "#222",
+            "strokeWidth": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "age_group",
+              "type": "ordinal",
+              "sort": [
+                "15-17",
+                "18-24",
+                "25-34",
+                "35-44",
+                "45-54",
+                "55-64",
+                "65+"
+              ]
+            },
+            "y": {
+              "field": "motivation",
+              "type": "nominal",
+              "sort": {
+                "field": "overall_rank",
+                "op": "min",
+                "order": "ascending"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    }
+  },
+  "config": {
+    "font": "Inter, Helvetica, Arial, sans-serif",
+    "view": {
+      "stroke": null
+    }
+  }
+}
