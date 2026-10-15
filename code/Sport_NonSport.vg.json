@@ -1,22 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "100% stacked bar: share of Australian adults by type of activity (sport / non-sport) across age groups, AusPlay Table 15, Jan-Dec 2025.",
-  "title": {
-    "text": "Sport gives way to non-sport activity as Australians get older",
-    "subtitle": [
-      "Share of all adults (15+) by the type of physical activity they did in the past 12 months, Jan-Dec 2025.",
-      "Sport = e.g. team sports, running, swimming, cycling, golf. Non-sport = e.g. gym, bushwalking, recreational dance."
-    ],
-    "anchor": "start",
-    "fontSize": 18,
-    "subtitleFontSize": 12,
-    "subtitleColor": "#555",
-    "subtitlePadding": 6,
-    "offset": 14
-  },
-  "width": 560,
+  "width": 900,
   "height": {
-    "step": 34
+    "step": 50
   },
   "data": {
     "url": "../data/finalized/Sport_NonSport.csv",
@@ -67,7 +53,7 @@
             "domain": false,
             "ticks": false,
             "labelPadding": 8,
-            "labelFontSize": 12
+            "labelFontSize": 16
           }
         },
         "x": {
@@ -79,7 +65,9 @@
           "axis": {
             "format": "%",
             "grid": false,
-            "tickCount": 5
+            "tickCount": 10,
+            "labelFontSize": 14,
+            "titleFontSize": 16
           }
         },
         "color": {
@@ -101,10 +89,10 @@
             ]
           },
           "legend": {
-            "orient": "top",
-            "direction": "horizontal",
+            "orient": "right",
+            "direction": "vertical",
             "symbolType": "square",
-            "labelFontSize": 12
+            "labelFontSize": 14
           }
         },
         "order": {
@@ -168,7 +156,7 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 14,
         "fontWeight": "bold",
         "align": "center",
         "baseline": "middle"

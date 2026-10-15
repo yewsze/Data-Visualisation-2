@@ -47,7 +47,10 @@
         "range": ["#2e7d5b", "#e9b44c"]
       },
       "legend": {
-        "title": "Participation type"
+        "orient": "right",
+        "direction": "vertical",
+        "title": "Participation type",
+        "labelFontSize": 14
       }
     },
     "tooltip": [

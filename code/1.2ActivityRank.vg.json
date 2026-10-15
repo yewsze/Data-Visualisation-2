@@ -7,7 +7,7 @@
     "fontSize": 16,
     "subtitleFontSize": 12
   },
-  "width": 520,
+  "width": 600,
   "height": {"step": 26},
   "autosize": {"type": "pad", "resize": true},
   "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
@@ -65,8 +65,14 @@
       "field": "rate",
       "type": "quantitative",
       "title": "Share of adults",
-      "axis": {"format": "%"},
-      "scale": {"domain": [0, 0.75]}
+      "axis": {
+            "format": "%",
+            "grid": false,
+            "tickCount": 6,
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          },
+      "scale": {"domain": [0, 0.60]}
     }
   },
   "layer": [
@@ -85,7 +91,11 @@
             ],
             "range": ["#2e7d5b", "#e9b44c", "#6c7a89"]
           },
-          "legend": {"orient": "bottom", "title": "Classification"}
+          "legend": {
+            "orient": "right",
+            "direction": "vertical",
+            "title": "Classification",
+            "labelFontSize": 14}
         },
         "tooltip": [
           {"field": "rank", "title": "Rank in selection"},

@@ -1,12 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650,
+  "width": 700,
   "height": 600,
   "title": {
-    "text": "Most Visited National Parks in NSW, 2024-25",
-    "subtitle": "Circle area = total visits. Source: NSW NPWS Park Visitation Survey"
+    "text": "Most Visited National Parks in NSW, 2024-25"
   },
-  "projection": {"type": "mercator", "center": [149.5, -34], "scale": 4200},
+  "projection": {"type": "mercator", "center": [149.5, -33.8], "scale": 9000},
   "layer": [
     {
       "data": {

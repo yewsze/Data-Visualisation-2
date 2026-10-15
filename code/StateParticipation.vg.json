@@ -1,12 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Choropleth of adult participation rate by state/territory (AusPlay Table 34, Jan-Dec 2025) with a selector for how often: at least once a year, once a week, or 3+ times a week.",
   "title": {
-    "text": "The ACT and Northern Territory are the most active, however you measure it",
-    "subtitle": [
-      "Share of adults who took part in sport or physical activity at least as often as selected, by state and territory, Jan-Dec 2025.",
-      "NSW is just below the national average on all three measures. Colours rescale for each measure, and small gaps between states may not be significant."
-    ],
+    "text": "Adult participation rate by state/territory",
     "anchor": "start",
     "fontSize": 18,
     "subtitleFontSize": 12,
@@ -14,8 +9,8 @@
     "subtitlePadding": 6,
     "offset": 14
   },
-  "width": 640,
-  "height": 520,
+  "width": 700,
+  "height": 600,
   "data": {
     "url": "../data/finalized/StateParticipation.csv",
     "format": {
@@ -110,7 +105,7 @@
       -18,
       -36
     ],
-    "scale": 820
+    "scale": 1000
   },
   "layer": [
     {
@@ -139,7 +134,7 @@
           },
           "legend": {
             "format": ".0%",
-            "orient": "none",
+            "orient": "right",
             "legendX": 6,
             "legendY": 330,
             "direction": "vertical",
@@ -212,7 +207,7 @@
     {
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 12,
         "align": "center",
         "baseline": "top",
         "dy": 6

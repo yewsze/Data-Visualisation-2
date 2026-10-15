@@ -1,15 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Population-pyramid style chart: share of Australian men and women in each age group who took part in sport or physical activity at least once a year, AusPlay Jan-Dec 2025.",
   "title": {
-    "text": "Nearly nine in ten adults are active up to age 64, then participation drops at 65+",
-    "subtitle": [
-      "Share of men (left) and women (right) in each age group who did any sport or physical activity at least once in the past 12 months, Jan-Dec 2025.",
-        "Source: AusPlay Table 15, Jan-Dec 2025. Excludes children (0-14)."
-    ],
+    "text": "Nearly nine in ten adults are active at least once a year",
     "anchor": "start",
     "fontSize": 18,
-    "subtitleFontSize": 12,
     "subtitleColor": "#555",
     "subtitlePadding": 6,
     "offset": 14
@@ -31,7 +25,7 @@
         "color": "#2a7f8f",
         "offset": 6
       },
-      "width": 250,
+      "width": 350,
       "height": {
         "step": 38
       },
@@ -91,8 +85,9 @@
                   1
                 ],
                 "grid": false,
-                "title": "% of males who took part at least once a year",
-                "titleFontSize": 11
+                "title": "% of males who took part",
+                "labelFontSize": 12,
+                "titleFontSize": 14
               }
             },
             "tooltip": [
@@ -167,7 +162,7 @@
       "title": {
         "text": "Age",
         "anchor": "middle",
-        "fontSize": 12,
+        "fontSize": 14,
         "color": "#555",
         "offset": 6
       },
@@ -178,7 +173,7 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 12,
+        "fontSize": 14,
         "color": "#333",
         "align": "center"
       },
@@ -212,7 +207,7 @@
         "color": "#b5457b",
         "offset": 6
       },
-      "width": 250,
+      "width": 350,
       "height": {
         "step": 38
       },
@@ -272,8 +267,9 @@
                   1
                 ],
                 "grid": false,
-                "title": "% of females who took part at least once a year",
-                "titleFontSize": 11
+                "title": "% of females who took part",
+                "labelFontSize": 12,
+                "titleFontSize": 14
               }
             },
             "tooltip": [

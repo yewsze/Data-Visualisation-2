@@ -1,12 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
-  "height": 600,
+  "height": 650,
   "title": {
-    "text": "Where Interstate Visitors to NSW National Parks Come From, 2024-25",
-    "subtitle": "Line width = total visits. Excludes visits from within NSW. Source: NSW NPWS Park Visitation Survey"
-  },
-  "projection": {"type": "mercator", "center": [134, -27], "scale": 850},
+    "text": "Where Interstate Visitors to NSW National Parks Come From, 2024-25"
+    },
+  "projection": {"type": "mercator", "center": [134, -28], "scale": 900},
   "layer": [
     {
       "data": {

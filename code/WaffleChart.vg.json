@@ -1,20 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Waffle chart: share of Australian adults by how often they took part in sport or physical activity, AusPlay Table 9, Jan-Dec 2025. Each square is 1% of adults.",
-  "title": {
-    "text": "6 in 7 Australian adults were active in the past year",
-    "subtitle": [
-      "Each square is 1% of adults (about 226,000 people). Weekly or more: 69%  |  Less than weekly: 17%  |  Did not take part: 14%.",
-      "\"Active\" means taking part in at least one sport or physical activity in the past 12 months, Jan-Dec 2025."
-    ],
-    "anchor": "start",
-    "fontSize": 18,
-    "subtitleFontSize": 12,
-    "subtitleColor": "#555",
-    "subtitlePadding": 6,
-    "offset": 14
-  },
-  "width": 320,
+  "width": 600,
   "height": 320,
   "data": {
     "url": "../data/finalized/WaffleChart.csv",
@@ -120,10 +106,10 @@
         ]
       },
       "legend": {
-        "orient": "top",
-        "direction": "horizontal",
+        "orient": "right",
+        "direction": "vertical",
         "symbolType": "square",
-        "labelFontSize": 12
+        "labelFontSize": 14
       }
     },
     "tooltip": [

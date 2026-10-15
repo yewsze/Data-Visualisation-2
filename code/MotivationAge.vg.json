@@ -1,19 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Heatmap: main reasons adults take part in sport or physical activity (rows, ranked by overall share) by age group (columns), AusPlay Table 12, Jan-Dec 2025.",
-  "title": {
-    "text": "Younger adults play for fun and hobbies; older adults for health and nature",
-    "subtitle": [
-      "Share of adults who took part in sport or physical activity and gave each reason (people could pick several), by age group, Jan-Dec 2025.",
-      "Reasons are ranked by overall share, and the 12 most common are shown. The outlined row is the nature reason."
-    ],
-    "anchor": "start",
-    "fontSize": 18,
-    "subtitleFontSize": 12,
-    "subtitleColor": "#555",
-    "subtitlePadding": 6,
-    "offset": 14
-  },
   "data": {
     "url": "../data/finalized/MotivationAge.csv",
     "format": {
@@ -41,10 +27,10 @@
   "hconcat": [
     {
       "width": {
-        "step": 78
+        "step": 90
       },
       "height": {
-        "step": 30
+        "step": 40
       },
       "transform": [
         {
@@ -117,9 +103,10 @@
               },
               "legend": {
                 "format": "%",
-                "orient": "bottom",
-                "direction": "horizontal",
+                "orient": "right",
+                "direction": "vertical",
                 "gradientLength": 260,
+                "labelFontSize": 12,
                 "titleFontSize": 12
               }
             },
@@ -152,7 +139,7 @@
         {
           "mark": {
             "type": "text",
-            "fontSize": 11
+            "fontSize": 12
           },
           "encoding": {
             "x": {
@@ -220,10 +207,10 @@
     },
     {
       "width": {
-        "step": 52
+        "step": 90
       },
       "height": {
-        "step": 30
+        "step": 40
       },
       "transform": [
         {
