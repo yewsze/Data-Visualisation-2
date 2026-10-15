@@ -15,7 +15,7 @@
       "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
     },
     {
-      "data": {"url": "../data/finalized/flow.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/flow.csv"},
       "mark": {"type": "rule", "color": "#d95f02", "opacity": 0.6, "strokeCap": "round"},
       "encoding": {
         "longitude": {"field": "origin_lon", "type": "quantitative"},
@@ -41,7 +41,7 @@
       }
     },
     {
-      "data": {"url": "../data/finalized/flow.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/flow.csv"},
       "mark": {"type": "point", "shape": "triangle", "filled": true, "size": 160, "color": "#d95f02", "opacity": 0.95, "stroke": "white", "strokeWidth": 0.8},
       "encoding": {
         "longitude": {"field": "arrow_lon", "type": "quantitative"},
@@ -54,7 +54,7 @@
       }
     },
     {
-      "data": {"url": "../data/finalized/flow.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/flow.csv"},
       "mark": {"type": "circle", "size": 60, "color": "#333"},
       "encoding": {
         "longitude": {"field": "origin_lon", "type": "quantitative"},
@@ -62,7 +62,7 @@
       }
     },
     {
-      "data": {"url": "../data/finalized/flow.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/flow.csv"},
       "mark": {"type": "text", "dy": -10, "fontSize": 11},
       "encoding": {
         "longitude": {"field": "origin_lon", "type": "quantitative"},

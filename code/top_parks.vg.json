@@ -15,7 +15,7 @@
       "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
     },
     {
-      "data": {"url": "../data/finalized/top_parks.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/top_parks.csv"},
       "mark": {"type": "circle", "opacity": 0.65, "stroke": "white", "strokeWidth": 1},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},

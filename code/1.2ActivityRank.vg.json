@@ -38,7 +38,7 @@
     {
       "lookup": "activity",
       "from": {
-        "data": {"url": "../data/finalized/0.Classification.csv"},
+        "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/0.Classification.csv"},
         "key": "Activity",
         "fields": ["Category"]
       },

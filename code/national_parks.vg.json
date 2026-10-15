@@ -13,7 +13,7 @@
       "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
     },
     {
-      "data": {"url": "../data/finalized/national_parks.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/national_parks.csv"},
       "mark": {"type": "circle", "size": 45, "color": "#2e7d32", "opacity": 0.85, "stroke": "white", "strokeWidth": 0.8},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
