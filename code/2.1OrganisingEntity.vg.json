@@ -11,7 +11,7 @@
   "height": {"step": 40},
 
   "data": {
-    "url": "../data/finalized/2.1.UpdatedOrganisingEntity.csv"
+    "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/2.1.UpdatedOrganisingEntity.csv"
   },
 
   "transform": [

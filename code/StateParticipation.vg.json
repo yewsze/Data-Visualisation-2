@@ -12,7 +12,7 @@
   "width": 700,
   "height": 600,
   "data": {
-    "url": "../data/finalized/StateParticipation.csv",
+    "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/StateParticipation.csv",
     "format": {
       "type": "csv"
     }
@@ -82,7 +82,7 @@
       "lookup": "state_name",
       "from": {
         "data": {
-          "url": "../clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
+          "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
           "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA94"}
         },
         "key": "properties.STE_NAME21"

@@ -9,7 +9,7 @@
     "offset": 14
   },
   "data": {
-    "url": "../data/finalized/PopulationPyramid.csv",
+    "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/PopulationPyramid.csv",
     "format": {
       "type": "csv"
     }

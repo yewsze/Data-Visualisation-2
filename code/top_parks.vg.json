@@ -9,7 +9,7 @@
   "layer": [
     {
       "data": {
-        "url": "../clone-data/spatial_data/states/nsw/topojson/simplified/CED_2021_NSW_GDA2020.json",
+        "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/states/nsw/topojson/simplified/CED_2021_NSW_GDA2020.json",
         "format": {"type": "topojson", "feature": "CED_2021_AUST_GDA2020"}
       },
       "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}
@@ -38,7 +38,7 @@
       }
     },
     {
-      "data": {"url": "../data/finalized/top_parks.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/.csv"},
       "transform": [{"filter": "datum.visits_2024_25 >= 4000000 || datum.park == 'Kosciuszko'"}],
       "mark": {"type": "text", "dx": 14, "align": "left", "fontSize": 11},
       "encoding": {

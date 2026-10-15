@@ -11,7 +11,7 @@
   "height": {"step": 26},
   "autosize": {"type": "pad", "resize": true},
   "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
-  "data": {"url": "../data/finalized/1.2ActivityRank.csv"},
+  "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/1.2ActivityRank.csv"},
   "params": [
     {
       "name": "classificationFilter",

@@ -7,7 +7,7 @@
   "layer": [
     {
       "data": {
-        "url": "../clone-data/spatial_data/commonwealth/topojson/simplified/AUS_2021_AUST_GDA94.json",
+        "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/commonwealth/topojson/simplified/AUS_2021_AUST_GDA94.json",
         "format": {"type": "topojson", "feature": "AUS_2021_AUST_GDA94"}
       },
       "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#b5bdb0", "strokeWidth": 0.6}

@@ -5,7 +5,7 @@
     "step": 50
   },
   "data": {
-    "url": "../data/finalized/Sport_NonSport.csv",
+    "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/Sport_NonSport.csv",
     "format": {
       "type": "csv"
     }

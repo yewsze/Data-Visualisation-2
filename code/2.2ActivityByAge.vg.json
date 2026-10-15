@@ -6,7 +6,7 @@
   },
   "width": {"step": 120},
   "height": {"step": 80},
-  "data": {"url": "../data/finalized/2.2ActivityByAge.csv"},
+  "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/2.2ActivityByAge.csv"},
 
 "transform": [
   {"calculate": "datum['\ufeffactivity'] || datum['activity']", "as": "activity_clean"},
