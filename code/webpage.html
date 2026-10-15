@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Multiple Visualisations | An Example</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS for border -->
+   <style>
+    body {
+      background-color: #f6f9f6;
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+      color: #1d2b25;
+    }
+    .page {
+      max-width: 1200px;
+      background: white;
+      margin: 40px auto; 
+      padding: 30px 40px; 
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    
+    /* Make Pure.css grid rows use Flexbox for vertical alignment */
+    .pure-g {
+      display: flex;
+      align-items: center; 
+      margin-bottom: 20px;
+    }
+
+    /* Allow full-width rows (like section titles) to ignore flex centering behavior if needed */
+    .pure-g.full-width {
+      display: block;
+    }
+
+    h1 {
+      font-family: "Monsterrat", serif;
+      font-weight: 900;
+      font-size: 2.8rem;
+      line-height: 1.2;
+    }
+    h2 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #1f7a4d;
+      margin-bottom: 5px;
+    }
+    h3 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- Title Group -->
+    <div class="pure-g full-width">
+      <div class="pure-u-1-1">
+        <h1>Australia Outdoors:<br>From Participation to Destinations</h1>
+        <p>Australia sells itself as an outdoor nation.</p>
+        <p>Beaches, bush and a no-worries weekend.</p>
+        <p>But how true is that in everyday life?</p>
+        <p>We test the claim against national survey data.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 1 Header Group (Standalone Line - Full Width) -->
+    <div class="pure-g full-width" style="margin-top: 40px;">
+      <div class="pure-u-1-1">
+        <h2>01 / How active</h2>
+        <h3>How active is Australia?</h3>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 1 Content Group (2 Columns: Text Right, Chart Left) -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="description description-right">
+          <p>Six in seven adults took part last year.</p>
+          <p>About seven in ten do it every week.</p>
+          <p>But what does "active" covers?</p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 2: What and how -->
+    <div class="pure-g full-width" style="margin-top: 40px;">
+      <div class="pure-u-1-1">
+        <h2>02 / What and how</h2>
+        <p>Taking part does not always mean playing sport.</p>
+        <p>Many of us mix sport with everyday activity.</p>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 2 Sub-part: Activities -->
+    <div class="pure-g full-width">
+      <div class="pure-u-1-1">
+        <h3>Which activities sit behind these numbers?</h3>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis3" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 2 Sub-part: Organising Entity -->
+    <div class="pure-g full-width">
+      <div class="pure-u-1-1">
+        <h3>Casual, or through clubs and gyms?</h3>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 3: Who and why -->
+    <div class="pure-g full-width" style="margin-top: 40px;">
+      <div class="pure-u-1-1">
+        <h2>03 / Who and why</h2>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis5" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 3 Sub-part: Activity by age -->
+    <div class="pure-g full-width">
+      <div class="pure-u-1-1">
+        <h3>What are people doing at each age?</h3>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis6" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 3 Sub-part: Motivation -->
+    <div class="pure-g full-width">
+      <div class="pure-u-1-1">
+        <h3>And why do they take part?</h3>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis7" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 4: Place -->
+    <div class="pure-g full-width" style="margin-top: 40px;">
+      <div class="pure-u-1-1">
+        <h2>04 / Place</h2>
+        <p>The ACT and NT lead a little, but NSW and Victoria have the most people.</p>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis8" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 5: Destinations -->
+    <div class="pure-g full-width" style="margin-top: 40px;">
+      <div class="pure-u-1-1">
+        <h2>05 / Destinations</h2>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis9" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 5 Sub-part: Top parks -->
+    <div class="pure-g full-width">
+      <div class="pure-u-1-1">
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis10" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Section 6: Verdict -->
+    <div class="pure-g full-width" style="margin-top: 40px;">
+      <div class="pure-u-1-1">
+        <h2>06 / Verdict</h2>
+        <p>Largely yes, but in an everyday way.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "WaffleChart.vg.json";
+    var specVis2 = "Sport_Nonsport.vg.json";
+    var specVis3 = "1.2ActivityRank.vg.json";
+    var specVis4 = "2.1OrganisingEntity.vg.json";
+    var specVis5 = "PopulationPyramid.vg.json";
+    var specVis6 = "2.2ActivityByAge.vg.json";
+    var specVis7 = "MotivationAge.vg.json";
+    var specVis8 = "StateParticipation.vg.json";
+    var specVis9 = "flow.vg.json";
+    var specVis10 = "top_parks.vg.json";
+
+    var specs = {
+      vis1: specVis1,
+      vis2: specVis2,
+      vis3: specVis3,
+      vis4: specVis4,
+      vis5: specVis5,
+      vis6: specVis6,
+      vis7: specVis7,
+      vis8: specVis8,
+      vis9: specVis9,
+      vis10: specVis10
+    };
+
+    Object.keys(specs).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (specs[id] === null) {
+        el.style.border = "2px dashed #b9c5be";
+        el.style.color = "#5b6b63";
+        el.style.textAlign = "center";
+        el.style.padding = "70px 16px";
+        el.style.borderRadius = "8px";
+        el.textContent = "Chart " + id + " goes here";
+        return;
+      }
+      vegaEmbed("#" + id, specs[id], { "actions": false }).catch(console.error);
+    });
+  </script>
+</body>
+
+</html>
