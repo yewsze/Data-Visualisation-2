@@ -38,7 +38,7 @@
       }
     },
     {
-      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/.csv"},
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/top_parks.csv"},
       "transform": [{"filter": "datum.visits_2024_25 >= 4000000 || datum.park == 'Kosciuszko'"}],
       "mark": {"type": "text", "dx": 14, "align": "left", "fontSize": 11},
       "encoding": {
