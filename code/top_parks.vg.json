@@ -25,7 +25,11 @@
           "field": "visits_2024_25",
           "type": "quantitative",
           "scale": {"type": "linear", "range": [200, 4000]},
-          "legend": {"title": "Visits (2024-25)", "format": ","}
+          "legend": {
+            "title": "Visits (2024-25)",
+            "format": ",.0f",
+            "labelExpr": "format(datum.value, ',.0f')"
+          }
         },
         "color": {"value": "#d95f02"},
         "tooltip": [
