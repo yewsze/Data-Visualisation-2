@@ -3,7 +3,7 @@
   "width": 600,
   "height": 320,
   "data": {
-    "url": "../data/finalized/WaffleChart.csv",
+    "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/WaffleChart.csv",
     "format": {
       "type": "csv"
     }
