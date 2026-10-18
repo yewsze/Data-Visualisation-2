@@ -1,232 +1,58 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 900,
-  "height": {
-    "step": 50
-  },
+  "height": {"step": 50},
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/Sport_NonSport.csv",
-    "format": {
-      "type": "csv"
-    }
+    "format": {"type": "csv", "parse": {"rate": "number", "adults": "number", "category_order": "number"}}
   },
-  "transform": [
-    {
-      "filter": "datum.gender === 'All'"
+  "encoding": {
+    "y": {
+      "field": "age_group", "type": "nominal", "title": null, "sort": null,
+      "axis": {"domain": false, "ticks": false, "labelPadding": 8, "labelFontSize": 16}
     },
-    {
-      "calculate": "toNumber(datum.rate)",
-      "as": "rate_n"
+    "x": {
+      "field": "rate", "type": "quantitative", "stack": "normalize",
+      "title": "Share of adults in each age group",
+      "axis": {"format": "%", "grid": false, "tickCount": 10, "labelFontSize": 14, "titleFontSize": 16}
     },
-    {
-      "calculate": "toNumber(datum.adults)",
-      "as": "adults_n"
-    },
-    {
-      "calculate": "toNumber(datum.category_order)",
-      "as": "order_n"
-    }
-  ],
+    "order": {"field": "category_order"}
+  },
   "layer": [
     {
-      "mark": {
-        "type": "bar",
-        "stroke": "white",
-        "strokeWidth": 1
-      },
+      "mark": {"type": "bar", "stroke": "white"},
       "encoding": {
-        "y": {
-          "field": "age_group",
-          "type": "nominal",
-          "title": null,
-          "sort": [
-            "All ages",
-            "15-17",
-            "18-24",
-            "25-34",
-            "35-44",
-            "45-54",
-            "55-64",
-            "65+"
-          ],
-          "axis": {
-            "domain": false,
-            "ticks": false,
-            "labelPadding": 8,
-            "labelFontSize": 16
-          }
-        },
-        "x": {
-          "field": "rate_n",
-          "type": "quantitative",
-          "aggregate": "sum",
-          "stack": "normalize",
-          "title": "Share of adults in each age group",
-          "axis": {
-            "format": "%",
-            "grid": false,
-            "tickCount": 10,
-            "labelFontSize": 14,
-            "titleFontSize": 16
-          }
-        },
         "color": {
-          "field": "category",
-          "type": "nominal",
-          "title": null,
+          "field": "category", "type": "nominal", "title": null,
           "scale": {
-            "domain": [
-              "Sport only",
-              "Both sport and non-sport",
-              "Non-sport only",
-              "Did not take part"
-            ],
-            "range": [
-              "#2f5f98",
-              "#7b5ea7",
-              "#e8a33d",
-              "#d9d9d9"
-            ]
+            "domain": ["Sport only", "Both sport and non-sport", "Non-sport only", "Did not take part"],
+            "range": ["#2f5f98", "#7b5ea7", "#e8a33d", "#d9d9d9"]
           },
-          "legend": {
-            "orient": "right",
-            "direction": "vertical",
-            "symbolType": "square",
-            "labelFontSize": 14
-          }
-        },
-        "order": {
-          "field": "order_n",
-          "type": "quantitative"
+          "legend": {"orient": "right", "symbolType": "square", "labelFontSize": 14}
         },
         "tooltip": [
-          {
-            "field": "age_group",
-            "type": "nominal",
-            "title": "Age group"
-          },
-          {
-            "field": "category",
-            "type": "nominal",
-            "title": "Activity type"
-          },
-          {
-            "field": "rate_n",
-            "type": "quantitative",
-            "aggregate": "sum",
-            "title": "Share of adults",
-            "format": ".1%"
-          },
-          {
-            "field": "adults_n",
-            "type": "quantitative",
-            "aggregate": "sum",
-            "title": "Estimated adults",
-            "format": "~s"
-          }
+          {"field": "age_group", "title": "Age group"},
+          {"field": "category", "title": "Activity type"},
+          {"field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%"},
+          {"field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s"}
         ]
       }
     },
     {
       "transform": [
-        {
-          "stack": "rate_n",
-          "groupby": [
-            "age_group"
-          ],
-          "sort": [
-            {
-              "field": "order_n",
-              "order": "ascending"
-            }
-          ],
-          "offset": "normalize",
-          "as": [
-            "seg_start",
-            "seg_end"
-          ]
-        },
-        {
-          "calculate": "(datum.seg_start + datum.seg_end) / 2",
-          "as": "seg_mid"
-        },
-        {
-          "filter": "datum.rate_n >= 0.05"
-        }
+        {"calculate": "datum.rate >= 0.05 ? format(datum.rate, '.0%') : ''", "as": "label"}
       ],
-      "mark": {
-        "type": "text",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "align": "center",
-        "baseline": "middle"
-      },
+      "mark": {"type": "text", "fontSize": 14, "fontWeight": "bold"},
       "encoding": {
-        "y": {
-          "field": "age_group",
-          "type": "nominal",
-          "sort": [
-            "All ages",
-            "15-17",
-            "18-24",
-            "25-34",
-            "35-44",
-            "45-54",
-            "55-64",
-            "65+"
-          ]
-        },
-        "x": {
-          "field": "seg_mid",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ]
-          }
-        },
-        "text": {
-          "field": "rate_n",
-          "type": "quantitative",
-          "format": ".0%"
-        },
-        "color": {
-          "field": "category",
-          "type": "nominal",
-          "legend": null,
-          "scale": {
-            "domain": [
-              "Sport only",
-              "Both sport and non-sport",
-              "Non-sport only",
-              "Did not take part"
-            ],
-            "range": [
-              "#ffffff",
-              "#ffffff",
-              "#222222",
-              "#222222"
-            ]
-          }
-        }
+        "x": {"field": "rate", "type": "quantitative", "stack": "normalize", "bandPosition": 0.5},
+        "text": {"field": "label"},
+        "color": {"condition": {"test": "datum.category_order <= 2", "value": "white"}, "value": "#222"}
       }
     }
   ],
   "config": {
     "font": "Inter, Helvetica, Arial, sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelColor": "#333",
-      "titleColor": "#333",
-      "titleFontWeight": "normal"
-    }
-  },
-  "resolve": {
-    "scale": {
-      "color": "independent"
-    }
+    "view": {"stroke": null},
+    "axis": {"labelColor": "#333", "titleColor": "#333", "titleFontWeight": "normal"}
   }
 }

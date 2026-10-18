@@ -4,9 +4,6 @@
     "text": "Adult participation rate by state/territory",
     "anchor": "start",
     "fontSize": 18,
-    "subtitleFontSize": 12,
-    "subtitleColor": "#555",
-    "subtitlePadding": 6,
     "offset": 14
   },
   "width": 700,
@@ -14,76 +11,44 @@
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/StateParticipation.csv",
     "format": {
-      "type": "csv"
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "rate": "number",
+        "adults": "number",
+        "national_rate": "number",
+        "label_lon": "number",
+        "label_lat": "number"
+      }
     }
   },
   "params": [
     {
-      "name": "measureSel",
+      "name": "measureSelection",
       "value": "At least once a year",
       "bind": {
         "input": "radio",
-        "options": [
-          "At least once a year",
-          "At least once a week",
-          "At least 3 times a week"
-        ],
+        "options": ["At least once a year", "At least once a week", "At least 3 times a week"],
         "name": "How often:  "
       }
     }
   ],
   "transform": [
-    {
-      "filter": "datum.year === '2025' && datum.measure === measureSel"
-    },
-    {
-      "calculate": "toNumber(datum.rate)",
-      "as": "rate_n"
-    },
-    {
-      "calculate": "toNumber(datum.national_rate)",
-      "as": "nat_n"
-    },
-    {
-      "calculate": "toNumber(datum.adults)",
-      "as": "adults_n"
-    },
-    {
-      "calculate": "toNumber(datum.label_lon)",
-      "as": "lon"
-    },
-    {
-      "calculate": "toNumber(datum.label_lat)",
-      "as": "lat"
-    },
+    { "filter": "datum.year === 2025 && datum.measure === measureSelection" },
     {
       "joinaggregate": [
-        {
-          "op": "min",
-          "field": "rate_n",
-          "as": "r_min"
-        },
-        {
-          "op": "max",
-          "field": "rate_n",
-          "as": "r_max"
-        }
+        { "op": "min", "field": "rate", "as": "r_min" },
+        { "op": "max", "field": "rate", "as": "r_max" }
       ]
     },
-    {
-      "calculate": "(datum.rate_n - datum.r_min) / (datum.r_max - datum.r_min)",
-      "as": "norm"
-    },
-    {
-      "calculate": "(datum.rate_n - datum.nat_n) * 100",
-      "as": "vs_nat"
-    },
+    { "calculate": "(datum.rate - datum.r_min) / (datum.r_max - datum.r_min)", "as": "norm" },
+    { "calculate": "(datum.rate - datum.national_rate) * 100", "as": "vs_nat" },
     {
       "lookup": "state_name",
       "from": {
         "data": {
           "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
-          "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA94"}
+          "format": { "type": "topojson", "feature": "STE_2021_AUST_GDA94" }
         },
         "key": "properties.STE_NAME21"
       },
@@ -92,154 +57,51 @@
   ],
   "projection": {
     "type": "conicEqualArea",
-    "rotate": [
-      -132,
-      0,
-      0
-    ],
-    "center": [
-      0,
-      -27
-    ],
-    "parallels": [
-      -18,
-      -36
-    ],
+    "rotate": [-132, 0, 0],
+    "center": [0, -27],
+    "parallels": [-18, -36],
     "scale": 1000
   },
   "layer": [
     {
-      "mark": {
-        "type": "geoshape",
-        "stroke": "white",
-        "strokeWidth": 1.2
-      },
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1.2 },
       "encoding": {
-        "shape": {
-          "field": "geo",
-          "type": "geojson"
-        },
+        "shape": { "field": "geo", "type": "geojson" },
         "color": {
-          "field": "rate_n",
+          "field": "rate",
           "type": "quantitative",
           "title": "% of adults",
-          "scale": {
-            "range": [
-              "#e6f4ea",
-              "#7cc08c",
-              "#1f7a4d"
-            ],
-            "zero": false,
-            "nice": false
-          },
-          "legend": {
-            "format": ".0%",
-            "orient": "right",
-            "legendX": 6,
-            "legendY": 330,
-            "direction": "vertical",
-            "gradientLength": 120,
-            "titleFontSize": 12
-          }
+          "scale": { "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"], "zero": false, "nice": false },
+          "legend": { "format": ".0%", "orient": "right", "gradientLength": 120 }
         },
         "tooltip": [
-          {
-            "field": "state_name",
-            "type": "nominal",
-            "title": "State / territory"
-          },
-          {
-            "field": "measure",
-            "type": "nominal",
-            "title": "Measure"
-          },
-          {
-            "field": "rate_n",
-            "type": "quantitative",
-            "title": "Share of adults",
-            "format": ".1%"
-          },
-          {
-            "field": "vs_nat",
-            "type": "quantitative",
-            "title": "Vs Australia (percentage points)",
-            "format": "+.1f"
-          },
-          {
-            "field": "adults_n",
-            "type": "quantitative",
-            "title": "Estimated adults",
-            "format": "~s"
-          }
+          { "field": "state_name", "title": "State / territory" },
+          { "field": "measure", "title": "Measure" },
+          { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
+          { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" },
+          { "field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s" }
         ]
       }
     },
     {
-      "mark": {
-        "type": "text",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "align": "center",
-        "baseline": "middle"
-      },
       "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "state",
-          "type": "nominal"
-        },
+        "longitude": { "field": "label_lon", "type": "quantitative" },
+        "latitude": { "field": "label_lat", "type": "quantitative" },
         "color": {
-          "condition": {
-            "test": "datum.norm > 0.6 && datum.state !== 'ACT'",
-            "value": "white"
-          },
+          "condition": { "test": "datum.norm > 0.6 && datum.state !== 'ACT'", "value": "white" },
           "value": "#1a1a1a"
         }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 12,
-        "align": "center",
-        "baseline": "top",
-        "dy": 6
       },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+      "layer": [
+        {
+          "mark": { "type": "text", "fontSize": 12, "fontWeight": "bold", "baseline": "middle" },
+          "encoding": { "text": { "field": "state" } }
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "rate_n",
-          "type": "quantitative",
-          "format": ".0%"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.norm > 0.6 && datum.state !== 'ACT'",
-            "value": "white"
-          },
-          "value": "#1a1a1a"
+        {
+          "mark": { "type": "text", "fontSize": 12, "baseline": "top", "dy": 6 },
+          "encoding": { "text": { "field": "rate", "type": "quantitative", "format": ".0%" } }
         }
-      }
-    }
-  ],
-  "config": {
-    "font": "Inter, Helvetica, Arial, sans-serif",
-    "view": {
-      "stroke": null
-    }
+      ]
   }
+  ]
 }

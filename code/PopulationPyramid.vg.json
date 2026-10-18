@@ -1,337 +1,94 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Nearly nine in ten adults are active at least once a year",
+    "text": "Population pyramid of adults who are active at least once a year",
     "anchor": "start",
     "fontSize": 18,
-    "subtitleColor": "#555",
-    "subtitlePadding": 6,
     "offset": 14
   },
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/PopulationPyramid.csv",
-    "format": {
-      "type": "csv"
-    }
+    "format": {"type": "csv", "parse": {"rate": "number", "adults": "number"}}
   },
-  "spacing": 6,
+  "spacing": 0,
   "hconcat": [
     {
-      "title": {
-        "text": "Males",
-        "anchor": "middle",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "color": "#2a7f8f",
-        "offset": 6
-      },
+      "title": {"text": "Males", "anchor": "middle", "fontSize": 14, "fontWeight": "bold", "color": "#2a7f8f", "offset": 6},
       "width": 350,
-      "height": {
-        "step": 38
-      },
-      "transform": [
-        {
-          "filter": "datum.gender === 'Male'"
-        },
-        {
-          "calculate": "toNumber(datum.rate)",
-          "as": "rate_n"
-        },
-        {
-          "calculate": "toNumber(datum.adults)",
-          "as": "adults_n"
+      "height": {"step": 38},
+      "transform": [{"filter": "datum.gender === 'Male'"}],
+      "encoding": {
+        "y": {"field": "age_group", "type": "nominal", "sort": "descending", "axis": null},
+        "x": {
+          "field": "rate", "type": "quantitative",
+          "scale": {"domain": [0, 1], "reverse": true},
+          "axis": {
+            "format": "%", "values": [0, 0.25, 0.5, 0.75, 1], "grid": true,
+            "title": "% of males who took part", "labelFontSize": 12, "titleFontSize": 14
+          }
         }
-      ],
+      },
       "layer": [
         {
-          "mark": {
-            "type": "bar",
-            "color": "#2a7f8f",
-            "stroke": "white",
-            "strokeWidth": 1
-          },
+          "mark": {"type": "bar", "color": "#2a7f8f", "stroke": "white", "strokeWidth": 1},
           "encoding": {
-            "y": {
-              "field": "age_group",
-              "type": "nominal",
-              "sort": [
-                "65+",
-                "55-64",
-                "45-54",
-                "35-44",
-                "25-34",
-                "18-24",
-                "15-17"
-              ],
-              "axis": null
-            },
-            "x": {
-              "field": "rate_n",
-              "type": "quantitative",
-              "scale": {
-                "domain": [
-                  0,
-                  1
-                ],
-                "reverse": true
-              },
-              "axis": {
-                "format": "%",
-                "values": [
-                  0,
-                  0.25,
-                  0.5,
-                  0.75,
-                  1
-                ],
-                "grid": false,
-                "title": "% of males who took part",
-                "labelFontSize": 12,
-                "titleFontSize": 14
-              }
-            },
             "tooltip": [
-              {
-                "field": "age_group",
-                "type": "nominal",
-                "title": "Age group"
-              },
-              {
-                "field": "rate_n",
-                "type": "quantitative",
-                "title": "Took part at least once a year",
-                "format": ".1%"
-              },
-              {
-                "field": "adults_n",
-                "type": "quantitative",
-                "title": "Estimated adults",
-                "format": "~s"
-              }
+              {"field": "age_group", "type": "nominal", "title": "Age group"},
+              {"field": "rate", "type": "quantitative", "title": "Took part at least once a year", "format": ".1%"},
+              {"field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s"}
             ]
           }
         },
         {
-          "mark": {
-            "type": "text",
-            "color": "white",
-            "fontWeight": "bold",
-            "fontSize": 11,
-            "align": "left",
-            "dx": 6
-          },
+          "mark": {"type": "text", "color": "white", "fontWeight": "bold", "fontSize": 11, "align": "left", "dx": 6},
           "encoding": {
-            "y": {
-              "field": "age_group",
-              "type": "nominal",
-              "sort": [
-                "65+",
-                "55-64",
-                "45-54",
-                "35-44",
-                "25-34",
-                "18-24",
-                "15-17"
-              ]
-            },
-            "x": {
-              "field": "rate_n",
-              "type": "quantitative",
-              "scale": {
-                "domain": [
-                  0,
-                  1
-                ],
-                "reverse": true
-              }
-            },
-            "text": {
-              "field": "rate_n",
-              "type": "quantitative",
-              "format": ".1%"
-            }
+            "text": {"field": "rate", "type": "quantitative", "format": ".1%"}
           }
         }
       ]
     },
     {
+      "title": {"text": "Age", "anchor": "middle", "fontSize": 14, "color": "#555", "offset": 6},
       "width": 50,
-      "height": {
-        "step": 38
-      },
-      "title": {
-        "text": "Age",
-        "anchor": "middle",
-        "fontSize": 14,
-        "color": "#555",
-        "offset": 6
-      },
-      "transform": [
-        {
-          "filter": "datum.gender === 'Male'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "fontSize": 14,
-        "color": "#333",
-        "align": "center"
-      },
+      "height": {"step": 38},
+      "transform": [{"filter": "datum.gender === 'Male'"}],
+      "mark": {"type": "text", "fontSize": 14, "color": "#333", "align": "center"},
       "encoding": {
-        "y": {
-          "field": "age_group",
-          "type": "nominal",
-          "sort": [
-            "65+",
-            "55-64",
-            "45-54",
-            "35-44",
-            "25-34",
-            "18-24",
-            "15-17"
-          ],
-          "axis": null
-        },
-        "text": {
-          "field": "age_group",
-          "type": "nominal"
-        }
+        "y": {"field": "age_group", "type": "nominal", "sort": "descending", "axis": null},
+        "text": {"field": "age_group", "type": "nominal"}
       }
     },
     {
-      "title": {
-        "text": "Females",
-        "anchor": "middle",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "color": "#b5457b",
-        "offset": 6
-      },
+      "title": {"text": "Females", "anchor": "middle", "fontSize": 14, "fontWeight": "bold", "color": "#b5457b", "offset": 6},
       "width": 350,
-      "height": {
-        "step": 38
-      },
-      "transform": [
-        {
-          "filter": "datum.gender === 'Female'"
-        },
-        {
-          "calculate": "toNumber(datum.rate)",
-          "as": "rate_n"
-        },
-        {
-          "calculate": "toNumber(datum.adults)",
-          "as": "adults_n"
+      "height": {"step": 38},
+      "transform": [{"filter": "datum.gender === 'Female'"}],
+      "encoding": {
+        "y": {"field": "age_group", "type": "nominal", "sort": "descending", "axis": null},
+        "x": {
+          "field": "rate", "type": "quantitative",
+          "scale": {"domain": [0, 1], "reverse": false},
+          "axis": {
+            "format": "%", "values": [0, 0.25, 0.5, 0.75, 1], "grid": true,
+            "title": "% of females who took part", "labelFontSize": 12, "titleFontSize": 14
+          }
         }
-      ],
+      },
       "layer": [
         {
-          "mark": {
-            "type": "bar",
-            "color": "#b5457b",
-            "stroke": "white",
-            "strokeWidth": 1
-          },
+          "mark": {"type": "bar", "color": "#b5457b", "stroke": "white", "strokeWidth": 1},
           "encoding": {
-            "y": {
-              "field": "age_group",
-              "type": "nominal",
-              "sort": [
-                "65+",
-                "55-64",
-                "45-54",
-                "35-44",
-                "25-34",
-                "18-24",
-                "15-17"
-              ],
-              "axis": null
-            },
-            "x": {
-              "field": "rate_n",
-              "type": "quantitative",
-              "scale": {
-                "domain": [
-                  0,
-                  1
-                ],
-                "reverse": false
-              },
-              "axis": {
-                "format": "%",
-                "values": [
-                  0,
-                  0.25,
-                  0.5,
-                  0.75,
-                  1
-                ],
-                "grid": false,
-                "title": "% of females who took part",
-                "labelFontSize": 12,
-                "titleFontSize": 14
-              }
-            },
             "tooltip": [
-              {
-                "field": "age_group",
-                "type": "nominal",
-                "title": "Age group"
-              },
-              {
-                "field": "rate_n",
-                "type": "quantitative",
-                "title": "Took part at least once a year",
-                "format": ".1%"
-              },
-              {
-                "field": "adults_n",
-                "type": "quantitative",
-                "title": "Estimated adults",
-                "format": "~s"
-              }
+              {"field": "age_group", "type": "nominal", "title": "Age group"},
+              {"field": "rate", "type": "quantitative", "title": "Took part at least once a year", "format": ".1%"},
+              {"field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s"}
             ]
           }
         },
         {
-          "mark": {
-            "type": "text",
-            "color": "white",
-            "fontWeight": "bold",
-            "fontSize": 11,
-            "align": "right",
-            "dx": -6
-          },
+          "mark": {"type": "text", "color": "white", "fontWeight": "bold", "fontSize": 11, "align": "right", "dx": -6},
           "encoding": {
-            "y": {
-              "field": "age_group",
-              "type": "nominal",
-              "sort": [
-                "65+",
-                "55-64",
-                "45-54",
-                "35-44",
-                "25-34",
-                "18-24",
-                "15-17"
-              ]
-            },
-            "x": {
-              "field": "rate_n",
-              "type": "quantitative",
-              "scale": {
-                "domain": [
-                  0,
-                  1
-                ],
-                "reverse": false
-              }
-            },
-            "text": {
-              "field": "rate_n",
-              "type": "quantitative",
-              "format": ".1%"
-            }
+            "text": {"field": "rate", "type": "quantitative", "format": ".1%"}
           }
         }
       ]
@@ -339,13 +96,7 @@
   ],
   "config": {
     "font": "Inter, Helvetica, Arial, sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelColor": "#333",
-      "titleColor": "#555",
-      "titleFontWeight": "normal"
-    }
+    "view": {"stroke": null},
+    "axis": {"labelColor": "#333", "titleColor": "#555", "titleFontWeight": "normal"}
   }
 }
