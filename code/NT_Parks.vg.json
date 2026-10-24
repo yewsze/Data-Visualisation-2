@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 600,
+  "title": "National Parks of the Northern Territory",
+  "projection": {"type": "mercator", "scale": 2000, "center": [133, -19]},
+  "background": "#f4f7f9",
+  "layer": [
+    {
+      "data": {
+        "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
+        "format": { "type": "topojson", "feature": "STE_2021_AUST_GDA94" }
+      },
+      "transform": [{"filter": "datum.properties.STE_NAME21 != 'Northern Territory'"}],
+      "mark": {"type": "geoshape", "fill": "#e3e6e1", "stroke": "#cfd4cc", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/states/nt/topojson/simplified/LGA_2023_NT_GDA2020.json",
+        "format": {"type": "topojson", "feature": "LGA_2023_AUST_GDA2020"}
+      },
+      "mark": {"type": "geoshape", "fill": "#eef1ec", "stroke": "#9aa394", "strokeWidth": 0.8}
+    },
+    {
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/NT_parks.csv"},
+      "mark": {"type": "circle", "size": 70, "opacity": 0.9, "stroke": "white", "strokeWidth": 0.8},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "color": {
+          "field": "NT_region",
+          "type": "nominal",
+          "title": "Region",
+          "scale": {"scheme": "tableau10"},
+          "legend": {"orient": "bottom-right"}
+        },
+        "tooltip": [
+          {"field": "park_name", "type": "nominal", "title": "Park"},
+          {"field": "NT_region", "type": "nominal", "title": "Region"},
+          {"field": "management_authority", "type": "nominal", "title": "Managed by"}
+        ]
+      }
+    }
+  ]
+}
