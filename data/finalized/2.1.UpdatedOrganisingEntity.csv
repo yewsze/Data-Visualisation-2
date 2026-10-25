@@ -1,21 +1,99 @@
-﻿"activity","organisation_type","value"
-"Bush walking","Organised Activity","247862"
-"Canoeing/Kayaking","Organised Activity","37027"
-"Cycling","Organised Activity","104698"
-"Equestrian","Organised Activity","47756"
-"Rowing","Organised Activity","37936"
-"Running/jogging","Organised Activity","448036"
-"Sailing","Organised Activity","33059"
-"Surfing","Organised Activity","20909"
-"Swimming","Organised Activity","315056"
-"Walking (Recreational)","Organised Activity","261112"
-"Bush walking","Informal Activity","103509"
-"Canoeing/Kayaking","Informal Activity","21511"
-"Cycling","Informal Activity","63857"
-"Equestrian","Informal Activity","17937"
-"Rowing","Informal Activity","9341"
-"Running/jogging","Informal Activity","219308"
-"Sailing","Informal Activity","3264"
-"Surfing","Informal Activity","13258"
-"Swimming","Informal Activity","251098"
-"Walking (Recreational)","Informal Activity","115420"
+﻿age,group,way,participants,rate
+15-17,Informal,Informally by myself,692486,0.6862
+15-17,Informal,Informally with family and friends,646091,0.6402
+15-17,Organised,Sports club or association,276976,0.2744
+15-17,Organised,Gym/fitness club/sports/ leisure centre,103602,0.1027
+15-17,Organised,Private or commercial business,93077,0.0922
+15-17,Organised,Community organisation,114386,0.1133
+15-17,Organised,Individual personal trainer or coach,89694,0.0889
+15-17,Organised,"Event (e.g. marathon, parkrun)",104407,0.1035
+15-17,Organised,Recreation club or association,82929,0.0822
+15-17,Organised,Less formal group (e.g. social group),61600,0.061
+15-17,Organised,Work,34145,0.0338
+15-17,Organised,Educational institution,305510,0.3027
+15-17,Other,Other,8537,0.0085
+15-17,Other,Don't know,30811,0.0305
+18-24,Informal,Informally by myself,1772605,0.7153
+18-24,Informal,Informally with family and friends,1533971,0.619
+18-24,Organised,Sports club or association,537187,0.2168
+18-24,Organised,Gym/fitness club/sports/ leisure centre,354410,0.143
+18-24,Organised,Private or commercial business,311921,0.1259
+18-24,Organised,Community organisation,268669,0.1084
+18-24,Organised,Individual personal trainer or coach,246311,0.0994
+18-24,Organised,"Event (e.g. marathon, parkrun)",245080,0.0989
+18-24,Organised,Recreation club or association,266813,0.1077
+18-24,Organised,Less formal group (e.g. social group),160133,0.0646
+18-24,Organised,Work,183676,0.0741
+18-24,Organised,Educational institution,286815,0.1157
+18-24,Other,Other,11030,0.0045
+18-24,Other,Don't know,41078,0.0166
+25-34,Informal,Informally by myself,2988362,0.7343
+25-34,Informal,Informally with family and friends,2319410,0.5699
+25-34,Organised,Sports club or association,652889,0.1604
+25-34,Organised,Gym/fitness club/sports/ leisure centre,673339,0.1655
+25-34,Organised,Private or commercial business,618345,0.1519
+25-34,Organised,Community organisation,388252,0.0954
+25-34,Organised,Individual personal trainer or coach,379525,0.0933
+25-34,Organised,"Event (e.g. marathon, parkrun)",447279,0.1099
+25-34,Organised,Recreation club or association,352361,0.0866
+25-34,Organised,Less formal group (e.g. social group),205919,0.0506
+25-34,Organised,Work,334786,0.0823
+25-34,Organised,Educational institution,183818,0.0452
+25-34,Other,Other,44312,0.0109
+25-34,Other,Don't know,55773,0.0137
+35-44,Informal,Informally by myself,2801933,0.7216
+35-44,Informal,Informally with family and friends,2010459,0.5178
+35-44,Organised,Sports club or association,470281,0.1211
+35-44,Organised,Gym/fitness club/sports/ leisure centre,504076,0.1298
+35-44,Organised,Private or commercial business,495241,0.1275
+35-44,Organised,Community organisation,252889,0.0651
+35-44,Organised,Individual personal trainer or coach,270527,0.0697
+35-44,Organised,"Event (e.g. marathon, parkrun)",312140,0.0804
+35-44,Organised,Recreation club or association,224424,0.0578
+35-44,Organised,Less formal group (e.g. social group),151168,0.0389
+35-44,Organised,Work,209209,0.0539
+35-44,Organised,Educational institution,106595,0.0275
+35-44,Other,Other,33562,0.0086
+35-44,Other,Don't know,43998,0.0113
+45-54,Informal,Informally by myself,2456641,0.735
+45-54,Informal,Informally with family and friends,1736747,0.5196
+45-54,Organised,Sports club or association,353620,0.1058
+45-54,Organised,Gym/fitness club/sports/ leisure centre,343505,0.1028
+45-54,Organised,Private or commercial business,360882,0.108
+45-54,Organised,Community organisation,178404,0.0534
+45-54,Organised,Individual personal trainer or coach,196775,0.0589
+45-54,Organised,"Event (e.g. marathon, parkrun)",214122,0.0641
+45-54,Organised,Recreation club or association,147943,0.0443
+45-54,Organised,Less formal group (e.g. social group),119318,0.0357
+45-54,Organised,Work,148202,0.0443
+45-54,Organised,Educational institution,38633,0.0116
+45-54,Other,Other,48427,0.0145
+45-54,Other,Don't know,22456,0.0067
+55-64,Informal,Informally by myself,2219135,0.7179
+55-64,Informal,Informally with family and friends,1575229,0.5096
+55-64,Organised,Sports club or association,276771,0.0895
+55-64,Organised,Gym/fitness club/sports/ leisure centre,292006,0.0945
+55-64,Organised,Private or commercial business,304798,0.0986
+55-64,Organised,Community organisation,144142,0.0466
+55-64,Organised,Individual personal trainer or coach,186707,0.0604
+55-64,Organised,"Event (e.g. marathon, parkrun)",166632,0.0539
+55-64,Organised,Recreation club or association,114851,0.0372
+55-64,Organised,Less formal group (e.g. social group),140541,0.0455
+55-64,Organised,Work,69789,0.0226
+55-64,Organised,Educational institution,21789,0.007
+55-64,Other,Other,82396,0.0267
+55-64,Other,Don't know,21205,0.0069
+65+,Informal,Informally by myself,2662713,0.5592
+65+,Informal,Informally with family and friends,1739290,0.3653
+65+,Organised,Sports club or association,365047,0.0767
+65+,Organised,Gym/fitness club/sports/ leisure centre,383733,0.0806
+65+,Organised,Private or commercial business,268212,0.0563
+65+,Organised,Community organisation,279237,0.0586
+65+,Organised,Individual personal trainer or coach,216456,0.0455
+65+,Organised,"Event (e.g. marathon, parkrun)",98847,0.0208
+65+,Organised,Recreation club or association,207095,0.0435
+65+,Organised,Less formal group (e.g. social group),184184,0.0387
+65+,Organised,Work,32431,0.0068
+65+,Organised,Educational institution,11394,0.0024
+65+,Other,Other,127403,0.0268
+65+,Other,Don't know,33283,0.007
