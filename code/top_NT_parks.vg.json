@@ -43,19 +43,21 @@
           "lookup": "properties.LGA_NAME23",
           "from": {
             "data": {"values": [
-              {"lga": "Darwin", "region": "Darwin & surrounds"},
-              {"lga": "Palmerston", "region": "Darwin & surrounds"},
-              {"lga": "Litchfield", "region": "Darwin & surrounds"},
-              {"lga": "Belyuen", "region": "Darwin & surrounds"},
-              {"lga": "Coomalie", "region": "Darwin & surrounds"},
-              {"lga": "Wagait", "region": "Darwin & surrounds"},
+              {"lga": "Darwin", "region": "Darwin"},
+              {"lga": "Palmerston", "region": "Darwin"},
+              {"lga": "Litchfield", "region": "Darwin"},
+              {"lga": "Belyuen", "region": "Darwin"},
+              {"lga": "Coomalie", "region": "Darwin"},
+              {"lga": "Wagait", "region": "Darwin"},
+              {"lga": "Tiwi Islands", "region": "Darwin"},
               {"lga": "West Arnhem", "region": "Arnhem"},
               {"lga": "East Arnhem", "region": "Arnhem"},
+              {"lga": "Groote Archipelago", "region": "Arnhem"},
               {"lga": "Katherine", "region": "Katherine"},
               {"lga": "Victoria Daly", "region": "Katherine"},
               {"lga": "West Daly", "region": "Katherine"},
               {"lga": "Roper Gulf", "region": "Katherine"},
-              {"lga": "Barkly", "region": "Barkly"},
+              {"lga": "Barkly", "region": "Barkly/Tennant Creek"},
               {"lga": "Alice Springs", "region": "Alice Springs & Central Australia"},
               {"lga": "MacDonnell", "region": "Alice Springs & Central Australia"},
               {"lga": "Central Desert", "region": "Alice Springs & Central Australia"}
@@ -69,14 +71,19 @@
   "mark": {"type": "geoshape", "stroke": "#9aa394", "strokeWidth": 0.8},
   "encoding": {
     "color": {
-    "field": "region", "type": "nominal", "title": "Region",
-    "scale": {
-      "domain": ["Darwin & surrounds", "Arnhem", "Katherine", "Barkly", "Alice Springs & Central Australia", "Unincorporated land"],
-      "range": ["#afd5f0", "#f2e6c9", "#efd9dd", "#e2dcef", "#f0dcc4", "#e3e6e1"]
+      "condition": {"test": "datum.region == null", "value": "#c9ccc4"},
+      "field": "region", "type": "nominal", "title": "Region",
+      "scale": {
+        "domain": ["Darwin", "Arnhem", "Katherine", "Barkly/Tennant Creek", "Alice Springs & Central Australia", "Unincorporated land"],
+        "range": ["#d9e6f0", "#f2e6c9", "#efd9dd", "#e2dcef", "#f0dcc4","#e3e6e1"]
+      },
+      "legend": {"orient": "right", "title": "Region"}
     },
-    "legend": {"orient": "right", "title": "Region"}
-      }
-    }
+    "tooltip": [
+      {"field": "properties.LGA_NAME23", "type": "nominal", "title": "LGA"},
+      {"field": "region", "type": "nominal", "title": "Region"}
+    ]
+  }
   }, 
     {
       "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/top_NT_parks.csv"},
