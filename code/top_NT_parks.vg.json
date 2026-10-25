@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 600,
+  "title": {
+    "text": "Most Visited Parks and Reserves in the Northern Territory, 2024-25",
+    "subtitle": "NT Government-managed parks only. Excludes Commonwealth-managed Kakadu and Uluru-Kata Tjuta."
+  },
+  "background": "#f4f7f9",
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 2000,
+      "bind": {"input": "range", "min": 2000, "max": 60000, "step": 100, "name": "Zoom: "}
+    },
+    {
+      "name": "focus",
+      "value": "Whole NT",
+      "bind": {"input": "select", "options": ["Whole NT", "Darwin", "Katherine", "Alice Springs"], "name": "Focus: "}
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "scale": {"expr": "zoom_level"},
+    "center": {"expr": "focus == 'Darwin' ? [130.95, -12.7] : focus == 'Katherine' ? [132.5, -14.5] : focus == 'Alice Springs' ? [133, -24] : [133, -19]"}
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
+        "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA94"}
+      },
+      "transform": [{"filter": "datum.properties.STE_NAME21 != 'Northern Territory'"}],
+      "mark": {"type": "geoshape", "fill": "#e3e6e1", "stroke": "#cfd4cc", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/states/nt/topojson/simplified/LGA_2023_NT_GDA2020.json",
+        "format": {"type": "topojson", "feature": "LGA_2023_AUST_GDA2020"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.LGA_NAME23",
+          "from": {
+            "data": {"values": [
+              {"lga": "Darwin", "region": "Darwin & surrounds"},
+              {"lga": "Palmerston", "region": "Darwin & surrounds"},
+              {"lga": "Litchfield", "region": "Darwin & surrounds"},
+              {"lga": "Belyuen", "region": "Darwin & surrounds"},
+              {"lga": "Coomalie", "region": "Darwin & surrounds"},
+              {"lga": "Wagait", "region": "Darwin & surrounds"},
+              {"lga": "West Arnhem", "region": "Arnhem"},
+              {"lga": "East Arnhem", "region": "Arnhem"},
+              {"lga": "Katherine", "region": "Katherine"},
+              {"lga": "Victoria Daly", "region": "Katherine"},
+              {"lga": "West Daly", "region": "Katherine"},
+              {"lga": "Roper Gulf", "region": "Katherine"},
+              {"lga": "Barkly", "region": "Barkly"},
+              {"lga": "Alice Springs", "region": "Alice Springs & Central Australia"},
+              {"lga": "MacDonnell", "region": "Alice Springs & Central Australia"},
+              {"lga": "Central Desert", "region": "Alice Springs & Central Australia"}
+            ]},
+            "key": "lga",
+            "fields": ["region"]
+          },
+          "default": "Unincorporated land"
+        }
+      ],
+  "mark": {"type": "geoshape", "stroke": "#9aa394", "strokeWidth": 0.8},
+  "encoding": {
+    "color": {
+    "field": "region", "type": "nominal", "title": "Region",
+    "scale": {
+      "domain": ["Darwin & surrounds", "Arnhem", "Katherine", "Barkly", "Alice Springs & Central Australia", "Unincorporated land"],
+      "range": ["#afd5f0", "#f2e6c9", "#efd9dd", "#e2dcef", "#f0dcc4", "#e3e6e1"]
+    },
+    "legend": {"orient": "right", "title": "Region"}
+      }
+    }
+  }, 
+    {
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/top_NT_parks.csv"},
+      "mark": {"type": "circle", "color": "#2e7d32", "opacity": 0.65, "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "visitors", "type": "quantitative", "title": "Visitors",
+          "scale": {"domain": [0, 1500000], "range": [0, 3500]},
+          "legend": {"orient": "right", "format": ",.0f"}
+        },
+        "order": {"field": "visitors", "type": "quantitative", "sort": "descending"},
+        "tooltip": [
+          {"field": "parks", "title": "Park"},
+          {"field": "visitors", "title": "Visitors", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/top_NT_parks.csv"},
+      "mark": {"type": "text", "align": "left", "dx": 9, "fontSize": 9, "color": "#333",
+               "opacity": {"expr": "zoom_level > 12000 ? 1 : 0"}},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "parks", "type": "nominal"}
+      }
+    }
+  ]
+}
