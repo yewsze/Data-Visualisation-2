@@ -1,0 +1,135 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Tourism output from sports and recreation services, Australia, 2016-17 to 2024-25 (ABS Tourism Satellite Account 2024-25, Table 3.1)",
+  "width": "container",
+  "height": 340,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "title": {
+    "text": "Sport and Recreation Tourism Bounced Back and Kept Growing",
+    "subtitle": "Tourism output from sports and recreation services, Australia, current prices",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#555555",
+    "offset": 12
+  },
+  "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/6.Tourism.csv"},
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 11,
+        "labelExpr": "replace(datum.label, '-', '-')",
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "description": "Soft area under the line",
+      "mark": {"type": "area", "color": "#2A7F62", "opacity": 0.12},
+      "encoding": {
+        "y": {
+          "field": "output_billion",
+          "type": "quantitative",
+          "scale": {"domain": [0, 5]},
+          "title": "Tourism output ($ billion)",
+          "axis": {
+            "labelExpr": "'$' + format(datum.value, '.0f') + 'b'",
+            "tickCount": 5,
+            "gridColor": "#E6E6E6",
+            "domain": false,
+            "ticks": false
+          }
+        }
+      }
+    },
+    {
+      "description": "Main line",
+      "mark": {"type": "line", "color": "#2A7F62", "strokeWidth": 3},
+      "encoding": {
+        "y": {"field": "output_billion", "type": "quantitative"}
+      }
+    },
+    {
+      "description": "Points (all years)",
+      "mark": {"type": "point", "filled": true, "color": "#2A7F62", "size": 70, "opacity": 1},
+      "encoding": {
+        "y": {"field": "output_billion", "type": "quantitative"}
+      }
+    },
+    {
+      "description": "Pandemic low point",
+      "transform": [{"filter": "datum.year === '2020-21'"}],
+      "mark": {"type": "point", "filled": true, "color": "#C0562B", "size": 150, "opacity": 1},
+      "encoding": {
+        "y": {"field": "output_billion", "type": "quantitative"}
+      }
+    },
+    {
+      "description": "Value labels above points (not the low or the latest year)",
+      "transform": [{"filter": "datum.year !== '2020-21' && datum.year !== '2024-25'"}],
+      "mark": {"type": "text", "dy": -14, "fontSize": 11, "color": "#333333"},
+      "encoding": {
+        "y": {"field": "output_billion", "type": "quantitative"},
+        "text": {"field": "output_billion", "type": "quantitative", "format": "$.2f"}
+      }
+    },
+    {
+      "description": "Low-point label below the point",
+      "transform": [{"filter": "datum.year === '2020-21'"}],
+      "mark": {"type": "text", "dy": 20, "fontSize": 12, "fontWeight": "bold", "color": "#C0562B"},
+      "encoding": {
+        "y": {"field": "output_billion", "type": "quantitative"},
+        "text": {"field": "output_billion", "type": "quantitative", "format": "$.2f"}
+      }
+    },
+    {
+      "description": "Latest-year label",
+      "transform": [{"filter": "datum.year === '2024-25'"}],
+      "mark": {"type": "text", "dy": -16, "fontSize": 14, "fontWeight": "bold", "color": "#1F5E48"},
+      "encoding": {
+        "y": {"field": "output_billion", "type": "quantitative"},
+        "text": {"field": "output_billion", "type": "quantitative", "format": "$.2f"}
+      }
+    },
+    {
+      "description": "Annotation leader line pointing down to the pandemic low",
+      "data": {"values": [{"year": "2020-21", "y1": 2.15, "y2": 3.05}]},
+      "mark": {"type": "rule", "color": "#C0562B", "strokeWidth": 1.5, "strokeDash": [4, 3]},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "y1", "type": "quantitative"},
+        "y2": {"field": "y2"}
+      }
+    },
+    {
+      "description": "Annotation heading",
+      "data": {"values": [{"year": "2020-21", "y": 3.75}]},
+      "mark": {"type": "text", "baseline": "bottom", "fontSize": 13, "fontWeight": "bold", "color": "#C0562B"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"value": "2020-21: sudden drop"}
+      }
+    },
+    {
+      "description": "Annotation body",
+      "data": {"values": [{"year": "2020-21", "y": 3.7}]},
+      "mark": {"type": "text", "baseline": "top", "fontSize": 11.5, "lineHeight": 15, "color": "#555555"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"value": ["COVID-19 travel restrictions", "25% below 2018-19 output"]}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"titleFontSize": 12, "titleColor": "#444444", "labelColor": "#444444"}
+  }
+}
