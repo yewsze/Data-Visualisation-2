@@ -1,0 +1,64 @@
+age_group,place,rate
+15-17,Public space,0.58918
+15-17,Home,0.43257
+15-17,Gym / leisure centre,0.35186
+15-17,Free community facilities,0.37598
+15-17,Sports club facilities,0.33444
+15-17,Private / commercial premises,0.17436
+15-17,Recreation club facilities,0.15508
+15-17,Educational institution,0.36441
+15-17,Workplace,0.0645
+18-24,Public space,0.58735
+18-24,Home,0.35996
+18-24,Gym / leisure centre,0.44484
+18-24,Free community facilities,0.3149
+18-24,Sports club facilities,0.28496
+18-24,Private / commercial premises,0.21626
+18-24,Recreation club facilities,0.15094
+18-24,Educational institution,0.17248
+18-24,Workplace,0.09187
+25-34,Public space,0.61301
+25-34,Home,0.33814
+25-34,Gym / leisure centre,0.42682
+25-34,Free community facilities,0.29602
+25-34,Sports club facilities,0.23367
+25-34,Private / commercial premises,0.21619
+25-34,Recreation club facilities,0.13042
+25-34,Educational institution,0.07693
+25-34,Workplace,0.10303
+35-44,Public space,0.62622
+35-44,Home,0.31594
+35-44,Gym / leisure centre,0.34014
+35-44,Free community facilities,0.23293
+35-44,Sports club facilities,0.18894
+35-44,Private / commercial premises,0.18456
+35-44,Recreation club facilities,0.08343
+35-44,Educational institution,0.04313
+35-44,Workplace,0.0775
+45-54,Public space,0.67561
+45-54,Home,0.30155
+45-54,Gym / leisure centre,0.27759
+45-54,Free community facilities,0.18337
+45-54,Sports club facilities,0.15341
+45-54,Private / commercial premises,0.15746
+45-54,Recreation club facilities,0.07277
+45-54,Educational institution,0.0283
+45-54,Workplace,0.07203
+55-64,Public space,0.71511
+55-64,Home,0.27903
+55-64,Gym / leisure centre,0.22996
+55-64,Free community facilities,0.14166
+55-64,Sports club facilities,0.13579
+55-64,Private / commercial premises,0.13457
+55-64,Recreation club facilities,0.05533
+55-64,Educational institution,0.01324
+55-64,Workplace,0.05131
+65+,Public space,0.56216
+65+,Home,0.1964
+65+,Gym / leisure centre,0.15927
+65+,Free community facilities,0.0893
+65+,Sports club facilities,0.10784
+65+,Private / commercial premises,0.0888
+65+,Recreation club facilities,0.0661
+65+,Educational institution,0.00705
+65+,Workplace,0.01283
