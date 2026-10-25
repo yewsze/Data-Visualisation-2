@@ -1,68 +1,1831 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Alluvial: age group -> informal/organised -> way of taking part (AusPlay National Table 4, Jan-Dec 2025, adults, all genders). Layout computed in Vega.",
+  "width": 900,
+  "height": 600,
+  "padding": {
+    "left": 10,
+    "right": 100,
+    "top": 140,
+    "bottom": 20
+  },
+  "autosize": "none",
   "title": {
-    "text": "Structured Channels in Top 10 Outdoor Recreational Activities",
-    "subtitle": "Comparing by Organised and Unorganised Participation, 2025",
-    "anchor": "start"
+    "text": "How Australians take part, by age",
+    "subtitle": [
+      "Labels show each box's share of all ways of taking part. Hover a ribbon for the % of adults in that age group.",
+      "People can choose more than one way, so shares count ways, not unique people. Hover an age group or a way to highlight."
+    ],
+    "anchor": "start",
+    "frame": "group",
+    "offset": 16,
+    "fontSize": 20,
+    "subtitleFontSize": 11,
+    "subtitleColor": "#555"
   },
-
-  "width": 550,
-  "height": {"step": 40},
-
-  "data": {
-    "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/2.1.UpdatedOrganisingEntity.csv"
-  },
-
-  "transform": [
+  "signals": [
     {
-      "calculate": "datum['\ufeff\"activity\"'] || datum['\ufeffactivity'] || datum['activity']",
-      "as": "activity_name"
+      "name": "chartH",
+      "value": 600
+    },
+    {
+      "name": "nodeGap",
+      "value": 8
+    },
+    {
+      "name": "ageW",
+      "value": 64
+    },
+    {
+      "name": "groupW",
+      "value": 150
+    },
+    {
+      "name": "wayW",
+      "value": 280
+    },
+    {
+      "name": "minH",
+      "value": 10
+    },
+    {
+      "name": "xAge",
+      "value": 0
+    },
+    {
+      "name": "xGroup",
+      "value": 300
+    },
+    {
+      "name": "xWay",
+      "value": 620
+    },
+    {
+      "name": "totalAll",
+      "update": "length(data('totals')) ? data('totals')[0].total : 1"
+    },
+    {
+      "name": "nWays",
+      "update": "length(data('wayList'))"
+    },
+    {
+      "name": "pxPer",
+      "update": "(chartH - nodeGap*(max(7, nWays)-1)) / totalAll"
+    },
+    {
+      "name": "hoverAge",
+      "value": null,
+      "on": [
+        {
+          "events": "@ageNode:mouseover, @link1:mouseover, @link2:mouseover",
+          "update": "datum.age"
+        },
+        {
+          "events": "@ageNode:mouseout, @link1:mouseout, @link2:mouseout",
+          "update": "null"
+        }
+      ]
+    },
+    {
+      "name": "hoverWay",
+      "value": null,
+      "on": [
+        {
+          "events": "@wayNode:mouseover",
+          "update": "datum.way"
+        },
+        {
+          "events": "@wayNode:mouseout",
+          "update": "null"
+        }
+      ]
     }
   ],
-
-  "mark": {
-    "type": "bar"
-  },
-
-  "encoding": {
-    "y": {
-      "field": "activity_name",
-      "type": "nominal",
-      "title": null,
-      "axis": {"labelLimit": 220, "labelFontSize": 12}
+  "data": [
+    {
+      "name": "raw",
+      "transform": [
+        {
+          "type": "formula",
+          "as": "aidx",
+          "expr": "indexof(['15-17','18-24','25-34','35-44','45-54','55-64','65+'], datum.age)"
+        },
+        {
+          "type": "formula",
+          "as": "gidx",
+          "expr": "indexof(['Informal','Organised','Other'], datum.group)"
+        }
+      ],
+      "values": [
+        {
+          "age": "15-17",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 692486.0,
+          "rate": 0.6862
+        },
+        {
+          "age": "15-17",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 646091.0,
+          "rate": 0.6402
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 276976.0,
+          "rate": 0.2744
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 103602.0,
+          "rate": 0.1027
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 93077.0,
+          "rate": 0.0922
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 114386.0,
+          "rate": 0.1133
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 89694.0,
+          "rate": 0.0889
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 104407.0,
+          "rate": 0.1035
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 82929.0,
+          "rate": 0.0822
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 61600.0,
+          "rate": 0.061
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 34145.0,
+          "rate": 0.0338
+        },
+        {
+          "age": "15-17",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 305510.0,
+          "rate": 0.3027
+        },
+        {
+          "age": "15-17",
+          "group": "Other",
+          "way": "Other",
+          "participants": 8537.0,
+          "rate": 0.0085
+        },
+        {
+          "age": "15-17",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 30811.0,
+          "rate": 0.0305
+        },
+        {
+          "age": "18-24",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 1772605.0,
+          "rate": 0.7153
+        },
+        {
+          "age": "18-24",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 1533971.0,
+          "rate": 0.619
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 537187.0,
+          "rate": 0.2168
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 354410.0,
+          "rate": 0.143
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 311921.0,
+          "rate": 0.1259
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 268669.0,
+          "rate": 0.1084
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 246311.0,
+          "rate": 0.0994
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 245080.0,
+          "rate": 0.0989
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 266813.0,
+          "rate": 0.1077
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 160133.0,
+          "rate": 0.0646
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 183676.0,
+          "rate": 0.0741
+        },
+        {
+          "age": "18-24",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 286815.0,
+          "rate": 0.1157
+        },
+        {
+          "age": "18-24",
+          "group": "Other",
+          "way": "Other",
+          "participants": 11030.0,
+          "rate": 0.0045
+        },
+        {
+          "age": "18-24",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 41078.0,
+          "rate": 0.0166
+        },
+        {
+          "age": "25-34",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 2988362.0,
+          "rate": 0.7343
+        },
+        {
+          "age": "25-34",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 2319410.0,
+          "rate": 0.5699
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 652889.0,
+          "rate": 0.1604
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 673339.0,
+          "rate": 0.1655
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 618345.0,
+          "rate": 0.1519
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 388252.0,
+          "rate": 0.0954
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 379525.0,
+          "rate": 0.0933
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 447279.0,
+          "rate": 0.1099
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 352361.0,
+          "rate": 0.0866
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 205919.0,
+          "rate": 0.0506
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 334786.0,
+          "rate": 0.0823
+        },
+        {
+          "age": "25-34",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 183818.0,
+          "rate": 0.0452
+        },
+        {
+          "age": "25-34",
+          "group": "Other",
+          "way": "Other",
+          "participants": 44312.0,
+          "rate": 0.0109
+        },
+        {
+          "age": "25-34",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 55773.0,
+          "rate": 0.0137
+        },
+        {
+          "age": "35-44",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 2801933.0,
+          "rate": 0.7216
+        },
+        {
+          "age": "35-44",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 2010459.0,
+          "rate": 0.5178
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 470281.0,
+          "rate": 0.1211
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 504076.0,
+          "rate": 0.1298
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 495241.0,
+          "rate": 0.1275
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 252889.0,
+          "rate": 0.0651
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 270527.0,
+          "rate": 0.0697
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 312140.0,
+          "rate": 0.0804
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 224424.0,
+          "rate": 0.0578
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 151168.0,
+          "rate": 0.0389
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 209209.0,
+          "rate": 0.0539
+        },
+        {
+          "age": "35-44",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 106595.0,
+          "rate": 0.0275
+        },
+        {
+          "age": "35-44",
+          "group": "Other",
+          "way": "Other",
+          "participants": 33562.0,
+          "rate": 0.0086
+        },
+        {
+          "age": "35-44",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 43998.0,
+          "rate": 0.0113
+        },
+        {
+          "age": "45-54",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 2456641.0,
+          "rate": 0.735
+        },
+        {
+          "age": "45-54",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 1736747.0,
+          "rate": 0.5196
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 353620.0,
+          "rate": 0.1058
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 343505.0,
+          "rate": 0.1028
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 360882.0,
+          "rate": 0.108
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 178404.0,
+          "rate": 0.0534
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 196775.0,
+          "rate": 0.0589
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 214122.0,
+          "rate": 0.0641
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 147943.0,
+          "rate": 0.0443
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 119318.0,
+          "rate": 0.0357
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 148202.0,
+          "rate": 0.0443
+        },
+        {
+          "age": "45-54",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 38633.0,
+          "rate": 0.0116
+        },
+        {
+          "age": "45-54",
+          "group": "Other",
+          "way": "Other",
+          "participants": 48427.0,
+          "rate": 0.0145
+        },
+        {
+          "age": "45-54",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 22456.0,
+          "rate": 0.0067
+        },
+        {
+          "age": "55-64",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 2219135.0,
+          "rate": 0.7179
+        },
+        {
+          "age": "55-64",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 1575229.0,
+          "rate": 0.5096
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 276771.0,
+          "rate": 0.0895
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 292006.0,
+          "rate": 0.0945
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 304798.0,
+          "rate": 0.0986
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 144142.0,
+          "rate": 0.0466
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 186707.0,
+          "rate": 0.0604
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 166632.0,
+          "rate": 0.0539
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 114851.0,
+          "rate": 0.0372
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 140541.0,
+          "rate": 0.0455
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 69789.0,
+          "rate": 0.0226
+        },
+        {
+          "age": "55-64",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 21789.0,
+          "rate": 0.007
+        },
+        {
+          "age": "55-64",
+          "group": "Other",
+          "way": "Other",
+          "participants": 82396.0,
+          "rate": 0.0267
+        },
+        {
+          "age": "55-64",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 21205.0,
+          "rate": 0.0069
+        },
+        {
+          "age": "65+",
+          "group": "Informal",
+          "way": "Informally by myself",
+          "participants": 2662713.0,
+          "rate": 0.5592
+        },
+        {
+          "age": "65+",
+          "group": "Informal",
+          "way": "Informally with family and friends",
+          "participants": 1739290.0,
+          "rate": 0.3653
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Sports club or association",
+          "participants": 365047.0,
+          "rate": 0.0767
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Gym/fitness club/sports/ leisure centre",
+          "participants": 383733.0,
+          "rate": 0.0806
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Private or commercial business",
+          "participants": 268212.0,
+          "rate": 0.0563
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Community organisation",
+          "participants": 279237.0,
+          "rate": 0.0586
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Individual personal trainer or coach",
+          "participants": 216456.0,
+          "rate": 0.0455
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Event (e.g. marathon, parkrun)",
+          "participants": 98847.0,
+          "rate": 0.0208
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Recreation club or association",
+          "participants": 207095.0,
+          "rate": 0.0435
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Less formal group (e.g. social group)",
+          "participants": 184184.0,
+          "rate": 0.0387
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Work",
+          "participants": 32431.0,
+          "rate": 0.0068
+        },
+        {
+          "age": "65+",
+          "group": "Organised",
+          "way": "Educational institution",
+          "participants": 11394.0,
+          "rate": 0.0024
+        },
+        {
+          "age": "65+",
+          "group": "Other",
+          "way": "Other",
+          "participants": 127403.0,
+          "rate": 0.0268
+        },
+        {
+          "age": "65+",
+          "group": "Other",
+          "way": "Don't know",
+          "participants": 33283.0,
+          "rate": 0.007
+        }
+      ]
     },
-    "yOffset": {
-      "field": "organisation_type"
+    {
+      "name": "rawF",
+      "source": "raw",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.group !== 'Other'"
+        }
+      ]
     },
-    "x": {
-      "field": "value",
-      "type": "quantitative",
-      "title": "Participation"
+    {
+      "name": "totals",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "aggregate",
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "total"
+          ]
+        }
+      ]
     },
-    "color": {
-      "field": "organisation_type",
-      "type": "nominal",
-      "scale": {
-        "range": ["#2e7d5b", "#e9b44c"]
+    {
+      "name": "wayList",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "way"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ageNodes",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "age",
+            "aidx"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "value"
+          ]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": "aidx"
+          },
+          "ops": [
+            "row_number",
+            "sum"
+          ],
+          "fields": [
+            null,
+            "value"
+          ],
+          "as": [
+            "rank",
+            "cum"
+          ],
+          "frame": [
+            null,
+            0
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "y1u",
+          "expr": "datum.cum*pxPer + (datum.rank-1)*nodeGap"
+        },
+        {
+          "type": "joinaggregate",
+          "fields": [
+            "y1u"
+          ],
+          "ops": [
+            "max"
+          ],
+          "as": [
+            "colH"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "y0",
+          "expr": "datum.y1u - datum.value*pxPer + (chartH - datum.colH)/2"
+        },
+        {
+          "type": "formula",
+          "as": "y1",
+          "expr": "datum.y0 + datum.value*pxPer"
+        }
+      ]
+    },
+    {
+      "name": "groupNodes",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "group",
+            "gidx"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "value"
+          ]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": "gidx"
+          },
+          "ops": [
+            "row_number",
+            "sum"
+          ],
+          "fields": [
+            null,
+            "value"
+          ],
+          "as": [
+            "rank",
+            "cum"
+          ],
+          "frame": [
+            null,
+            0
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "y1u",
+          "expr": "datum.cum*pxPer + (datum.rank-1)*nodeGap"
+        },
+        {
+          "type": "joinaggregate",
+          "fields": [
+            "y1u"
+          ],
+          "ops": [
+            "max"
+          ],
+          "as": [
+            "colH"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "y0",
+          "expr": "datum.y1u - datum.value*pxPer + (chartH - datum.colH)/2"
+        },
+        {
+          "type": "formula",
+          "as": "y1",
+          "expr": "datum.y0 + datum.value*pxPer"
+        }
+      ]
+    },
+    {
+      "name": "wayNodes",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "group",
+            "gidx",
+            "way"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "value"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "negv",
+          "expr": "-datum.value"
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": [
+              "gidx",
+              "negv"
+            ],
+            "order": [
+              "ascending",
+              "ascending"
+            ]
+          },
+          "ops": [
+            "row_number",
+            "sum"
+          ],
+          "fields": [
+            null,
+            "value"
+          ],
+          "as": [
+            "rank",
+            "cum"
+          ],
+          "frame": [
+            null,
+            0
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "y1u",
+          "expr": "datum.cum*pxPer + (datum.rank-1)*nodeGap"
+        },
+        {
+          "type": "joinaggregate",
+          "fields": [
+            "y1u"
+          ],
+          "ops": [
+            "max"
+          ],
+          "as": [
+            "colH"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "y0",
+          "expr": "datum.y1u - datum.value*pxPer + (chartH - datum.colH)/2"
+        },
+        {
+          "type": "formula",
+          "as": "y1",
+          "expr": "datum.y0 + datum.value*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "lab",
+          "expr": "replace(replace(replace(datum.way,'Gym/fitness club/sports/ leisure centre','Gym / fitness / leisure centre'),'Individual personal trainer or coach','Personal trainer or coach'),'Informally with family and friends','Informally with family & friends')"
+        }
+      ]
+    },
+    {
+      "name": "groupBig",
+      "source": "groupNodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.y1 - datum.y0 >= minH"
+        }
+      ]
+    },
+    {
+      "name": "groupSmall",
+      "source": "groupNodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.y1 - datum.y0 < minH"
+        }
+      ]
+    },
+    {
+      "name": "wayBig",
+      "source": "wayNodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.y1 - datum.y0 >= minH"
+        }
+      ]
+    },
+    {
+      "name": "waySmall",
+      "source": "wayNodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.y1 - datum.y0 < minH"
+        }
+      ]
+    },
+    {
+      "name": "links1",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "age",
+            "aidx",
+            "group",
+            "gidx"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "value"
+          ]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": "gidx"
+          },
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "value"
+          ],
+          "as": [
+            "cumS"
+          ],
+          "frame": [
+            null,
+            0
+          ],
+          "groupby": [
+            "age"
+          ]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": "aidx"
+          },
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "value"
+          ],
+          "as": [
+            "cumT"
+          ],
+          "frame": [
+            null,
+            0
+          ],
+          "groupby": [
+            "group"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "ageNodes",
+          "key": "age",
+          "fields": [
+            "age"
+          ],
+          "values": [
+            "y0",
+            "value"
+          ],
+          "as": [
+            "ay0",
+            "ageTotal"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "groupNodes",
+          "key": "group",
+          "fields": [
+            "group"
+          ],
+          "values": [
+            "y0"
+          ],
+          "as": [
+            "gy0"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "sy0",
+          "expr": "datum.ay0 + (datum.cumS - datum.value)*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "ty0",
+          "expr": "datum.gy0 + (datum.cumT - datum.value)*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "h",
+          "expr": "datum.value*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "path",
+          "expr": "'M'+(xAge+ageW)+','+datum.sy0+'C'+(((xAge+ageW)+xGroup)/2)+','+datum.sy0+','+(((xAge+ageW)+xGroup)/2)+','+datum.ty0+','+xGroup+','+datum.ty0+'L'+xGroup+','+(datum.ty0+datum.h)+'C'+(((xAge+ageW)+xGroup)/2)+','+(datum.ty0+datum.h)+','+(((xAge+ageW)+xGroup)/2)+','+(datum.sy0+datum.h)+','+(xAge+ageW)+','+(datum.sy0+datum.h)+'Z'"
+        }
+      ]
+    },
+    {
+      "name": "links2",
+      "source": "rawF",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "wayNodes",
+          "key": "way",
+          "fields": [
+            "way"
+          ],
+          "values": [
+            "rank",
+            "y0"
+          ],
+          "as": [
+            "wrank",
+            "wy0"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "groupNodes",
+          "key": "group",
+          "fields": [
+            "group"
+          ],
+          "values": [
+            "y0"
+          ],
+          "as": [
+            "gy0"
+          ]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": [
+              "wrank",
+              "aidx"
+            ]
+          },
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "cumS"
+          ],
+          "frame": [
+            null,
+            0
+          ],
+          "groupby": [
+            "group"
+          ]
+        },
+        {
+          "type": "window",
+          "sort": {
+            "field": "aidx"
+          },
+          "ops": [
+            "sum"
+          ],
+          "fields": [
+            "participants"
+          ],
+          "as": [
+            "cumT"
+          ],
+          "frame": [
+            null,
+            0
+          ],
+          "groupby": [
+            "way"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "sy0",
+          "expr": "datum.gy0 + (datum.cumS - datum.participants)*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "ty0",
+          "expr": "datum.wy0 + (datum.cumT - datum.participants)*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "h",
+          "expr": "datum.participants*pxPer"
+        },
+        {
+          "type": "formula",
+          "as": "path",
+          "expr": "'M'+(xGroup+groupW)+','+datum.sy0+'C'+(((xGroup+groupW)+xWay)/2)+','+datum.sy0+','+(((xGroup+groupW)+xWay)/2)+','+datum.ty0+','+xWay+','+datum.ty0+'L'+xWay+','+(datum.ty0+datum.h)+'C'+(((xGroup+groupW)+xWay)/2)+','+(datum.ty0+datum.h)+','+(((xGroup+groupW)+xWay)/2)+','+(datum.sy0+datum.h)+','+(xGroup+groupW)+','+(datum.sy0+datum.h)+'Z'"
+        }
+      ]
+    },
+    {
+      "name": "headers",
+      "values": [
+        {
+          "x": 0,
+          "t": "Age group"
+        },
+        {
+          "x": 300,
+          "t": "Informal or organised"
+        },
+        {
+          "x": 620,
+          "t": "How they take part"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "ageColor",
+      "type": "ordinal",
+      "domain": [
+        "15-17",
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ],
+      "range": [
+        "#440154",
+        "#443983",
+        "#31688e",
+        "#21908d",
+        "#35b779",
+        "#90d743",
+        "#d9c800"
+      ]
+    },
+    {
+      "name": "groupColor",
+      "type": "ordinal",
+      "domain": [
+        "Informal",
+        "Organised",
+        "Other"
+      ],
+      "range": [
+        "#4a6fa5",
+        "#d1495b",
+        "#9a9a9a"
+      ]
+    }
+  ],
+  "legends": [
+    {
+      "fill": "ageColor",
+      "title": "Age group",
+      "orient": "none",
+      "legendX": 0,
+      "legendY": -64,
+      "direction": "horizontal",
+      "columns": 7,
+      "columnPadding": 14,
+      "symbolType": "square",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "name": "link1",
+      "from": {
+        "data": "links1"
       },
-      "legend": {
-        "orient": "right",
-        "direction": "vertical",
-        "title": "Participation type",
-        "labelFontSize": 14
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "scale": "ageColor",
+            "field": "age"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 0.3
+          },
+          "cursor": {
+            "value": "pointer"
+          },
+          "tooltip": {
+            "signal": "{'Age group': datum.age, 'Type': datum.group, 'Share of this age group\\'s ways': format(datum.value / datum.ageTotal, '.0%')}"
+          }
+        },
+        "update": {
+          "fillOpacity": {
+            "signal": "(hoverAge == null && hoverWay == null) ? 0.55 : (((hoverAge != null && datum.age == hoverAge) || (hoverWay != null && datum.way == hoverWay)) ? 0.9 : 0.06)"
+          }
+        }
       }
     },
-    "tooltip": [
-      {"field": "activity_name", "title": "Activity"},
-      {"field": "organisation_type", "title": "Type"},
-      {"field": "value", "title": "Participation", "format": ","}
-    ]
-  },
-
-  "config": {
-    "view": {
-      "stroke": null
+    {
+      "type": "path",
+      "name": "link2",
+      "from": {
+        "data": "links2"
+      },
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "scale": "ageColor",
+            "field": "age"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 0.3
+          },
+          "cursor": {
+            "value": "pointer"
+          },
+          "tooltip": {
+            "signal": "{'Age group': datum.age, 'Way': datum.way, '% of adults in this age group': format(datum.rate, '.1%')}"
+          }
+        },
+        "update": {
+          "fillOpacity": {
+            "signal": "(hoverAge == null && hoverWay == null) ? 0.55 : (((hoverAge != null && datum.age == hoverAge) || (hoverWay != null && datum.way == hoverWay)) ? 0.9 : 0.06)"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "ageNodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xAge"
+          },
+          "x2": {
+            "signal": "xAge+ageW"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "ageColor",
+            "field": "age"
+          },
+          "tooltip": {
+            "signal": "{'Age group': datum.age, 'Share of all ways': format(datum.value / totalAll, '.1%')}"
+          },
+          "cursor": {
+            "value": "pointer"
+          }
+        }
+      },
+      "name": "ageNode"
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "groupNodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xGroup"
+          },
+          "x2": {
+            "signal": "xGroup+groupW"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "groupColor",
+            "field": "group"
+          },
+          "tooltip": {
+            "signal": "{'Type': datum.group, 'Share of all ways': format(datum.value / totalAll, '.1%')}"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "wayNodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xWay"
+          },
+          "x2": {
+            "signal": "xWay+wayW"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "groupColor",
+            "field": "group"
+          },
+          "tooltip": {
+            "signal": "{'Way': datum.way, 'Share of all ways': format(datum.value / totalAll, '.1%')}"
+          },
+          "cursor": {
+            "value": "pointer"
+          }
+        }
+      },
+      "name": "wayNode"
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "ageNodes"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xAge + ageW / 2"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "text": {
+            "signal": "datum.age"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fill": {
+            "signal": "indexof(['45-54','55-64','65+'], datum.age) >= 0 ? '#222' : 'white'"
+          },
+          "fontWeight": {
+            "value": "bold"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groupBig"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xGroup + 10"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "text": {
+            "signal": "datum.group + '  ' + format(datum.value / totalAll, '.0%')"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 14
+          },
+          "fill": {
+            "value": "white"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "limit": {
+            "signal": "groupW - 14"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groupSmall"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xGroup + groupW + 6"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "text": {
+            "signal": "datum.group + '  ' + format(datum.value / totalAll, '.0%')"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#222"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 4
+          },
+          "strokeJoin": {
+            "value": "round"
+          },
+          "opacity": {
+            "value": 0.9
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groupSmall"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xGroup + groupW + 6"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "text": {
+            "signal": "datum.group + '  ' + format(datum.value / totalAll, '.0%')"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#222"
+          },
+          "fontWeight": {
+            "value": "bold"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "wayBig"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xWay + 8"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "text": {
+            "signal": "datum.lab + '  ' + format(datum.value / totalAll, '.1%')"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "white"
+          },
+          "limit": {
+            "signal": "wayW - 12"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "waySmall"
+      },
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "xWay + wayW + 6"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "text": {
+            "signal": "datum.lab + '  ' + format(datum.value / totalAll, '.1%')"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 10
+          },
+          "fill": {
+            "value": "#222"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "headers"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "value": -12
+          },
+          "text": {
+            "field": "t"
+          },
+          "align": {
+            "value": "left"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#555"
+          }
+        }
+      }
     }
-  }
+  ]
 }
