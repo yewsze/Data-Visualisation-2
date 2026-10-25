@@ -1,0 +1,22 @@
+level,group,x0,x1,y0,y1,share,adults,level_total,level_note
+At least once a year,Employed full-time,0,0.4192,0,0.47734,0.47734,9206672,19287638,19.3M active adults
+At least once a year,Employed part-time,0,0.4192,0.47734,0.61426,0.13693,2641010,19287638,19.3M active adults
+At least once a year,Employed casual,0,0.4192,0.61426,0.6784,0.06414,1237033,19287638,19.3M active adults
+At least once a year,Full-time student,0,0.4192,0.6784,0.73589,0.05749,1108923,19287638,19.3M active adults
+At least once a year,Home duties,0,0.4192,0.73589,0.76666,0.03077,593517,19287638,19.3M active adults
+At least once a year,Retired or on a pension,0,0.4192,0.76666,0.95988,0.19322,3726735,19287638,19.3M active adults
+At least once a year,Unemployed,0,0.4192,0.95988,1.0,0.04012,773749,19287638,19.3M active adults
+At least once a week,Employed full-time,0.4192,0.75514,0,0.47455,0.47455,7335060,15456977,15.5M active adults
+At least once a week,Employed part-time,0.4192,0.75514,0.47455,0.60955,0.135,2086716,15456977,15.5M active adults
+At least once a week,Employed casual,0.4192,0.75514,0.60955,0.67542,0.06587,1018181,15456977,15.5M active adults
+At least once a week,Full-time student,0.4192,0.75514,0.67542,0.7333,0.05788,894604,15456977,15.5M active adults
+At least once a week,Home duties,0.4192,0.75514,0.7333,0.7624,0.0291,449792,15456977,15.5M active adults
+At least once a week,Retired or on a pension,0.4192,0.75514,0.7624,0.96264,0.20024,3095130,15456977,15.5M active adults
+At least once a week,Unemployed,0.4192,0.75514,0.96264,1.0,0.03736,577495,15456977,15.5M active adults
+At least 3 times a week,Employed full-time,0.75514,1.0,0,0.4713,0.4713,5309698,11266184,11.3M active adults
+At least 3 times a week,Employed part-time,0.75514,1.0,0.4713,0.60412,0.13282,1496379,11266184,11.3M active adults
+At least 3 times a week,Employed casual,0.75514,1.0,0.60412,0.67068,0.06656,749872,11266184,11.3M active adults
+At least 3 times a week,Full-time student,0.75514,1.0,0.67068,0.729,0.05832,657048,11266184,11.3M active adults
+At least 3 times a week,Home duties,0.75514,1.0,0.729,0.75745,0.02846,320601,11266184,11.3M active adults
+At least 3 times a week,Retired or on a pension,0.75514,1.0,0.75745,0.96382,0.20637,2324990,11266184,11.3M active adults
+At least 3 times a week,Unemployed,0.75514,1.0,0.96382,1.0,0.03618,407596,11266184,11.3M active adults
