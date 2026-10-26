@@ -1,43 +1,64 @@
 ﻿activity,age group,participation rate
-Bush walking,15-17,2.745111
-Bush walking,18-24,2.854625
-Bush walking,25-34,2.594136
-Bush walking,35-44,2.311466
-Bush walking,45-54,1.704609
-Bush walking,55-64,2.698880
-Bush walking,64+,1.533303
-Canoeing/Kayaking,15-17,0.350245
-Canoeing/Kayaking,18-24,0.176345
-Canoeing/Kayaking,25-34,0.343081
-Canoeing/Kayaking,35-44,0.271060
-Canoeing/Kayaking,45-54,0.266523
-Canoeing/Kayaking,55-64,0.391263
-Canoeing/Kayaking,64+,0.081339
-Cycling,15-17,0.653140
-Cycling,18-24,0.909580
-Cycling,25-34,1.017798
-Cycling,35-44,0.797453
-Cycling,45-54,1.293198
-Cycling,55-64,1.620408
-Cycling,64+,0.555761
-Running/jogging,15-17,8.6
-Running/jogging,18-24,7.4
-Running/jogging,25-34,8.4
-Running/jogging,35-44,6.1
-Running/jogging,45-54,4.8
-Running/jogging,55-64,2.5
-Running/jogging,64+,0.6
-Swimming,15-17,5.8
-Swimming,18-24,3.5
-Swimming,25-34,3.5
-Swimming,35-44,3.2
-Swimming,45-54,2.4
-Swimming,55-64,1.7
-Swimming,64+,1.3
-Walking (Recreational),15-17,3.1
-Walking (Recreational),18-24,4.1
-Walking (Recreational),25-34,4.4
-Walking (Recreational),35-44,3.9
-Walking (Recreational),45-54,4.4
-Walking (Recreational),55-64,5.1
-Walking (Recreational),64+,4.0
+Bush walking,15-17,14.604612
+Bush walking,18-24,17.332235
+Bush walking,25-34,20.300827
+Bush walking,35-44,21.448206
+Bush walking,45-54,19.691392
+Bush walking,55-64,19.549078
+Bush walking,65+,9.568086
+Canoeing/Kayaking,15-17,0.664365
+Canoeing/Kayaking,18-24,0.637664
+Canoeing/Kayaking,25-34,0.972280
+Canoeing/Kayaking,35-44,1.126900
+Canoeing/Kayaking,45-54,1.253783
+Canoeing/Kayaking,55-64,1.475732
+Canoeing/Kayaking,65+,0.676326
+Cycling,15-17,6.657303
+Cycling,18-24,5.589593
+Cycling,25-34,7.121440
+Cycling,35-44,9.259405
+Cycling,45-54,11.588327
+Cycling,55-64,11.952240
+Cycling,65+,5.575654
+Fishing (recreational),15-17,1.073761
+Fishing (recreational),18-24,0.663688
+Fishing (recreational),25-34,0.926591
+Fishing (recreational),35-44,0.963964
+Fishing (recreational),45-54,1.438767
+Fishing (recreational),55-64,1.553069
+Fishing (recreational),65+,0.918249
+Swimming,15-17,17.615524
+Swimming,18-24,16.338679
+Swimming,25-34,16.584082
+Swimming,35-44,18.312002
+Swimming,45-54,16.663682
+Swimming,55-64,15.991121
+Swimming,65+,9.735484
+Sailing,15-17,0.299442
+Sailing,18-24,0.135291
+Sailing,25-34,0.166264
+Sailing,35-44,0.218677
+Sailing,45-54,0.361685
+Sailing,55-64,0.687236
+Sailing,65+,0.400095
+Surfing,15-17,2.217504
+Surfing,18-24,1.268572
+Surfing,25-34,1.565900
+Surfing,35-44,1.818120
+Surfing,45-54,1.768132
+Surfing,55-64,1.352838
+Surfing,65+,0.511184
+Rock climbing/Abseiling/Caving,15-17,1.791336
+Rock climbing/Abseiling/Caving,18-24,0.978358
+Rock climbing/Abseiling/Caving,25-34,0.604461
+Rock climbing/Abseiling/Caving,35-44,0.545211
+Rock climbing/Abseiling/Caving,45-54,0.248943
+Rock climbing/Abseiling/Caving,55-64,0.159087
+Rock climbing/Abseiling/Caving,65+,0.046370
+Walking (Recreational),15-17,30.348201
+Walking (Recreational),18-24,34.194267
+Walking (Recreational),25-34,41.860390
+Walking (Recreational),35-44,47.548115
+Walking (Recreational),45-54,58.668349
+Walking (Recreational),55-64,66.032399
+Walking (Recreational),65+,55.822185
