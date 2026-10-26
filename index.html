@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Multiple Visualisations | An Example</title>
+  <meta charset="utf-8">
+  <title>Outdoor Recreation in Australia</title>
+
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
 
   <!-- Import pure.css -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
@@ -16,240 +17,887 @@
   <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS for border -->
-   <style>
-    body {
-      background-color: #f6f9f6;
-      font-family: "Open Sans", sans-serif;
-      margin: 0;
-      color: #1d2b25;
+  <style>
+    :root {
+      --ink:#202b2a;
+      --muted:#5d6b68;
+      --line:#d7dfda; 
+      --paper:#fbfcfa;
+      --white:#fff; 
+      --accent:#17606e;
+      --bush:#12332b;
+      --highlight:#f0b429;
+      --fs-lead:1.2rem;   /* standfirst, pull quotes, linking sentences, hero subtitle */
+      --fs-body:1.2rem;      /* paragraphs, nav, takeaways */
+      --fs-small:1.1rem;  /* labels, captions, footer */
+      --fs-xsmall:.95rem; /* footnotes, footer */
     }
-    .page {
-      max-width: 1200px;
-      background: white;
-      margin: 40px auto; 
-      padding: 30px 40px; 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+    }
+
+    a:focus-visible { outline:3px solid var(--highlight); outline-offset:3px; }
+
+    body { 
+      margin:0; 
+      color:var(--ink); 
+      background:var(--paper);
+      font:16px/1.65 "DM Sans",
+      Arial,sans-serif; 
+    }
+      
+    .shell { 
+      max-width:1400px; 
+      margin:auto; 
+      padding:0 30px;
+    }
+
+    .hero { 
+      padding:80px 0 80px; 
+      border-bottom:4px solid var(--ink); 
+      background:#f1f5ef;
+    }
+
+    /* hero text on the left, pictogram on the right */
+    .hero .shell {
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+      gap:56px;
+      align-items:center;
+    }
+
+    /* Small labels above headings */
+    .eyebrow,.kicker { 
+      color:var(--accent); 
+      font-size:var(--fs-small); 
+      font-weight:700;
+      letter-spacing:.14em; 
+      text-transform:uppercase; 
+    }
+
+    .eyebrow { margin:0 0 14px; }
+
+    /* use serif fonts for headings */
+    /* headings use Source Serif 4 again (the original font) */
+    h1,h2,h3,.pullquote { 
+      font-family:"Source Serif 4",Georgia,serif; 
+      font-weight:600; 
+      letter-spacing:-.025em;
+    }
+
+    h1 { 
+      max-width:850px; 
+      margin:0; 
+      /* clamp (never below, grows with screen width, necver exceeds)*/
+      font-size:clamp(2.6rem,6vw,5.2rem); 
+      line-height:1.03; 
+    }
+
+    .subtitle { 
+      max-width:660px; 
+      margin:22px 0 0; 
+      color:#4b5b56; 
+      font-size:var(--fs-lead); 
+    }
+
+    /* create a tag/pill style label */
+    .hero-tag { 
+      display:inline-block; 
+      margin-top:28px; 
+      padding:8px 13px; 
+      border:1px solid #05280a;
+      border-radius:3px; 
+      color:#3b554a; 
+      font-size:var(--fs-small); 
+    } 
+
+    /* hero pictogram: seven people, six filled */
+    .hero-figure { margin:0; }
+ 
+    .hero-figure svg { 
+      display:block; 
+      width:100%; 
+      max-width:470px; 
+      height:auto; 
+    }
+ 
+    /* six filled people and one outline, so the 'missing' person is the quiet one */
+    .hero-figure .on { fill:var(--accent); }
+    .hero-figure .off { fill:none; stroke:var(--accent); stroke-width:1.6; }
+ 
+    .hero-figure figcaption { 
+      max-width:44ch; 
+      margin-top:20px; 
+      color:var(--ink); 
+      font-size:var(--fs-lead); 
+      line-height:1.4;
+    }
+ 
+    .hero-figure .stat { 
+      margin-right:8px; 
+      color:var(--accent); 
+      font-family:"Source Serif 4",Georgia,serif; 
+      font-size:3rem; 
+      font-weight:700; 
+      letter-spacing:-.025em;
+      line-height:1; 
+      vertical-align:-4px; 
+    }
+ 
+    .hero-figure small { 
+      display:block; 
+      margin-top:8px; 
+      color:#495b56; 
+      font-size:var(--fs-small); 
     }
     
-    /* Make Pure.css grid rows use Flexbox for vertical alignment */
-    .pure-g {
-      display: flex;
-      align-items: center; 
-      margin-bottom: 20px;
+    /* navigation */
+    nav { 
+      display:flex; 
+      flex-wrap:wrap; 
+      gap:8px 30px; 
+      padding:18px 0; 
+      border-bottom:1px solid var(--ink); 
     }
 
-    /* Allow full-width rows (like section titles) to ignore flex centering behavior if needed */
-    .pure-g.full-width {
-      display: block;
+    /* navigation links */
+    nav a { 
+      padding:6px 0; 
+      border:0;
+      border-bottom:3px solid transparent; 
+      border-radius:0; 
+      color:var(--ink);
+      background:none; 
+      font-size:var(--fs-body); 
+      text-decoration:none; 
     }
 
-    h1 {
-      font-family: "Monsterrat", serif;
-      font-weight: 900;
-      font-size: 2.8rem;
-      line-height: 1.2;
+    /* hover states */
+    nav a:hover,nav a:focus { 
+      border-color:var(--highlight); 
+      color:var(--accent); 
     }
-    h2 {
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: #1f7a4d;
-      margin-bottom: 5px;
+
+    main { padding:0; }
+    
+    .section {
+    margin:0;
+    padding:clamp(40px,6vw,72px) max(30px, calc((100% - 1340px) / 2));
+    background:var(--tint);
+  }
+
+    /* thin divider between sections (not needed now that each section is a full-width colour band) */
+    .section + .section { border-top:0; }
+
+    /* section colours: one pastel palette (same softness for every section, no two neighbours alike); --tint is the background, --sec the matching accent */
+    .s1 { --tint:#eef4fc; --sec:#17606e; }
+    .s2 { --tint:#f8f3ea; --sec:#764616; }
+    .s3 { --tint:#eef4fc; --sec:#17606e; }
+    .s4 { --tint:#f8f3ea; --sec:#764616; }
+    .s5 { --tint:#eef4fc; --sec:#17606e; }
+    .s6 { --tint:#f8f3ea; --sec:#764616; }
+    .s7 { --tint:#f1f5ef; --sec:#495b56; }
+
+    .kicker { margin:0 0 8px; }
+    .section .kicker { color:var(--sec); }
+
+    h2 { margin:0; color:var(--bush); font-size:clamp(2rem,3.6vw,3rem); line-height:1.1; }
+
+    .intro { max-width:60ch; margin:14px 0 34px; color:#33453f; font-size:var(--fs-lead); }
+
+    /*creates a one-column grid*/
+    .grid1 {
+      display: grid;
+      grid-template-columns: 1fr;
     }
-    h3 {
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-top: 0;
+    /*creates an equal two-column grid*/
+    .grid2 {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
     }
+    /*creates a two-column grid with a 2:1 ratio*/
+    .grid-2-1 {
+      display: grid;
+      grid-template-columns: minmax(0,2fr) minmax(0,1fr);
+    }
+    /*creates a two-column grid with a 1:2 ratio*/
+    .grid-1-2 {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,2fr);
+    }
+
+    /*creates a two-column grid with a 3:1 ratio*/
+    .grid-3-1 {
+      display: grid;
+      grid-template-columns: minmax(0,3fr) minmax(0,1fr);
+    }
+
+    .grid-1-2,
+    .grid-2-1,
+    .grid2, 
+    .grid-3-1 {
+      column-gap:48px;
+      row-gap:18px;
+      align-items:center;
+    }
+
+    /* every row gets the same space below it, so the rhythm is even */
+    .grid1,
+    .grid-1-2,
+    .grid-2-1,
+    .grid2, 
+    .grid-3-1 {
+      margin-bottom:44px;
+    }
+
+    /* side-by-side charts start at the same top line */
+    .grid2 { align-items:start; }
+
+    /* cards are now open (no box) so the charts carry the visual weight */
+    .card { 
+      min-width:0; 
+      padding:0; 
+      border:0; 
+      border-radius:0; 
+      background:none; 
+    }
+    
+    /* text beside chart: text column on the left, chart on the right */
+    .card.side {
+      display:grid;
+      grid-template-columns:300px 1fr;
+      column-gap:80px;
+      align-items:center;
+
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .card-text {max-width: 30ch;}
+    .card.side .card-text {align-self:center;}
+    
+    /* element span the entire grid width (one column) */
+    .wide { grid-column:1/-1; }
+
+    /* container for vega-lite visualisations */
+    .vis-container {
+      width:100%;
+      margin: 15px 0;
+      min-width:0;
+      overflow:hidden
+    }
+
+    .vis-container .vega-embed {
+      width:100%;
+      margin: 0 auto;
+    }
+
+    .vis-container .vega-embed > svg,
+    .vis-container .vega-embed > canvas {
+      display:block;
+      max-width:100%;
+      margin:0 auto;
+      height:auto;
+    }
+
+    /* short key message that sits beside a chart */
+    .narrative {
+      max-width:30ch;
+      text-align:left;
+      color:var(--sec);
+      font-family:"Source Serif 4",Georgia,serif;
+      font-size:var(--fs-lead);
+      font-weight:500;
+      letter-spacing:-.015em;
+      line-height:1.3;
+    }
+
+    .map-chart {
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    /* full-width NT maps stay a readable size and centred */
+    .map-narrow { max-width:1000px; }
+
+    .number { 
+      margin:0 0 7px; 
+      color:#6a7771; 
+      font-size:.72rem; 
+      font-weight:700; 
+      letter-spacing:.1em; 
+      text-transform:uppercase; 
+    }
+    
+    h3 { 
+      margin:0 0 10px; 
+      color:var(--bush);
+      font-size:1.45rem; 
+      line-height:1.25; 
+    }
+
+    /* paragraph styling for card copy */
+    .copy { 
+      max-width:54ch; 
+      margin:0; 
+      color:#41524c; 
+      font-size:var(--fs-body); }
+
+    /* one-line takeaway placed after a chart */
+    .takeaway { 
+      max-width:62ch; 
+      margin:0; 
+      color:var(--sec); 
+      font-size:var(--fs-body); 
+      font-weight:500; 
+    }
+
+    /* small method note placed under a chart */
+    .caption { 
+      max-width:70ch; 
+      margin:0 0 10px; 
+      color:#4a5a55; 
+      font-size:var(--fs-small); 
+    }
+
+    /* linking sentence to the next section: a box like the ending box, on the same background as its section */
+    .bridge { 
+      display:block; 
+      margin:56px 0 0;
+      padding:28px; 
+      border:1px solid #cbd7cd; 
+      background:rgba(255,255,255,.74); 
+    }
+    .bridge p { 
+      max-width:none;
+      margin:0;
+      color:var(--sec); 
+      font-family:"Source Serif 4",Georgia,serif;
+      font-size:var(--fs-lead);
+      font-weight:500;
+      letter-spacing:-.015em;
+      line-height:1.3;
+    }
+
+    /* creates a highlighted note box*/
+    .case-note { margin:0 0 44px; padding:28px; border:1px solid #cbd7cd; border-radius:0; background:rgba(255,255,255,.74); }
+    .case-note strong { display:block; margin-bottom:5px; color:var(--sec); font-size:var(--fs-small); letter-spacing:.04em; text-transform:uppercase; }
+    .case-note p { max-width:72ch; margin:0; color:#33423c; font-size:var(--fs-body); }
+
+    /* final takeaway box */
+    .closing { margin-top:24px; padding:28px; border:1px solid #cbd7cd; background:#eaf0e9; }
+    .pullquote { max-width:760px; margin:0; font-size:clamp(1.45rem,3vw,2.1rem); line-height:1.25; }
+    .closing p:last-child { max-width:72ch; margin-bottom:0; color:#4d5c54; }
+
+    /* footer styling */
+    /* the footer is now a dark green colophon: title and author line, then two columns of sources */
+    footer { 
+      margin:0; 
+      padding:56px max(30px, calc((100% - 1340px) / 2)) 64px; 
+      background:#d9e6dc; 
+      color:#1e402f; 
+      font-size:var(--fs-xsmall); 
+    }
+    .footer-title { 
+      margin:0; 
+      color:#013220; 
+      font-family:"Source Serif 4",Georgia,serif; 
+      font-size:clamp(1.8rem,3vw,2.4rem); 
+      font-weight:600; 
+      letter-spacing:-.02em; 
+      line-height:1.15; 
+    }
+    .footer-meta { 
+      display:flex; 
+      flex-wrap:wrap; 
+      margin:18px 0 0; 
+      color:#013220; 
+      font-size:var(--fs-small); 
+    }
+    .footer-meta span + span::before { content:"|"; margin:0 28px; color:#013220; }
+    .footer-grid { 
+      display:grid; 
+      grid-template-columns:minmax(0,1.8fr) minmax(0,1fr); 
+      gap:0 80px; 
+      margin-top:36px; 
+      padding-top:40px; 
+      border-top:1px solid rgba(0,100,0,.8); 
+    }
+    .footer-label { 
+      margin:0 0 24px; 
+      color:#013220; 
+      font-size:var(--fs-small); 
+      font-weight:700; 
+      letter-spacing:.16em; 
+      text-transform:uppercase; 
+    }
+    .footer-list { margin:0; padding:0; list-style:none; }
+    .footer-list li { margin:0 0 26px; }
+    .footer-list a { 
+      color:#467951; 
+      font-size:var(--fs-body); 
+      font-weight:600; 
+      text-decoration:none; 
+      border-bottom:1px solid rgba(0,100,0,.8); 
+    }
+    .footer-list a:hover,
+    .footer-list a:focus { color:var(--highlight); border-color:var(--highlight); }
+    .footer-list p { margin:8px 0 0; color:#5d996a; font-size:var(--fs-small); }
+    .footer-block + .footer-block { margin-top:48px; }
+    .footer-ai { margin:0; color:#5d996a; font-size:var(--fs-body); line-height:1.7; }
+    .footer-note { 
+      margin:48px 0 0; 
+      padding-top:24px; 
+      border-top:1px solid rgba(0,100,0,.8); 
+      color:#5d996a; 
+      font-size:var(--fs-small); 
+    }
+
+    /* magazine layout: numbered spread openers, a 4:8 column grid, column rules, pull quotes and highlighted phrases */
+    main { counter-reset:spread; }
+
+    .spread-head {
+      display:grid;
+      grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+      margin-bottom:48px;
+      padding-bottom:32px;
+      border-bottom:3px solid var(--ink);
+    }
+    .spread-label { padding-right:48px; }
+    .spread-title { padding-left:48px; border-left:1px solid rgba(18,51,43,.35); }
+
+    .kicker { display:flex; flex-direction:column; gap:12px; margin:0; }
+    .kicker .folio {
+      color:var(--sec);
+      font-family:"Source Serif 4",Georgia,serif;
+      font-size:clamp(4.5rem,9vw,8rem);
+      font-weight:700;
+      letter-spacing:-.04em;
+      line-height:.8;
+    }
+
+    .spread-title h2 { font-size:clamp(2.2rem,4.4vw,3.8rem); line-height:1.04; letter-spacing:-.02em; }
+    .spread-title .intro {
+      max-width:56ch;
+      margin:22px 0 0;
+      color:#2b3d37;
+      font-family:"Source Serif 4",Georgia,serif;
+      font-size:var(--fs-lead);
+      line-height:1.5;
+    }
+
+    /* every figure opens with a heavy rule, like a magazine figure head */
+    .card { border-top:3px solid var(--ink); padding-top:16px; }
+
+    .grid1 > .card {
+      display:grid;
+      grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+      row-gap:14px;
+    }
+    .grid1 > .card > h3 { grid-column:1; margin:0; padding-right:48px; }
+    .grid1 > .card > .copy { grid-column:2; align-self:stretch; padding-left:48px; border-left:1px solid rgba(18,51,43,.35); }
+    .grid1 > .card > .vis-container,
+    .grid1 > .card > .takeaway,
+    .grid1 > .card > .caption { grid-column:1 / -1; }
+
+    /* the pull quote sits in its own column, separated by a column rule */
+    .grid-2-1 > .card:last-child,
+    .grid-3-1 > .card:last-child {
+      display:flex;
+      align-items:center;
+      align-self:stretch;
+      padding:0 0 0 44px;
+      border-top:0;
+      border-left:1px solid rgba(18,51,43,.35);
+    }
+
+    /* key phrases: bold and in the section colour (dark ink where the text around them is already coloured) */
+    mark {
+      padding:0;
+      color:var(--sec);
+      background:none;
+      font-weight:700;
+    }
+    .narrative mark,
+    .bridge mark,
+    .takeaway mark { color:var(--ink); font-weight:700; }
+
+    /* narrower laptops: stack the columns */
+    @media(max-width:980px) {
+      .grid-1-2, .grid-2-1, .grid2, .grid-3-1 { grid-template-columns:1fr; }
+      .hero .shell { grid-template-columns:1fr; gap:36px; }
+      .narrative { max-width:60ch; }
+      .spread-head { grid-template-columns:1fr; }
+      .spread-label { padding-right:0; }
+      .spread-title { margin-top:22px; padding-left:0; border-left:0; }
+      .grid1 > .card { grid-template-columns:1fr; }
+      .grid1 > .card > h3 { padding-right:0; }
+      .grid1 > .card > .copy { grid-column:1; padding-left:0; border-left:0; }
+      .grid-2-1 > .card:last-child,
+      .grid-3-1 > .card:last-child { display:block; padding:18px 0 0; border-left:0; border-top:1px solid rgba(18,51,43,.35); }
+      .footer-grid { grid-template-columns:1fr; gap:48px; }
+    }
+
+    /* responsive adjustments for smaller screens */
+    @media(max-width:760px) {
+      .shell { padding:0 16px; } .hero { padding:50px 0 42px; }
+      .grid { grid-template-columns:1fr; } .wide { grid-column:auto; }
+      .grid-1-2, .grid-2-1 { grid-template-columns:1fr; }
+      .bridge { grid-template-columns:1fr; } .arrow { display:none; }
+      .section { padding:34px 17px; } .card { padding:0; }
+      .bridge { padding:26px 17px; } footer { padding:40px 17px 48px; }
+      .footer-meta span + span::before { margin:0 16px; }
+    }
+
+  /* conclusion (section 7) mirrors the opening hero: same background, a heavy rule, headline on the left, supporting list on the right */
+  .s7 { border-top:4px solid var(--ink); }
+  .s7 mark { color:var(--accent); }
+
+  .closing-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+    gap:56px;
+    align-items:center;
+  }
+  .closing-title {
+    max-width:850px;
+    margin:0;
+    color:var(--ink);
+    font-size:clamp(2.6rem,6vw,5.2rem);
+    line-height:1.03;
+  }
+
+  /* the supporting statements, set like the hero caption, with a rule above and between */
+  .recap {
+    margin:0;
+    padding:0;
+    list-style:none;
+    border-top:3px solid var(--ink);
+  }
+  .recap li {
+    padding:18px 0;
+    border-bottom:1px solid rgba(18,51,43,.3);
+    color:#2b3d37;
+    font-family:"Source Serif 4",Georgia,serif;
+    font-size:var(--fs-lead);
+    font-weight:500;
+    letter-spacing:-.015em;
+    line-height:1.35;
+  }
+
+  /* the ending box keeps its style; this stops the "last paragraph" rule from greying the quote */
+  .s7 .closing { margin-top:56px; }
+  .closing p.pullquote { max-width:none; color:var(--ink); }
+
+  @media(max-width:980px) {
+    .closing-grid { grid-template-columns:1fr; gap:36px; }
+  }
   </style>
 </head>
 
 <body>
-
-  <div class="page">
-
-    <!-- Title Group -->
-    <div class="pure-g full-width">
-      <div class="pure-u-1-1">
-        <h1>Australia Outdoors:<br>From Participation to Destinations</h1>
-        <p>Australia sells itself as an outdoor nation.</p>
-        <p>Beaches, bush and a no-worries weekend.</p>
-        <p>But how true is that in everyday life?</p>
-        <p>We test the claim against national survey data.</p>
+  <!-- topic title -->
+  <header class="hero">
+    <div class="shell">
+      <div>
+        <h1>Outdoor Recreation<br>in Australia</h1>
+        <p class="subtitle">Who takes part, where activity happens, and what destinations reveal.</p>
+        <span class="hero-tag">A national overview with a Northern Territory case study</span>
       </div>
+ 
+      <figure class="hero-figure">
+        <svg viewBox="0 0 348 54" role="img" aria-label="Seven people in a row. Six are filled in and one is an outline, showing that six in seven adults took part.">
+          <defs>
+            <symbol id="person" viewBox="0 0 24 36">
+              <circle cx="12" cy="7" r="6"/>
+              <path d="M2 36V26a10 10 0 0 1 20 0v10z"/>
+            </symbol>
+          </defs>
+          <use href="#person" class="on" x="0" y="0" width="36" height="54"/>
+          <use href="#person" class="on" x="52" y="0" width="36" height="54"/>
+          <use href="#person" class="on" x="104" y="0" width="36" height="54"/>
+          <use href="#person" class="on" x="156" y="0" width="36" height="54"/>
+          <use href="#person" class="on" x="208" y="0" width="36" height="54"/>
+          <use href="#person" class="on" x="260" y="0" width="36" height="54"/>
+          <use href="#person" class="off" x="312" y="0" width="36" height="54"/>
+        </svg>
+        <figcaption>
+          <span class="stat">6 in 7</span> adults took part in physical activity at least once a year.
+          <small>Source: AusPlay, Sport Australia, January to December 2025. Adults aged 15 and over.</small>
+        </figcaption>
+      </figure>
     </div>
-    <!-- end pure grid group -->
+  </header>
 
-    <!-- Section 1 Header Group (Standalone Line - Full Width) -->
-    <div class="pure-g full-width" style="margin-top: 40px;">
-      <div class="pure-u-1-1">
-        <h2>01 / How active</h2>
-        <h3>How active is Australia?</h3>
-      </div>
-    </div>
-    <!-- end pure grid group -->
+  <!-- navigation tab -->
+  <div class="shell">
+    <nav aria-label="Story sections">
+      <a href="#section-1">01 · The big picture</a><a href="#section-2">02 · Activity choices</a>
+      <a href="#section-3">03 · People and motives</a><a href="#section-4">04 · Across Australia</a>
+      <a href="#section-5">05 · Zoom into the NT</a><a href="#section-6">06 · Wider impact</a>
+      <a href="#section-7">07 · The bigger picture</a>
+    </nav>
+  </div>
 
-    <!-- Section 1 Content Group (2 Columns: Text Right, Chart Left) -->
-    <div class="pure-g">
-      <div class="pure-u-2-3">
-        <div id="vis1" class="vis-container"></div>
+  <!-- section 1 -->
+  <main>
+    <section class="section s1" id="section-1">
+      <div class="spread-head">
+        <div class="spread-label"><p class="kicker"><span class="folio">01</span><span class="kick-text">Start with participation</span></p></div>
+        <div class="spread-title"><h2>The Big Picture: How Active Is Australia?</h2>
+          <p class="intro">Outdoor recreation sits within Australia's <mark>wider physical activity landscape</mark>. We first ask how widespread participation is, then what people choose.</p></div>
       </div>
-      <div class="pure-u-1-3">
-        <div class="description description-right">
-          <p>Six in seven adults took part last year.</p>
-          <p>About seven in ten do it every week.</p>
-          <p>But what does "active" covers?</p>
+      <!-- Row 1 -->
+      <div class="grid-2-1">
+        <article class="card"><h3>Overall participation</h3>
+          <p class="copy">How widespread is participation? This covers all sport and physical activity, <mark>not only outdoor recreation</mark>.</p>
+          <div id="vis1" class="vis-container"></div>
+        </article>
+        <article class="card">
+          <div class="placeholder narrative">
+            This shows how many people are active, <mark>not what they do</mark>. Next, we compare activities.
+          </div>
+        </article>
+      </div>
+      <!-- Row 2 -->
+      <div class="grid1">
+        <article class="card"><h3>Activity ranking</h3>
+          <p class="copy">Activities range from walking to organised sport. Ranking them shows where to look closer.</p>
+          <div id="vis2" class="vis-container"></div>
+        </article>
+      </div>
+      <!-- Row 3 (bridge) -->
+      <div class="bridge">
+        <p>
+          National rankings can <mark>hide differences between groups</mark>. Next, we look at age and sex.
+        </p>
+      </div>
+    </section>
+    <!-- section 2 -->
+    <section class="section s2" id="section-2">
+      <div class="spread-head">
+        <div class="spread-label"><p class="kicker"><span class="folio">02</span><span class="kick-text">Look closer at choices</span></p></div>
+        <div class="spread-title"><h2>Different People, Different Activities</h2>
+          <p class="intro">Participation is <mark>not uniform across Australia</mark>. We look at who takes part, and what different groups choose.</p></div>
+      </div>
+      <!-- Row 1 -->
+      <div class="grid-3-1">
+        <article class="card"><h3>Sport and non-sport by age group</h3>
+          <p class="copy">Do younger and older Australians favour different types of activity? This compares the mix of sport and non-sport.</p>
+          <div id="vis3" class="vis-container"></div>
+        </article>
+        <article class="card">
+          <div class="placeholder narrative">
+            Broad types <mark>hide detail</mark>. Next, we look at age and sex more closely.
+          </div>
+        </article>
+      </div>
+      <!-- Row 2 -->
+      <div class="grid-2-1">
+        <article class="card"><h3>Adults active by age and sex</h3>
+          <p class="copy">This looks closer at who takes part. It can show patterns that an overall rate hides.</p>
+          <div id="vis4" class="vis-container"></div>
+          <p class="caption">Bars show the share of each age and sex group, <mark>not head counts</mark>.</p>
+        </article>
+        <article class="card">
+          <div class="placeholder narrative">
+            This shows who takes part, not what they do. Next, we <mark>compare activities by age</mark>.
+          </div>
+        </article>
+      </div>
+      <!-- Row 3 -->
+      <div class="grid1">
+        <article class="card wide"><h3>Core activities by age group</h3>
+          <p class="copy">Age groups may favour different activities. This shows which activities are more common in each group.</p>
+          <div id="vis5" class="vis-container"></div>
+        </article>
+      </div>
+      <div class="bridge"><p>We now know who takes part and what they do. Next, we ask <mark>why, and how activity is organised</mark>.</p></div>
+    </section>
+    <!-- section 3 -->
+    <section class="section s3" id="section-3">
+      <div class="spread-head">
+        <div class="spread-label"><p class="kicker"><span class="folio">03</span><span class="kick-text">Look beneath the numbers</span></p></div>
+        <div class="spread-title"><h2>Why and How Do People Participate?</h2>
+          <p class="intro">Popular activities and demographics are <mark>only part of the story</mark>. Motivations and organisation add context.</p></div>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Motivations by age group</h3>
+          <p class="copy">Why do people take part, and does it change with age? This compares the reasons people give.</p>
+          <div id="vis6" class="vis-container"></div>
+          <p class="takeaway">Motivations explain why people take part, not how activity is arranged. Next, we look at <mark>who organises it</mark>.</p>
+        </article>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Organising entities by age group</h3>
+          <p class="copy">Activity can be organised or informal. Organised activity is run by clubs, commercial providers and others.</p>
+          <div id="vis7" class="vis-container"></div>
+          <p class="caption">Bands show shares of participation, <mark>not people moving between groups</mark>.</p></article>
+      </div>
+      <div class="bridge"><p>People differ in their reasons and arrangements. Next, we move <mark>from people to place</mark>.</p></div>
+    </section>
+    <!-- section 4 -->
+    <section class="section s4" id="section-4">
+      <div class="spread-head">
+        <div class="spread-label"><p class="kicker"><span class="folio">04</span><span class="kick-text">Move from people to place</span></p></div>
+        <div class="spread-title"><h2>From Activity Settings to Geographic Differences</h2>
+          <p class="intro">Where activity happens matters. We look at reported settings, then at <mark>differences between states and territories</mark>.</p></div>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Where activities take place</h3>
+          <p class="copy">Recreation can happen in many settings. This compares how reported settings rank against each other.</p>
+          <div id="vis8" class="vis-container"></div>
+          <p class="takeaway">Settings show where activity happens. Next, we ask whether participation <mark>varies by location</mark>.</p>
+        </article>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Participation by state and territory</h3>
+          <p class="copy">Settings are one view of place. This map compares adult participation across states and territories, from occasional to regular.</p>
+          <div id="vis9" class="vis-container map-chart"></div></article>
+      </div>
+      <div class="bridge"><p>State rates do not show individual parks or how often they are visited. So we <mark>zoom into the Northern Territory</mark>.</p></div>
+    </section>
+    <section class="section s5" id="section-5">
+      <div class="spread-head">
+        <div class="spread-label"><p class="kicker"><span class="folio">05</span><span class="kick-text">A closer look at one territory</span></p></div>
+        <div class="spread-title"><h2>Zooming In: The Northern Territory's Park Landscape</h2>
+          <p class="intro">State rates cannot show <mark>individual destinations</mark>. The NT lets us look at parks run by the NT Government and the Commonwealth.</p></div>
+      </div>
+      <div class="case-note"><strong>Why the Northern Territory?</strong>
+        <p>The NT is one of the higher-ranking states and territories and is geographically extensive. Its parks also report visitor numbers. This is a case-study choice, <mark>not evidence of better access to parks</mark>.</p>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Where NT parks are</h3>
+          <p class="copy">Where are the parks, and who manages them? The map separates NT Government sites from Commonwealth-managed Kakadu and Uluru-Kata Tjuta.</p>
+          <div id="vis10" class="vis-container map-chart map-narrow"></div>
+          <p class="takeaway">Location alone <mark>does not show visits</mark>. Next, we compare parks with comparable visitor estimates.</p>
+        </article>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Visits to NT Government parks</h3>
+          <p class="copy">Which NT Government parks have the highest estimated visits? Symbol size shows reported visitor numbers.</p>
+          <div id="vis11" class="vis-container map-chart map-narrow"></div>
+          <p class="caption">Visitor estimates use the NT Government's reporting period. Only parks with comparable data are shown, so this is <mark>not a ranking of every NT park</mark>. Kakadu and Uluru-Kata Tjuta are not included.</p>
+        </article>
+      </div>
+      <div class="bridge"><p>Park visits and participation <mark>measure different things</mark>. Next, we return to wider social and economic context.</p></div>
+    </section>
+    <section class="section s6" id="section-6">
+      <div class="spread-head">
+        <div class="spread-label"><p class="kicker"><span class="folio">06</span><span class="kick-text">Step back for perspective</span></p></div>
+        <div class="spread-title"><h2>Beyond Participation: Social and Economic Context</h2>
+          <p class="intro">We end with <mark>two wider views</mark>: how participation relates to employment, and how tourism adds economic context.</p></div>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Employment and activeness</h3>
+          <p class="copy">Work shapes schedules and opportunities. This shows how activeness differs across employment groups.</p>
+          <div id="vis12" class="vis-container"></div>
+          <p class="caption">This shows an association, <mark>not a cause</mark>.</p>
+          <p class="takeaway">Employment is one view of who takes part. Next, we <mark>turn to the economy</mark>.</p></article>
+      </div>
+      <div class="grid1">
+        <article class="card"><h3>Sport and recreation tourism output</h3>
+          <p class="copy">Beyond participation and park visits, tourism output gives an economic view. This shows how reported output changes over time.</p>
+          <div id="vis13" class="vis-container"></div>
+          <p class="caption">Output is an economic measure, <mark>not a count of people</mark>.</p></article>
+      </div>
+    </section>
+
+    <!-- section 7: conclusion, laid out like the opening hero -->
+    <section class="section s7" id="section-7">
+      <div class="closing-grid">
+        <div>
+          <h2 class="closing-title">The Bigger<br>Picture</h2>
+          <p class="subtitle">No single chart explains outdoor recreation. Together, they show <mark>how it fits into Australian life</mark>.</p>
+          <span class="hero-tag">From a national overview to a Northern Territory case study</span>
+        </div>
+
+        <ul class="recap">
+          <li><mark>Walking</mark> leads participation across selected outdoor activities.</li>
+          <li><mark>Age, gender and geography</mark> shape these experiences.</li>
+          <li><mark>Nature</mark> motivates participation and connects people with landscapes.</li>
+          <li>Outdoor recreation also contributes to <mark>tourism and community activity</mark>.</li>
+        </ul>
+      </div>
+
+      <div class="closing">
+        <p class="pullquote">The outdoors is more than a destination.<br><mark>It is part of how Australia lives.</mark></p>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <p class="footer-title">Outdoor Recreation in Australia</p>
+      <p class="footer-meta"><span>Chong Yew Sze</span><span>35400552</span><span>FIT3179</span><span>26 October 2026</span></p>
+
+      <div class="footer-grid">
+        <div class="footer-block">
+          <p class="footer-label">Data sources</p>
+          <ul class="footer-list">
+            <li><a href="https://www.abs.gov.au/articles/how-australian-generations-spent-their-time-recreation-and-leisure">
+              Australian Bureau of Statistics. (2023, December 1). 
+              How Australian generations spent their time on recreation and leisure.</a>
+              <p>Time use and recreational activity patterns across Australian generations.</p></li>
+            <li><a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/results">
+              Australian Sports Commission. (n.d.). AusPlay results. Clearinghouse.</a>
+              <p>National and regional participation data on sports and physical activities in Australia.</p></li>
+            <li><a href="https://www.dcceew.gov.au/sites/default/files/documents/dnp-annual-report-2024-25.pdf">
+              Director of National Parks. (2025). 
+              Director of National Parks annual report 2024-25. 
+              Department of Climate Change, Energy, the Environment and Water.</a>
+              <p>Annual report covering management, performance, and conservation activities across Commonwealth reserves.</p></li>
+            <li><a href="https://dth.nt.gov.au/parks-and-wildlife/parks-and-wildlife-statistics-and-research/park-visitor-data">
+              Department of Tourism and Hospitality. (n.d.). 
+              Park visitor data. Northern Territory Government.</a>
+              <p>Visitor statistics and research for parks and wildlife reserves in the Northern Territory.</p></li>
+            <li><a href="https://www.abs.gov.au/statistics/economy/national-accounts/tourism-satellite-account/latest-release">
+              Australian Bureau of Statistics. (2025, December 17). 
+              Australian National Accounts: Tourism Satellite Account, 2024-25.</a>
+              <p>Economic contribution, gross domestic product (GDP), 
+                consumption, and employment data for Australia's tourism industry.</p></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-block">
+            <p class="footer-label">Geographic sources</p>
+            <ul class="footer-list">
+              <li><a href="https://github.com/sherwinzxw/australian-spatial-data">
+                Zhao, S. (n.d.). Australian spatial data. GitHub.</a>
+                <p>Simplified TopoJSON boundary data encoding Australian administrative regions.</p></li>
+            </ul>
+          </div>
+          <div class="footer-block">
+            <p class="footer-label">AI acknowledgement</p>
+            <p class="footer-ai">ClaudeAI was used to refine the storyflow, ensuring a coherent narrative throughout the report. Check grammar, assist with html and CSS styling and webpage layout, and debug issues.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- end pure grid group -->
 
-    <!-- Section 2: What and how -->
-    <div class="pure-g full-width" style="margin-top: 40px;">
-      <div class="pure-u-1-1">
-        <h2>02 / What and how</h2>
-        <p>Taking part does not always mean playing sport.</p>
-        <p>Many of us mix sport with everyday activity.</p>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis2" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 2 Sub-part: Activities -->
-    <div class="pure-g full-width">
-      <div class="pure-u-1-1">
-        <h3>Which activities sit behind these numbers?</h3>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis3" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 2 Sub-part: Organising Entity -->
-    <div class="pure-g full-width">
-      <div class="pure-u-1-1">
-        <h3>Casual, or through clubs and gyms?</h3>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis4" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 3: Who and why -->
-    <div class="pure-g full-width" style="margin-top: 40px;">
-      <div class="pure-u-1-1">
-        <h2>03 / Who and why</h2>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis5" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 3 Sub-part: Activity by age -->
-    <div class="pure-g full-width">
-      <div class="pure-u-1-1">
-        <h3>What are people doing at each age?</h3>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis6" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 3 Sub-part: Motivation -->
-    <div class="pure-g full-width">
-      <div class="pure-u-1-1">
-        <h3>And why do they take part?</h3>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis7" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 4: Place -->
-    <div class="pure-g full-width" style="margin-top: 40px;">
-      <div class="pure-u-1-1">
-        <h2>04 / Place</h2>
-        <p>The ACT and NT lead a little, but NSW and Victoria have the most people.</p>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis8" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 5: Destinations -->
-    <div class="pure-g full-width" style="margin-top: 40px;">
-      <div class="pure-u-1-1">
-        <h2>05 / Destinations</h2>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis9" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 5 Sub-part: Top parks -->
-    <div class="pure-g full-width">
-      <div class="pure-u-1-1">
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div id="vis10" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- Section 6: Verdict -->
-    <div class="pure-g full-width" style="margin-top: 40px;">
-      <div class="pure-u-1-1">
-        <h2>06 / Verdict</h2>
-        <p>Largely yes, but in an everyday way.</p>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-  </div> <!-- end page -->
+      <p class="footer-note"><strong>Reading the data:</strong> Each chart has its own source and time period. Sport participation, park visits and tourism output measure different things, so compare them with care.</p>
+    </footer>
+  </main>
 
   <script type="text/javascript">
-    var specVis1 = "code/WaffleChart.vg.json";
-    var specVis2 = "code/Sport_NonSport.vg.json";
-    var specVis3 = "code/1.2ActivityRank.vg.json";
-    var specVis4 = "code/2.1OrganisingEntity.vg.json";
-    var specVis5 = "code/PopulationPyramid.vg.json";
-    var specVis6 = "code/2.2ActivityByAge.vg.json";
-    var specVis7 = "code/MotivationAge.vg.json";
-    var specVis8 = "code/StateParticipation.vg.json";
-    var specVis9 = "code/flow.vg.json";
-    var specVis10 = "code/top_parks.vg.json";
+    var specVis1 = "code/1.1WaffleChart.vg.json";
+    var specVis2 = "code/1.2ActivityRanking.vg.json";
+    var specVis3 = "code/2.1Sport_NonSport.vg.json";
+    var specVis4 = "code/2.2PopulationPyramid.vg.json";
+    var specVis5 = "code/2.3ActivityAgeHeatmap.vg.json";
+    var specVis6 = "code/3.1MotivationHeatmap.vg.json";
+    var specVis7 = "code/3.2OrganisingAlluvial.json?v=2";
+    var specVis8 = "code/4.1PlaceBump.vg.json";
+    var specVis9 = "code/4.2StateParticipation.vg.json";
+    var specVis10 = "code/5.1NT_ParksDot.vg.json";
+    var specVis11 = "code/5.2PropotionalNT_parks.vg.json";
+    var specVis12 = "code/6.1EmploymentStatus.vg.json";
+    var specVis13 = "code/6.2Tourism.vg.json";
 
     var specs = {
       vis1: specVis1,
@@ -261,23 +909,47 @@
       vis7: specVis7,
       vis8: specVis8,
       vis9: specVis9,
-      vis10: specVis10
+      vis10: specVis10,
+      vis11: specVis11,
+      vis12: specVis12,
+      vis13: specVis13
     };
 
-    Object.keys(specs).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (specs[id] === null) {
-        el.style.border = "2px dashed #b9c5be";
-        el.style.color = "#5b6b63";
-        el.style.textAlign = "center";
-        el.style.padding = "70px 16px";
-        el.style.borderRadius = "8px";
-        el.textContent = "Chart " + id + " goes here";
-        return;
+    var chartViews = [];
+
+    function getChartWidth(container) {
+      return Math.max(320, container.clientWidth);
+    }
+
+    Object.entries(specs).forEach(function ([containerId, specUrl]) {
+      var container = document.getElementById(containerId);
+      var embedOptions = { actions: false, config: { background: "transparent" } };
+
+      if (containerId !== "vis5" && containerId !== "vis6" && containerId !== "vis7") {
+        embedOptions.width = getChartWidth(container);
       }
-      vegaEmbed("#" + id, specs[id], { "actions": false }).catch(console.error);
+
+      vegaEmbed("#" + containerId, specUrl, embedOptions)
+        .then(function (result) {
+          // Heatmaps and the alluvial chart keep the sizes set in their own specs.
+          if (containerId !== "vis5" && containerId !== "vis6" && containerId !== "vis7") {
+            chartViews.push({ container: container, view: result.view });
+          }
+        })
+        .catch(function (error) {
+          console.error("Failed to render " + containerId + " from " + specUrl, error);
+        });
+    });
+
+    var resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        chartViews.forEach(function (chart) {
+          chart.view.width(getChartWidth(chart.container)).runAsync();
+        });
+      }, 150);
     });
   </script>
 </body>
-
 </html>

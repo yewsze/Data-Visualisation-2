@@ -276,7 +276,7 @@
               "type": "quantitative",
               "title": "% of participants",
               "scale": {
-                "scheme": "tealblues",
+                "scheme": "teals",
                 "domain": [
                   0,
                   0.8

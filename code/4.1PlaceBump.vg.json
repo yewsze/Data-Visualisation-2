@@ -56,7 +56,7 @@
       ],
       "title": "Age group",
       "scale": {
-        "padding": 0.3
+        "padding": 0.5
       },
       "axis": {
         "labelAngle": 0,
@@ -235,16 +235,9 @@
         "color": {
           "condition": {
             "test": "datum.highlight === 'Public space'",
-            "value": "#1F5E48"
+            "value": "#764616"
           },
           "value": "#555555"
-        },
-        "fontWeight": {
-          "condition": {
-            "test": "datum.highlight === 'Public space'",
-            "value": "bold"
-          },
-          "value": "normal"
         }
       }
     },
@@ -270,16 +263,9 @@
         "color": {
           "condition": {
             "test": "datum.highlight === 'Public space'",
-            "value": "#1F5E48"
+            "value": "#764616"
           },
           "value": "#555555"
-        },
-        "fontWeight": {
-          "condition": {
-            "test": "datum.highlight === 'Public space'",
-            "value": "bold"
-          },
-          "value": "normal"
         }
       }
     }
