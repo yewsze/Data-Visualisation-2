@@ -1,16 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Top 20 activities by participation",
-    "subtitle": "Share of adults (15+) who took part in the past year, 2025",
-    "anchor": "start",
-    "fontSize": 16,
-    "subtitleFontSize": 12
+
+  "width": "container",
+  "height": 600,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
   },
-  "width": 600,
-  "height": {"step": 26},
-  "autosize": {"type": "pad", "resize": true},
-  "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
+  "padding": {"left": 10, "right": 10, "top": 10, "bottom": 10},
   "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/1.2ActivityRank.csv"},
   "params": [
     {
@@ -89,10 +86,11 @@
               "outdoor capable",
               "indoor/facility-based"
             ],
-            "range": ["#2e7d5b", "#e9b44c", "#6c7a89"]
+            "range": ["#dfecb9", "#f3e1a0", "#d7c5a1"]
           },
           "legend": {
             "orient": "right",
+            "offset": 40,
             "direction": "vertical",
             "title": "Classification",
             "labelFontSize": 14}

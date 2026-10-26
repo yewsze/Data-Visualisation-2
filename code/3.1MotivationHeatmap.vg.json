@@ -27,7 +27,7 @@
   "hconcat": [
     {
       "width": {
-        "step": 90
+        "step": 100
       },
       "height": {
         "step": 40
@@ -95,7 +95,7 @@
               "type": "quantitative",
               "title": "% of participants",
               "scale": {
-                "scheme": "tealblues",
+                "scheme": "teals",
                 "domain": [
                   0,
                   0.8
@@ -105,9 +105,11 @@
                 "format": "%",
                 "orient": "right",
                 "direction": "vertical",
+                "offset": 15,
                 "gradientLength": 260,
                 "labelFontSize": 12,
-                "titleFontSize": 12
+                "titleFontSize": 12,
+                "title": "Share of participants"
               }
             },
             "tooltip": [
@@ -207,7 +209,7 @@
     },
     {
       "width": {
-        "step": 90
+        "step": 100
       },
       "height": {
         "step": 40
@@ -311,7 +313,7 @@
         {
           "mark": {
             "type": "text",
-            "fontSize": 11
+            "fontSize": 12
           },
           "encoding": {
             "x": {

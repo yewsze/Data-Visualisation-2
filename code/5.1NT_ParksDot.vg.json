@@ -2,7 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
   "height": 600,
-  "title": "National Parks of the Northern Territory",
+  "title": {
+    "text": "National Parks of the Northern Territory",
+    "fontSize": 18
+  },
   "projection": {"type": "mercator", "scale": 2000, "center": [133, -19]},
   "background": "#f4f7f9",
   "layer": [
@@ -32,7 +35,7 @@
           "type": "nominal",
           "title": "Region",
           "scale": {"scheme": "tableau10"},
-          "legend": {"orient": "bottom-right"}
+          "legend": {"orient": "bottom-right", "titleFontSize": 14, "labelFontSize": 12}
         },
         "tooltip": [
           {"field": "park_name", "type": "nominal", "title": "Park"},

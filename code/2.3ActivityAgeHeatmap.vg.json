@@ -5,7 +5,7 @@
     "anchor": "start"
   },
   "width": {"step": 120},
-  "height": {"step": 80},
+  "height": {"step": 60},
   "data": {"url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/2.2ActivityByAge.csv"},
 
 "transform": [
@@ -22,7 +22,7 @@
       "type": "ordinal",
       "title": "Age group",
       "sort": ["15-17", "18-24", "25-34", "35-44", "45-54", "55-64", "64+"],
-      "axis": {"labelAngle": 0, "labelFontSize": 12, "titleFontSize": 14, "labelPadding": 6}
+      "axis": {"labelAngle": 0, "labelFontSize": 12, "titleFontSize": 14, "labelPadding": 10}
     }
   },
   "layer": [
@@ -33,9 +33,9 @@
           "field": "participation rate",
           "type": "quantitative",
           "title": "Participation Rate (%)",
-          "scale": {"type": "sqrt", "scheme": "blues"},
+          "scale": {"type": "sqrt", "scheme": "purples"},
           "legend": {
-            "format": "%", 
+            "labelExpr": "format(datum.value, '.0f') + '%'",
             "direction": "vertical", 
             "gradientLength": 120, 
             "labelFontSize": 12, 
@@ -49,7 +49,7 @@
             "fontSize": 12
           },
       "encoding": {
-        "text": {"field": "formatted_rate", "type": "nominal", "axis": {"labelFontSize": 14, "titleFontSize": 14}},
+        "text": {"field": "formatted_rate", "type": "nominal"},
         "color": {
           "condition": {"test": "datum['participation rate'] < 2", "value": "black"},
           "value": "white"

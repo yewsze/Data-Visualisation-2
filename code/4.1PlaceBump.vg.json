@@ -1,22 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Bump chart: rank of the places adults were active, by age group, Jan-Dec 2025 (AusPlay National data tables, 30 April 2026, Table 7). Circles show the share of adults who were active at each place.",
-  "width": 520,
+  "width": "container",
   "height": 400,
   "padding": {
     "top": 10,
-    "left": 185,
-    "right": 195,
-    "bottom": 10
-  },
-  "title": {
-    "text": "Public Space Is the Top Place to Be Active at Every Age",
-    "subtitle": "Rank of places adults were active, by age group, Jan-Dec 2025. Circles show % of adults.",
-    "anchor": "start",
-    "fontSize": 20,
-    "subtitleFontSize": 13,
-    "subtitleColor": "#555555",
-    "offset": 12
+    "left": 30,
+    "right": 30,
+    "bottom": 20
   },
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/place.csv",
@@ -97,7 +88,7 @@
       ],
       "mark": {
         "type": "line",
-        "color": "#C3CAC6",
+        "color": "#bac1bd",
         "strokeWidth": 3
       },
       "encoding": {
@@ -116,7 +107,7 @@
       ],
       "mark": {
         "type": "line",
-        "color": "#2A7F62",
+        "color": "#d5b283",
         "strokeWidth": 6
       },
       "encoding": {
@@ -136,8 +127,8 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "color": "#7D8A85",
-        "size": 820,
+        "color": "#aeb2b0",
+        "size": 1800,
         "opacity": 1
       },
       "encoding": {
@@ -176,8 +167,8 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "color": "#2A7F62",
-        "size": 1000,
+        "color": "#d5b283",
+        "size": 1800,
         "opacity": 1
       },
       "encoding": {
@@ -210,7 +201,7 @@
       "description": "Percentage inside each circle",
       "mark": {
         "type": "text",
-        "fontSize": 9.5,
+        "fontSize": 12,
         "fontWeight": "bold",
         "color": "#FFFFFF"
       },
@@ -268,6 +259,7 @@
         "type": "text",
         "align": "left",
         "dx": 26,
+        "dy": 4,
         "fontSize": 12
       },
       "encoding": {

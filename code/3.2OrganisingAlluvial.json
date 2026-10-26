@@ -1,28 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Alluvial: age group -> informal/organised -> way of taking part (AusPlay National Table 4, Jan-Dec 2025, adults, all genders). Layout computed in Vega.",
-  "width": 900,
+  "width": "container",
   "height": 600,
   "padding": {
     "left": 10,
     "right": 100,
-    "top": 140,
+    "top": 100,
     "bottom": 20
   },
   "autosize": "none",
-  "title": {
-    "text": "How Australians take part, by age",
-    "subtitle": [
-      "Labels show each box's share of all ways of taking part. Hover a ribbon for the % of adults in that age group.",
-      "People can choose more than one way, so shares count ways, not unique people. Hover an age group or a way to highlight."
-    ],
-    "anchor": "start",
-    "frame": "group",
-    "offset": 16,
-    "fontSize": 20,
-    "subtitleFontSize": 11,
-    "subtitleColor": "#555"
-  },
   "signals": [
     {
       "name": "chartH",
@@ -1369,13 +1356,13 @@
         "65+"
       ],
       "range": [
-        "#440154",
-        "#443983",
-        "#31688e",
-        "#21908d",
-        "#35b779",
-        "#90d743",
-        "#d9c800"
+        "#6ad1a3",
+        "#7fbdda",
+        "#d9c800",
+        "#c49892",
+        "#dadb9a",
+        "#a188bd",
+        "#fdcd94"
       ]
     },
     {
@@ -1387,8 +1374,8 @@
         "Other"
       ],
       "range": [
-        "#4a6fa5",
-        "#d1495b",
+        "#b7a7b8",
+        "#a6b3c0",
         "#9a9a9a"
       ]
     }
@@ -1404,8 +1391,8 @@
       "columns": 7,
       "columnPadding": 14,
       "symbolType": "square",
-      "labelFontSize": 11,
-      "titleFontSize": 11
+      "labelFontSize": 12,
+      "titleFontSize": 12
     }
   ],
   "marks": [

@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Mosaic plot: employment status of active adults at three activity frequencies, Jan-Dec 2025 (AusPlay National data tables, 30 April 2026, Table 32). Column width = number of active adults; segment height = share of those adults.",
-  "width": 640,
-  "height": 340,
+  "width": "container",
+  "height": 500,
   "padding": {
-    "top": 10,
-    "left": 10,
-    "right": 10,
-    "bottom": 10
+    "top": 20,
+    "left": 20,
+    "right": 20,
+    "bottom": 20
   },
   "title": {
     "text": "Nearly Half of Active Adults Work Full-Time",
@@ -71,7 +71,9 @@
             "ticks": false,
             "domain": false,
             "grid": false,
-            "titlePadding": 52
+            "titlePadding": 52,
+            "labelFontSize": 12,
+            "titleFontSize": 12
           }
         },
         "x2": {
@@ -92,7 +94,8 @@
             "tickCount": 5,
             "grid": false,
             "domain": false,
-            "labelFontSize": 11
+            "labelFontSize": 12,
+            "titleFontSize": 12
           }
         },
         "y2": {
@@ -121,13 +124,13 @@
               "Unemployed"
             ],
             "range": [
-              "#1F5E48",
-              "#2A7F62",
-              "#6FB394",
-              "#B7DCCB",
-              "#E8C27A",
-              "#C0562B",
-              "#7A4A3A"
+              "#c4b2d0",
+              "#dcc6d2",
+              "#c2bbc8",
+              "#e6c2a2",
+              "#e8dca4",
+              "#bccba8",
+              "#b4cdd6"
             ]
           },
           "legend": {
@@ -173,7 +176,7 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": "bold"
       },
       "encoding": {
@@ -237,7 +240,7 @@
         "type": "text",
         "baseline": "top",
         "dy": 8,
-        "fontSize": 13,
+        "fontSize": 14,
         "fontWeight": "bold",
         "color": "#333333"
       },
@@ -294,7 +297,7 @@
         "type": "text",
         "baseline": "top",
         "dy": 26,
-        "fontSize": 12,
+        "fontSize": 14,
         "color": "#666666"
       },
       "encoding": {

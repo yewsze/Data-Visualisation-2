@@ -13,8 +13,8 @@
   "spacing": 0,
   "hconcat": [
     {
-      "title": {"text": "Males", "anchor": "middle", "fontSize": 14, "fontWeight": "bold", "color": "#2a7f8f", "offset": 6},
-      "width": 350,
+      "title": {"text": "Males", "anchor": "middle", "fontSize": 14, "fontWeight": "bold", "color": "#7eaacb", "offset": 6},
+      "width": 300,
       "height": {"step": 38},
       "transform": [{"filter": "datum.gender === 'Male'"}],
       "encoding": {
@@ -30,7 +30,7 @@
       },
       "layer": [
         {
-          "mark": {"type": "bar", "color": "#2a7f8f", "stroke": "white", "strokeWidth": 1},
+          "mark": {"type": "bar", "color": "#7eaacb", "stroke": "white", "strokeWidth": 1},
           "encoding": {
             "tooltip": [
               {"field": "age_group", "type": "nominal", "title": "Age group"},
@@ -59,7 +59,7 @@
       }
     },
     {
-      "title": {"text": "Females", "anchor": "middle", "fontSize": 14, "fontWeight": "bold", "color": "#b5457b", "offset": 6},
+      "title": {"text": "Females", "anchor": "middle", "fontSize": 14, "fontWeight": "bold", "color": "#cb77a0", "offset": 6},
       "width": 350,
       "height": {"step": 38},
       "transform": [{"filter": "datum.gender === 'Female'"}],
@@ -76,7 +76,7 @@
       },
       "layer": [
         {
-          "mark": {"type": "bar", "color": "#b5457b", "stroke": "white", "strokeWidth": 1},
+          "mark": {"type": "bar", "color": "#cb77a0", "stroke": "white", "strokeWidth": 1},
           "encoding": {
             "tooltip": [
               {"field": "age_group", "type": "nominal", "title": "Age group"},

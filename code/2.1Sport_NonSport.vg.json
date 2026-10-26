@@ -1,6 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 900,
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "height": {"step": 50},
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/Sport_NonSport.csv",
@@ -26,7 +30,7 @@
           "field": "category", "type": "nominal", "title": null,
           "scale": {
             "domain": ["Sport only", "Both sport and non-sport", "Non-sport only", "Did not take part"],
-            "range": ["#2f5f98", "#7b5ea7", "#e8a33d", "#d9d9d9"]
+            "range": ["#9abad3", "#b6aad1", "#e8d8ad", "#d9d9d9"]
           },
           "legend": {"orient": "right", "symbolType": "square", "labelFontSize": 14}
         },

@@ -61,7 +61,7 @@
       "description": "Main line",
       "mark": {
         "type": "line",
-        "color": "#2A7F62",
+        "color": "#3f997b",
         "strokeWidth": 3
       },
       "encoding": {
@@ -97,7 +97,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "color": "#C0562B",
+        "color": "#cbaf98",
         "size": 150,
         "opacity": 1
       },
@@ -145,7 +145,7 @@
         "dy": 20,
         "fontSize": 12,
         "fontWeight": "bold",
-        "color": "#C0562B"
+        "color": "#865b29"
       },
       "encoding": {
         "y": {
@@ -198,7 +198,7 @@
       },
       "mark": {
         "type": "rule",
-        "color": "#C0562B",
+        "color": "#865b29",
         "strokeWidth": 1.5,
         "strokeDash": [
           4,
@@ -234,7 +234,7 @@
         "baseline": "bottom",
         "fontSize": 13,
         "fontWeight": "bold",
-        "color": "#C0562B"
+        "color": "#865b29"
       },
       "encoding": {
         "x": {

@@ -1,7 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 320,
+  "width": "container",
+  "height": 400,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/WaffleChart.csv",
     "format": {
@@ -100,9 +104,9 @@
           "Did not take part"
         ],
         "range": [
-          "#1f7a4d",
-          "#8bc79b",
-          "#d4d4d4"
+          "#7fa69a",
+          "#b5c1b0",
+          "#e6dcc8"
         ]
       },
       "legend": {

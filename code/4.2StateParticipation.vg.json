@@ -21,62 +21,141 @@
     }
   },
   "transform": [
-    { "filter": "datum.year === 2025" },
-    { "calculate": "(datum.rate - datum.national_rate) * 100", "as": "vs_nat" },
+    {
+      "filter": "datum.year === 2025"
+    },
+    {
+      "calculate": "(datum.rate - datum.national_rate) * 100",
+      "as": "vs_nat"
+    },
     {
       "lookup": "state_name",
       "from": {
         "data": {
           "url": "https://yewsze.github.io/Data-Visualisation-2/clone-data/spatial_data/commonwealth/topojson/simplified/STE_2021_AUST_GDA94.json",
-          "format": { "type": "topojson", "feature": "STE_2021_AUST_GDA94" }
+          "format": {
+            "type": "topojson",
+            "feature": "STE_2021_AUST_GDA94"
+          }
         },
         "key": "properties.STE_NAME21"
       },
       "as": "geo"
     }
   ],
-  "resolve": { "scale": { "color": "independent" } },
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
   "hconcat": [
     {
-      "title": { "text": "At least once a year", "anchor": "middle", "fontSize": 13, "fontWeight": "bold" },
-      "transform": [{ "filter": "datum.measure === 'At least once a year'" }],
-      "spacing": 8,
+      "title": {
+        "text": "At least once a year",
+        "anchor": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "transform": [
+        {
+          "filter": "datum.measure === 'At least once a year'"
+        }
+      ],
+      "spacing": 0,
       "hconcat": [
         {
           "width": 230,
           "height": 230,
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [-132, 0, 0],
-            "center": [0, -27],
-            "parallels": [-18, -36],
+            "rotate": [
+              -132,
+              0,
+              0
+            ],
+            "center": [
+              0,
+              -27
+            ],
+            "parallels": [
+              -18,
+              -36
+            ],
             "scale": 310,
-            "translate": [115, 115]
+            "translate": [
+              115,
+              115
+            ]
           },
           "layer": [
             {
-              "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1 },
+              "mark": {
+                "type": "geoshape",
+                "stroke": "white",
+                "strokeWidth": 1
+              },
               "encoding": {
-                "shape": { "field": "geo", "type": "geojson" },
+                "shape": {
+                  "field": "geo",
+                  "type": "geojson"
+                },
                 "color": {
                   "field": "rate",
                   "type": "quantitative",
-                  "scale": { "domain": [0.47, 0.70, 0.93], "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"] },
+                  "scale": {
+                    "domain": [
+                      0.47,
+                      0.7,
+                      0.93
+                    ],
+                    "range": [
+                      "#e6f4ea",
+                      "#7cc08c",
+                      "#1f7a4d"
+                    ]
+                  },
                   "legend": null
                 },
                 "tooltip": [
-                  { "field": "state_name", "title": "State / territory" },
-                  { "field": "measure", "title": "Measure" },
-                  { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
-                  { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" },
-                  { "field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s" }
+                  {
+                    "field": "state_name",
+                    "title": "State / territory"
+                  },
+                  {
+                    "field": "measure",
+                    "title": "Measure"
+                  },
+                  {
+                    "field": "rate",
+                    "type": "quantitative",
+                    "title": "Share of adults",
+                    "format": ".1%"
+                  },
+                  {
+                    "field": "vs_nat",
+                    "type": "quantitative",
+                    "title": "Vs Australia (percentage points)",
+                    "format": "+.1f"
+                  },
+                  {
+                    "field": "adults",
+                    "type": "quantitative",
+                    "title": "Estimated adults",
+                    "format": "~s"
+                  }
                 ]
               }
             },
             {
               "encoding": {
-                "longitude": { "field": "label_lon", "type": "quantitative" },
-                "latitude": { "field": "label_lat", "type": "quantitative" },
+                "longitude": {
+                  "field": "label_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_lat",
+                  "type": "quantitative"
+                },
                 "color": {
                   "condition": {
                     "test": "datum.rate > 0.75 && datum.state !== 'ACT' && datum.state !== 'TAS'",
@@ -86,134 +165,356 @@
                 }
               },
               "transform": [
-                { "filter": "datum.state !== 'ACT' && datum.state !== 'VIC' && datum.state !== 'TAS'" }
+                {
+                  "filter": "datum.state !== 'ACT' && datum.state !== 'VIC' && datum.state !== 'TAS'"
+                }
               ],
               "layer": [
                 {
-                  "mark": { "type": "text", "fontSize": 9, "fontWeight": "bold", "baseline": "middle" },
-                  "encoding": { "text": { "field": "state" } }
+                  "mark": {
+                    "type": "text",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "baseline": "middle"
+                  },
+                  "encoding": {
+                    "text": {
+                      "field": "state"
+                    }
+                  }
                 },
                 {
-                  "mark": { "type": "text", "fontSize": 9, "baseline": "top", "dy": 4 },
-                  "encoding": { "text": { "field": "rate", "type": "quantitative", "format": ".0%" } }
+                  "mark": {
+                    "type": "text",
+                    "fontSize": 9,
+                    "baseline": "top",
+                    "dy": 4
+                  },
+                  "encoding": {
+                    "text": {
+                      "field": "rate",
+                      "type": "quantitative",
+                      "format": ".0%"
+                    }
+                  }
                 }
               ]
             },
             {
-              "transform": [
-                { "filter": "datum.state === 'ACT'" },
-                { "calculate": "149.13", "as": "act_lon" },
-                { "calculate": "-35.28", "as": "act_lat" }
-              ],
-              "mark": { "type": "circle", "size": 35, "color": "#000000", "stroke": "white", "strokeWidth": 1.5 },
-              "encoding": {
-                "longitude": { "field": "act_lon", "type": "quantitative" },
-                "latitude": { "field": "act_lat", "type": "quantitative" }
-              }
-            },
-            {
               "data": {
                 "values": [
-                  { "longitude": 149.13, "latitude": -35.28, "longitude2": 158.0, "latitude2": -33.5 }
+                  {
+                    "lon": 149.13,
+                    "lat": -35.28,
+                    "order": 0
+                  },
+                  {
+                    "lon": 156.4225,
+                    "lat": -34.3038,
+                    "order": 1
+                  },
+                  {
+                    "lon": 151.9551,
+                    "lat": -11.1134,
+                    "order": 2
+                  },
+                  {
+                    "lon": 153.2255,
+                    "lat": -10.9009,
+                    "order": 3
+                  }
                 ]
               },
-              "mark": { "type": "rule", "stroke": "#555", "strokeWidth": 1.2 },
+              "mark": {
+                "type": "line",
+                "stroke": "#555",
+                "strokeWidth": 1.2
+              },
               "encoding": {
-                "longitude": { "field": "longitude", "type": "quantitative" },
-                "latitude": { "field": "latitude", "type": "quantitative" },
-                "longitude2": { "field": "longitude2" },
-                "latitude2": { "field": "latitude2" }
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "lat",
+                  "type": "quantitative"
+                },
+                "order": {
+                  "field": "order",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'VIC' || datum.state === 'TAS'" },
-                { "calculate": "datum.state === 'VIC' ? 142.0 : 149.2", "as": "outside_lon" },
-                { "calculate": "datum.state === 'VIC' ? -38.0 : -43.8", "as": "outside_lat" }
+                {
+                  "filter": "datum.state === 'ACT'"
+                },
+                {
+                  "calculate": "149.13",
+                  "as": "act_lon"
+                },
+                {
+                  "calculate": "-35.28",
+                  "as": "act_lat"
+                }
               ],
-              "mark": { "type": "rule", "stroke": "#555", "strokeWidth": 1.2 },
+              "mark": {
+                "type": "circle",
+                "size": 35,
+                "color": "#000000",
+                "stroke": "white",
+                "strokeWidth": 1.5
+              },
               "encoding": {
-                "longitude": { "field": "label_lon", "type": "quantitative" },
-                "latitude": { "field": "label_lat", "type": "quantitative" },
-                "longitude2": { "field": "outside_lon", "type": "quantitative" },
-                "latitude2": { "field": "outside_lat", "type": "quantitative" }
+                "longitude": {
+                  "field": "act_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "act_lat",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'VIC'" },
-                { "calculate": "142.0", "as": "outside_lon" },
-                { "calculate": "-38.0", "as": "outside_lat" },
-                { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "outside_label" }
+                {
+                  "filter": "datum.state === 'VIC' || datum.state === 'TAS'"
+                },
+                {
+                  "calculate": "datum.state === 'VIC' ? 142.0 : 148.2",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "datum.state === 'VIC' ? -38.0 : -43.8",
+                  "as": "outside_lat"
+                }
               ],
-              "mark": { "type": "text", "align": "right", "fontSize": 9, "fontWeight": "bold", "dx": -3 },
+              "mark": {
+                "type": "rule",
+                "stroke": "#555",
+                "strokeWidth": 1.2
+              },
               "encoding": {
-                "longitude": { "field": "outside_lon", "type": "quantitative" },
-                "latitude": { "field": "outside_lat", "type": "quantitative" },
-                "text": { "field": "outside_label" },
-                "color": { "value": "#1a1a1a" }
+                "longitude": {
+                  "field": "label_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_lat",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude2": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'TAS'" },
-                { "calculate": "149.2", "as": "outside_lon" },
-                { "calculate": "-43.8", "as": "outside_lat" },
-                { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "outside_label" }
+                {
+                  "filter": "datum.state === 'VIC'"
+                },
+                {
+                  "calculate": "142.0",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "-38.0",
+                  "as": "outside_lat"
+                },
+                {
+                  "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+                  "as": "outside_label"
+                }
               ],
-              "mark": { "type": "text", "align": "left", "fontSize": 9, "fontWeight": "bold", "dx": 3 },
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "fontSize": 9,
+                "fontWeight": "bold",
+                "dx": -3
+              },
               "encoding": {
-                "longitude": { "field": "outside_lon", "type": "quantitative" },
-                "latitude": { "field": "outside_lat", "type": "quantitative" },
-                "text": { "field": "outside_label" },
-                "color": { "value": "#1a1a1a" }
+                "longitude": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "color": {
+                  "value": "#1a1a1a"
+                }
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.state === 'TAS'"
+                },
+                {
+                  "calculate": "148.2",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "-43.8",
+                  "as": "outside_lat"
+                },
+                {
+                  "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+                  "as": "outside_label"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "fontSize": 9,
+                "fontWeight": "bold",
+                "dx": 3
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "color": {
+                  "value": "#1a1a1a"
+                }
               }
             }
           ]
         },
         {
-          "title": { "text": "ACT", "anchor": "start", "fontSize": 10, "offset": 2 },
+          "title": {
+            "text": "ACT",
+            "anchor": "start",
+            "fontSize": 10,
+            "offset": 2
+          },
           "transform": [
-            { "filter": "datum.state === 'ACT'" },
-            { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "lbl" }
+            {
+              "filter": "datum.state === 'ACT'"
+            },
+            {
+              "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+              "as": "lbl"
+            }
           ],
           "width": 115,
           "height": 75,
-          "view": { "stroke": "#1f7a4d", "strokeWidth": 1 },
+          "view": {
+            "stroke": "#1f7a4d",
+            "strokeWidth": 1
+          },
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [-149, 0, 0],
-            "center": [0, -35.5],
-            "parallels": [-35, -36],
+            "rotate": [
+              -149,
+              0,
+              0
+            ],
+            "center": [
+              0,
+              -35.5
+            ],
+            "parallels": [
+              -35,
+              -36
+            ],
             "scale": 3800,
-            "translate": [37, 37]
+            "translate": [
+              37,
+              37
+            ]
           },
           "layer": [
             {
-              "mark": { "type": "geoshape", "stroke": "#1f7a4d", "strokeWidth": 1.5 },
+              "mark": {
+                "type": "geoshape",
+                "stroke": "#1f7a4d",
+                "strokeWidth": 1.5
+              },
               "encoding": {
-                "shape": { "field": "geo", "type": "geojson" },
+                "shape": {
+                  "field": "geo",
+                  "type": "geojson"
+                },
                 "color": {
                   "field": "rate",
                   "type": "quantitative",
                   "title": "% of adults",
-                  "scale": { "domain": [0.47, 0.70, 0.93], "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"] },
+                  "scale": {
+                    "domain": [
+                      0.47,
+                      0.7,
+                      0.93
+                    ],
+                    "range": [
+                      "#e6f4ea",
+                      "#7cc08c",
+                      "#1f7a4d"
+                    ]
+                  },
                   "legend": null
                 },
                 "tooltip": [
-                  { "field": "state_name", "title": "State / territory" },
-                  { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
-                  { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" }
+                  {
+                    "field": "state_name",
+                    "title": "State / territory"
+                  },
+                  {
+                    "field": "rate",
+                    "type": "quantitative",
+                    "title": "Share of adults",
+                    "format": ".1%"
+                  },
+                  {
+                    "field": "vs_nat",
+                    "type": "quantitative",
+                    "title": "Vs Australia (percentage points)",
+                    "format": "+.1f"
+                  }
                 ]
               }
             },
             {
-              "mark": { "type": "text", "align": "center", "baseline": "middle", "fontSize": 9, "fontWeight": "bold" },
+              "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "fontSize": 9,
+                "fontWeight": "bold"
+              },
               "encoding": {
-                "x": { "value": 83 },
-                "y": { "value": 37 },
-                "text": { "field": "lbl" },
-                "align": { "value": "left" },
+                "x": {
+                  "value": 83
+                },
+                "y": {
+                  "value": 37
+                },
+                "text": {
+                  "field": "lbl"
+                },
+                "align": {
+                  "value": "left"
+                },
                 "color": {
                   "value": "#1a1a1a"
                 }
@@ -224,45 +525,112 @@
       ]
     },
     {
-      "title": { "text": "At least once a week", "anchor": "middle", "fontSize": 13, "fontWeight": "bold" },
-      "transform": [{ "filter": "datum.measure === 'At least once a week'" }],
-      "spacing": 8,
+      "title": {
+        "text": "At least once a week",
+        "anchor": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "transform": [
+        {
+          "filter": "datum.measure === 'At least once a week'"
+        }
+      ],
+      "spacing": 0,
       "hconcat": [
         {
           "width": 230,
           "height": 230,
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [-132, 0, 0],
-            "center": [0, -27],
-            "parallels": [-18, -36],
+            "rotate": [
+              -132,
+              0,
+              0
+            ],
+            "center": [
+              0,
+              -27
+            ],
+            "parallels": [
+              -18,
+              -36
+            ],
             "scale": 310,
-            "translate": [115, 115]
+            "translate": [
+              115,
+              115
+            ]
           },
           "layer": [
             {
-              "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1 },
+              "mark": {
+                "type": "geoshape",
+                "stroke": "white",
+                "strokeWidth": 1
+              },
               "encoding": {
-                "shape": { "field": "geo", "type": "geojson" },
+                "shape": {
+                  "field": "geo",
+                  "type": "geojson"
+                },
                 "color": {
                   "field": "rate",
                   "type": "quantitative",
-                  "scale": { "domain": [0.47, 0.70, 0.93], "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"] },
+                  "scale": {
+                    "domain": [
+                      0.47,
+                      0.7,
+                      0.93
+                    ],
+                    "range": [
+                      "#e6f4ea",
+                      "#7cc08c",
+                      "#1f7a4d"
+                    ]
+                  },
                   "legend": null
                 },
                 "tooltip": [
-                  { "field": "state_name", "title": "State / territory" },
-                  { "field": "measure", "title": "Measure" },
-                  { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
-                  { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" },
-                  { "field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s" }
+                  {
+                    "field": "state_name",
+                    "title": "State / territory"
+                  },
+                  {
+                    "field": "measure",
+                    "title": "Measure"
+                  },
+                  {
+                    "field": "rate",
+                    "type": "quantitative",
+                    "title": "Share of adults",
+                    "format": ".1%"
+                  },
+                  {
+                    "field": "vs_nat",
+                    "type": "quantitative",
+                    "title": "Vs Australia (percentage points)",
+                    "format": "+.1f"
+                  },
+                  {
+                    "field": "adults",
+                    "type": "quantitative",
+                    "title": "Estimated adults",
+                    "format": "~s"
+                  }
                 ]
               }
             },
             {
               "encoding": {
-                "longitude": { "field": "label_lon", "type": "quantitative" },
-                "latitude": { "field": "label_lat", "type": "quantitative" },
+                "longitude": {
+                  "field": "label_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_lat",
+                  "type": "quantitative"
+                },
                 "color": {
                   "condition": {
                     "test": "datum.rate > 0.75 && datum.state !== 'ACT' && datum.state !== 'TAS'",
@@ -272,134 +640,356 @@
                 }
               },
               "transform": [
-                { "filter": "datum.state !== 'ACT' && datum.state !== 'VIC' && datum.state !== 'TAS'" }
+                {
+                  "filter": "datum.state !== 'ACT' && datum.state !== 'VIC' && datum.state !== 'TAS'"
+                }
               ],
               "layer": [
                 {
-                  "mark": { "type": "text", "fontSize": 9, "fontWeight": "bold", "baseline": "middle" },
-                  "encoding": { "text": { "field": "state" } }
+                  "mark": {
+                    "type": "text",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "baseline": "middle"
+                  },
+                  "encoding": {
+                    "text": {
+                      "field": "state"
+                    }
+                  }
                 },
                 {
-                  "mark": { "type": "text", "fontSize": 9, "baseline": "top", "dy": 4 },
-                  "encoding": { "text": { "field": "rate", "type": "quantitative", "format": ".0%" } }
+                  "mark": {
+                    "type": "text",
+                    "fontSize": 9,
+                    "baseline": "top",
+                    "dy": 4
+                  },
+                  "encoding": {
+                    "text": {
+                      "field": "rate",
+                      "type": "quantitative",
+                      "format": ".0%"
+                    }
+                  }
                 }
               ]
             },
             {
-              "transform": [
-                { "filter": "datum.state === 'ACT'" },
-                { "calculate": "149.13", "as": "act_lon" },
-                { "calculate": "-35.28", "as": "act_lat" }
-              ],
-              "mark": { "type": "circle", "size": 35, "color": "#000000", "stroke": "white", "strokeWidth": 1.5 },
-              "encoding": {
-                "longitude": { "field": "act_lon", "type": "quantitative" },
-                "latitude": { "field": "act_lat", "type": "quantitative" }
-              }
-            },
-            {
               "data": {
                 "values": [
-                  { "longitude": 149.13, "latitude": -35.28, "longitude2": 158.0, "latitude2": -33.5 }
+                  {
+                    "lon": 149.13,
+                    "lat": -35.28,
+                    "order": 0
+                  },
+                  {
+                    "lon": 156.4225,
+                    "lat": -34.3038,
+                    "order": 1
+                  },
+                  {
+                    "lon": 151.9551,
+                    "lat": -11.1134,
+                    "order": 2
+                  },
+                  {
+                    "lon": 153.2255,
+                    "lat": -10.9009,
+                    "order": 3
+                  }
                 ]
               },
-              "mark": { "type": "rule", "stroke": "#555", "strokeWidth": 1.2 },
+              "mark": {
+                "type": "line",
+                "stroke": "#555",
+                "strokeWidth": 1.2
+              },
               "encoding": {
-                "longitude": { "field": "longitude", "type": "quantitative" },
-                "latitude": { "field": "latitude", "type": "quantitative" },
-                "longitude2": { "field": "longitude2" },
-                "latitude2": { "field": "latitude2" }
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "lat",
+                  "type": "quantitative"
+                },
+                "order": {
+                  "field": "order",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'VIC' || datum.state === 'TAS'" },
-                { "calculate": "datum.state === 'VIC' ? 142.0 : 149.2", "as": "outside_lon" },
-                { "calculate": "datum.state === 'VIC' ? -38.0 : -43.8", "as": "outside_lat" }
+                {
+                  "filter": "datum.state === 'ACT'"
+                },
+                {
+                  "calculate": "149.13",
+                  "as": "act_lon"
+                },
+                {
+                  "calculate": "-35.28",
+                  "as": "act_lat"
+                }
               ],
-              "mark": { "type": "rule", "stroke": "#555", "strokeWidth": 1.2 },
+              "mark": {
+                "type": "circle",
+                "size": 35,
+                "color": "#000000",
+                "stroke": "white",
+                "strokeWidth": 1.5
+              },
               "encoding": {
-                "longitude": { "field": "label_lon", "type": "quantitative" },
-                "latitude": { "field": "label_lat", "type": "quantitative" },
-                "longitude2": { "field": "outside_lon", "type": "quantitative" },
-                "latitude2": { "field": "outside_lat", "type": "quantitative" }
+                "longitude": {
+                  "field": "act_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "act_lat",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'VIC'" },
-                { "calculate": "142.0", "as": "outside_lon" },
-                { "calculate": "-38.0", "as": "outside_lat" },
-                { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "outside_label" }
+                {
+                  "filter": "datum.state === 'VIC' || datum.state === 'TAS'"
+                },
+                {
+                  "calculate": "datum.state === 'VIC' ? 142.0 : 148.2",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "datum.state === 'VIC' ? -38.0 : -43.8",
+                  "as": "outside_lat"
+                }
               ],
-              "mark": { "type": "text", "align": "right", "fontSize": 9, "fontWeight": "bold", "dx": -3 },
+              "mark": {
+                "type": "rule",
+                "stroke": "#555",
+                "strokeWidth": 1.2
+              },
               "encoding": {
-                "longitude": { "field": "outside_lon", "type": "quantitative" },
-                "latitude": { "field": "outside_lat", "type": "quantitative" },
-                "text": { "field": "outside_label" },
-                "color": { "value": "#1a1a1a" }
+                "longitude": {
+                  "field": "label_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_lat",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude2": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'TAS'" },
-                { "calculate": "149.2", "as": "outside_lon" },
-                { "calculate": "-43.8", "as": "outside_lat" },
-                { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "outside_label" }
+                {
+                  "filter": "datum.state === 'VIC'"
+                },
+                {
+                  "calculate": "142.0",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "-38.0",
+                  "as": "outside_lat"
+                },
+                {
+                  "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+                  "as": "outside_label"
+                }
               ],
-              "mark": { "type": "text", "align": "left", "fontSize": 9, "fontWeight": "bold", "dx": 3 },
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "fontSize": 9,
+                "fontWeight": "bold",
+                "dx": -3
+              },
               "encoding": {
-                "longitude": { "field": "outside_lon", "type": "quantitative" },
-                "latitude": { "field": "outside_lat", "type": "quantitative" },
-                "text": { "field": "outside_label" },
-                "color": { "value": "#1a1a1a" }
+                "longitude": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "color": {
+                  "value": "#1a1a1a"
+                }
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.state === 'TAS'"
+                },
+                {
+                  "calculate": "148.2",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "-43.8",
+                  "as": "outside_lat"
+                },
+                {
+                  "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+                  "as": "outside_label"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "fontSize": 9,
+                "fontWeight": "bold",
+                "dx": 3
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "color": {
+                  "value": "#1a1a1a"
+                }
               }
             }
           ]
         },
         {
-          "title": { "text": "ACT", "anchor": "start", "fontSize": 10, "offset": 2 },
+          "title": {
+            "text": "ACT",
+            "anchor": "start",
+            "fontSize": 10,
+            "offset": 2
+          },
           "transform": [
-            { "filter": "datum.state === 'ACT'" },
-            { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "lbl" }
+            {
+              "filter": "datum.state === 'ACT'"
+            },
+            {
+              "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+              "as": "lbl"
+            }
           ],
           "width": 115,
           "height": 75,
-          "view": { "stroke": "#1f7a4d", "strokeWidth": 1 },
+          "view": {
+            "stroke": "#1f7a4d",
+            "strokeWidth": 1
+          },
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [-149, 0, 0],
-            "center": [0, -35.5],
-            "parallels": [-35, -36],
+            "rotate": [
+              -149,
+              0,
+              0
+            ],
+            "center": [
+              0,
+              -35.5
+            ],
+            "parallels": [
+              -35,
+              -36
+            ],
             "scale": 3800,
-            "translate": [37, 37]
+            "translate": [
+              37,
+              37
+            ]
           },
           "layer": [
             {
-              "mark": { "type": "geoshape", "stroke": "#1f7a4d", "strokeWidth": 1.5 },
+              "mark": {
+                "type": "geoshape",
+                "stroke": "#1f7a4d",
+                "strokeWidth": 1.5
+              },
               "encoding": {
-                "shape": { "field": "geo", "type": "geojson" },
+                "shape": {
+                  "field": "geo",
+                  "type": "geojson"
+                },
                 "color": {
                   "field": "rate",
                   "type": "quantitative",
                   "title": "% of adults",
-                  "scale": { "domain": [0.47, 0.70, 0.93], "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"] },
+                  "scale": {
+                    "domain": [
+                      0.47,
+                      0.7,
+                      0.93
+                    ],
+                    "range": [
+                      "#e6f4ea",
+                      "#7cc08c",
+                      "#1f7a4d"
+                    ]
+                  },
                   "legend": null
                 },
                 "tooltip": [
-                  { "field": "state_name", "title": "State / territory" },
-                  { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
-                  { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" }
+                  {
+                    "field": "state_name",
+                    "title": "State / territory"
+                  },
+                  {
+                    "field": "rate",
+                    "type": "quantitative",
+                    "title": "Share of adults",
+                    "format": ".1%"
+                  },
+                  {
+                    "field": "vs_nat",
+                    "type": "quantitative",
+                    "title": "Vs Australia (percentage points)",
+                    "format": "+.1f"
+                  }
                 ]
               }
             },
             {
-              "mark": { "type": "text", "align": "center", "baseline": "middle", "fontSize": 9, "fontWeight": "bold" },
+              "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "fontSize": 9,
+                "fontWeight": "bold"
+              },
               "encoding": {
-                "x": { "value": 83 },
-                "y": { "value": 37 },
-                "text": { "field": "lbl" },
-                "align": { "value": "left" },
+                "x": {
+                  "value": 83
+                },
+                "y": {
+                  "value": 37
+                },
+                "text": {
+                  "field": "lbl"
+                },
+                "align": {
+                  "value": "left"
+                },
                 "color": {
                   "value": "#1a1a1a"
                 }
@@ -410,45 +1000,120 @@
       ]
     },
     {
-      "title": { "text": "At least 3 times a week", "anchor": "middle", "fontSize": 13, "fontWeight": "bold" },
-      "transform": [{ "filter": "datum.measure === 'At least 3 times a week'" }],
-      "spacing": 8,
+      "title": {
+        "text": "At least 3 times a week",
+        "anchor": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "transform": [
+        {
+          "filter": "datum.measure === 'At least 3 times a week'"
+        }
+      ],
+      "spacing": 0,
       "hconcat": [
         {
           "width": 230,
           "height": 230,
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [-132, 0, 0],
-            "center": [0, -27],
-            "parallels": [-18, -36],
+            "rotate": [
+              -132,
+              0,
+              0
+            ],
+            "center": [
+              0,
+              -27
+            ],
+            "parallels": [
+              -18,
+              -36
+            ],
             "scale": 310,
-            "translate": [115, 115]
+            "translate": [
+              115,
+              115
+            ]
           },
           "layer": [
             {
-              "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1 },
+              "mark": {
+                "type": "geoshape",
+                "stroke": "white",
+                "strokeWidth": 1
+              },
               "encoding": {
-                "shape": { "field": "geo", "type": "geojson" },
+                "shape": {
+                  "field": "geo",
+                  "type": "geojson"
+                },
                 "color": {
                   "field": "rate",
                   "type": "quantitative",
-                  "scale": { "domain": [0.47, 0.70, 0.93], "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"] },
-                  "legend": { "format": ".0%", "orient": "bottom", "direction": "horizontal", "gradientLength": 180, "title": "% of adults" }
+                  "scale": {
+                    "domain": [
+                      0.47,
+                      0.7,
+                      0.93
+                    ],
+                    "range": [
+                      "#e6f4ea",
+                      "#7cc08c",
+                      "#1f7a4d"
+                    ]
+                  },
+                  "legend": {
+                    "format": ".0%",
+                    "orient": "bottom",
+                    "direction": "horizontal",
+                    "gradientLength": 180,
+                    "title": "% of adults",
+                    "titleFontSize": 14,
+                    "labelFontSize": 12
+                  }
                 },
                 "tooltip": [
-                  { "field": "state_name", "title": "State / territory" },
-                  { "field": "measure", "title": "Measure" },
-                  { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
-                  { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" },
-                  { "field": "adults", "type": "quantitative", "title": "Estimated adults", "format": "~s" }
+                  {
+                    "field": "state_name",
+                    "title": "State / territory"
+                  },
+                  {
+                    "field": "measure",
+                    "title": "Measure"
+                  },
+                  {
+                    "field": "rate",
+                    "type": "quantitative",
+                    "title": "Share of adults",
+                    "format": ".1%"
+                  },
+                  {
+                    "field": "vs_nat",
+                    "type": "quantitative",
+                    "title": "Vs Australia (percentage points)",
+                    "format": "+.1f"
+                  },
+                  {
+                    "field": "adults",
+                    "type": "quantitative",
+                    "title": "Estimated adults",
+                    "format": "~s"
+                  }
                 ]
               }
             },
             {
               "encoding": {
-                "longitude": { "field": "label_lon", "type": "quantitative" },
-                "latitude": { "field": "label_lat", "type": "quantitative" },
+                "longitude": {
+                  "field": "label_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_lat",
+                  "type": "quantitative"
+                },
                 "color": {
                   "condition": {
                     "test": "datum.rate > 0.75 && datum.state !== 'ACT' && datum.state !== 'TAS'",
@@ -458,134 +1123,356 @@
                 }
               },
               "transform": [
-                { "filter": "datum.state !== 'ACT' && datum.state !== 'VIC' && datum.state !== 'TAS'" }
+                {
+                  "filter": "datum.state !== 'ACT' && datum.state !== 'VIC' && datum.state !== 'TAS'"
+                }
               ],
               "layer": [
                 {
-                  "mark": { "type": "text", "fontSize": 9, "fontWeight": "bold", "baseline": "middle" },
-                  "encoding": { "text": { "field": "state" } }
+                  "mark": {
+                    "type": "text",
+                    "fontSize": 9,
+                    "fontWeight": "bold",
+                    "baseline": "middle"
+                  },
+                  "encoding": {
+                    "text": {
+                      "field": "state"
+                    }
+                  }
                 },
                 {
-                  "mark": { "type": "text", "fontSize": 9, "baseline": "top", "dy": 4 },
-                  "encoding": { "text": { "field": "rate", "type": "quantitative", "format": ".0%" } }
+                  "mark": {
+                    "type": "text",
+                    "fontSize": 9,
+                    "baseline": "top",
+                    "dy": 4
+                  },
+                  "encoding": {
+                    "text": {
+                      "field": "rate",
+                      "type": "quantitative",
+                      "format": ".0%"
+                    }
+                  }
                 }
               ]
             },
             {
-              "transform": [
-                { "filter": "datum.state === 'ACT'" },
-                { "calculate": "149.13", "as": "act_lon" },
-                { "calculate": "-35.28", "as": "act_lat" }
-              ],
-              "mark": { "type": "circle", "size": 35, "color": "#000000", "stroke": "white", "strokeWidth": 1.5 },
-              "encoding": {
-                "longitude": { "field": "act_lon", "type": "quantitative" },
-                "latitude": { "field": "act_lat", "type": "quantitative" }
-              }
-            },
-            {
               "data": {
                 "values": [
-                  { "longitude": 149.13, "latitude": -35.28, "longitude2": 158.0, "latitude2": -33.5 }
+                  {
+                    "lon": 149.13,
+                    "lat": -35.28,
+                    "order": 0
+                  },
+                  {
+                    "lon": 156.4225,
+                    "lat": -34.3038,
+                    "order": 1
+                  },
+                  {
+                    "lon": 151.9551,
+                    "lat": -11.1134,
+                    "order": 2
+                  },
+                  {
+                    "lon": 153.2255,
+                    "lat": -10.9009,
+                    "order": 3
+                  }
                 ]
               },
-              "mark": { "type": "rule", "stroke": "#555", "strokeWidth": 1.2 },
+              "mark": {
+                "type": "line",
+                "stroke": "#555",
+                "strokeWidth": 1.2
+              },
               "encoding": {
-                "longitude": { "field": "longitude", "type": "quantitative" },
-                "latitude": { "field": "latitude", "type": "quantitative" },
-                "longitude2": { "field": "longitude2" },
-                "latitude2": { "field": "latitude2" }
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "lat",
+                  "type": "quantitative"
+                },
+                "order": {
+                  "field": "order",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'VIC' || datum.state === 'TAS'" },
-                { "calculate": "datum.state === 'VIC' ? 142.0 : 149.2", "as": "outside_lon" },
-                { "calculate": "datum.state === 'VIC' ? -38.0 : -43.8", "as": "outside_lat" }
+                {
+                  "filter": "datum.state === 'ACT'"
+                },
+                {
+                  "calculate": "149.13",
+                  "as": "act_lon"
+                },
+                {
+                  "calculate": "-35.28",
+                  "as": "act_lat"
+                }
               ],
-              "mark": { "type": "rule", "stroke": "#555", "strokeWidth": 1.2 },
+              "mark": {
+                "type": "circle",
+                "size": 35,
+                "color": "#000000",
+                "stroke": "white",
+                "strokeWidth": 1.5
+              },
               "encoding": {
-                "longitude": { "field": "label_lon", "type": "quantitative" },
-                "latitude": { "field": "label_lat", "type": "quantitative" },
-                "longitude2": { "field": "outside_lon", "type": "quantitative" },
-                "latitude2": { "field": "outside_lat", "type": "quantitative" }
+                "longitude": {
+                  "field": "act_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "act_lat",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'VIC'" },
-                { "calculate": "142.0", "as": "outside_lon" },
-                { "calculate": "-38.0", "as": "outside_lat" },
-                { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "outside_label" }
+                {
+                  "filter": "datum.state === 'VIC' || datum.state === 'TAS'"
+                },
+                {
+                  "calculate": "datum.state === 'VIC' ? 142.0 : 148.2",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "datum.state === 'VIC' ? -38.0 : -43.8",
+                  "as": "outside_lat"
+                }
               ],
-              "mark": { "type": "text", "align": "right", "fontSize": 9, "fontWeight": "bold", "dx": -3 },
+              "mark": {
+                "type": "rule",
+                "stroke": "#555",
+                "strokeWidth": 1.2
+              },
               "encoding": {
-                "longitude": { "field": "outside_lon", "type": "quantitative" },
-                "latitude": { "field": "outside_lat", "type": "quantitative" },
-                "text": { "field": "outside_label" },
-                "color": { "value": "#1a1a1a" }
+                "longitude": {
+                  "field": "label_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_lat",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude2": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                }
               }
             },
             {
               "transform": [
-                { "filter": "datum.state === 'TAS'" },
-                { "calculate": "149.2", "as": "outside_lon" },
-                { "calculate": "-43.8", "as": "outside_lat" },
-                { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "outside_label" }
+                {
+                  "filter": "datum.state === 'VIC'"
+                },
+                {
+                  "calculate": "142.0",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "-38.0",
+                  "as": "outside_lat"
+                },
+                {
+                  "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+                  "as": "outside_label"
+                }
               ],
-              "mark": { "type": "text", "align": "left", "fontSize": 9, "fontWeight": "bold", "dx": 3 },
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "dx": -3
+              },
               "encoding": {
-                "longitude": { "field": "outside_lon", "type": "quantitative" },
-                "latitude": { "field": "outside_lat", "type": "quantitative" },
-                "text": { "field": "outside_label" },
-                "color": { "value": "#1a1a1a" }
+                "longitude": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "color": {
+                  "value": "#1a1a1a"
+                }
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.state === 'TAS'"
+                },
+                {
+                  "calculate": "148.2",
+                  "as": "outside_lon"
+                },
+                {
+                  "calculate": "-43.8",
+                  "as": "outside_lat"
+                },
+                {
+                  "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+                  "as": "outside_label"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "dx": 3
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "outside_lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "outside_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "color": {
+                  "value": "#1a1a1a"
+                }
               }
             }
           ]
         },
         {
-          "title": { "text": "ACT", "anchor": "start", "fontSize": 10, "offset": 2 },
+          "title": {
+            "text": "ACT",
+            "anchor": "start",
+            "fontSize": 10,
+            "offset": 2
+          },
           "transform": [
-            { "filter": "datum.state === 'ACT'" },
-            { "calculate": "datum.state + ' ' + format(datum.rate, '.0%')", "as": "lbl" }
+            {
+              "filter": "datum.state === 'ACT'"
+            },
+            {
+              "calculate": "datum.state + ' ' + format(datum.rate, '.0%')",
+              "as": "lbl"
+            }
           ],
           "width": 115,
           "height": 75,
-          "view": { "stroke": "#1f7a4d", "strokeWidth": 1 },
+          "view": {
+            "stroke": "#1f7a4d",
+            "strokeWidth": 1
+          },
           "projection": {
             "type": "conicEqualArea",
-            "rotate": [-149, 0, 0],
-            "center": [0, -35.5],
-            "parallels": [-35, -36],
+            "rotate": [
+              -149,
+              0,
+              0
+            ],
+            "center": [
+              0,
+              -35.5
+            ],
+            "parallels": [
+              -35,
+              -36
+            ],
             "scale": 3800,
-            "translate": [37, 37]
+            "translate": [
+              37,
+              37
+            ]
           },
           "layer": [
             {
-              "mark": { "type": "geoshape", "stroke": "#1f7a4d", "strokeWidth": 1.5 },
+              "mark": {
+                "type": "geoshape",
+                "stroke": "#1f7a4d",
+                "strokeWidth": 1.5
+              },
               "encoding": {
-                "shape": { "field": "geo", "type": "geojson" },
+                "shape": {
+                  "field": "geo",
+                  "type": "geojson"
+                },
                 "color": {
                   "field": "rate",
                   "type": "quantitative",
                   "title": "% of adults",
-                  "scale": { "domain": [0.47, 0.70, 0.93], "range": ["#e6f4ea", "#7cc08c", "#1f7a4d"] },
+                  "scale": {
+                    "domain": [
+                      0.47,
+                      0.7,
+                      0.93
+                    ],
+                    "range": [
+                      "#e6f4ea",
+                      "#7cc08c",
+                      "#1f7a4d"
+                    ]
+                  },
                   "legend": null
                 },
                 "tooltip": [
-                  { "field": "state_name", "title": "State / territory" },
-                  { "field": "rate", "type": "quantitative", "title": "Share of adults", "format": ".1%" },
-                  { "field": "vs_nat", "type": "quantitative", "title": "Vs Australia (percentage points)", "format": "+.1f" }
+                  {
+                    "field": "state_name",
+                    "title": "State / territory"
+                  },
+                  {
+                    "field": "rate",
+                    "type": "quantitative",
+                    "title": "Share of adults",
+                    "format": ".1%"
+                  },
+                  {
+                    "field": "vs_nat",
+                    "type": "quantitative",
+                    "title": "Vs Australia (percentage points)",
+                    "format": "+.1f"
+                  }
                 ]
               }
             },
             {
-              "mark": { "type": "text", "align": "center", "baseline": "middle", "fontSize": 9, "fontWeight": "bold" },
+              "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "fontSize": 12,
+                "fontWeight": "bold"
+              },
               "encoding": {
-                "x": { "value": 83 },
-                "y": { "value": 37 },
-                "text": { "field": "lbl" },
-                "align": { "value": "left" },
+                "x": {
+                  "value": 83
+                },
+                "y": {
+                  "value": 37
+                },
+                "text": {
+                  "field": "lbl"
+                },
+                "align": {
+                  "value": "left"
+                },
                 "color": {
                   "value": "#1a1a1a"
                 }
@@ -598,6 +1485,9 @@
   ],
   "config": {
     "font": "Inter, Helvetica, Arial, sans-serif",
-    "view": { "stroke": null, "cornerRadius": 40 }
+    "view": {
+      "stroke": null,
+      "cornerRadius": 40
+    }
   }
 }
