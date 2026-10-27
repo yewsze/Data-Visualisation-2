@@ -3,8 +3,12 @@
   "width": 700,
   "height": 600,
   "title": {
-    "text": "National Parks of the Northern Territory",
-    "fontSize": 18
+    "text": "National Parks and Reserves in the Northern Territory, by region",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
   },
   "projection": {"type": "mercator", "scale": 2000, "center": [133, -19]},
   "background": "#f4f7f9",

@@ -4,9 +4,12 @@
   "height": 600,
   "title": {
     "text": "Most Visited Parks and Reserves in the Northern Territory, 2024-25",
-    "fontSize": 18,
     "subtitle": "NT Government-managed parks only. Excludes Commonwealth-managed Kakadu and Uluru-Kata Tjuta.",
-    "subtitleFontSize": 16
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
   },
   "background": "#f4f7f9",
   "params": [

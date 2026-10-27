@@ -1,6 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
+  "title": {
+    "text": "Most popular activities among adults, ranked by participation, 2025",
+    "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+  },
   "width": "container",
   "height": 600,
   "autosize": {

@@ -1,5 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Share of adults by activity level, Australia, 2025",
+    "subtitle": "1 square = 1% of adults",
+    "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+  },
   "width": "container",
   "height": 400,
   "autosize": {

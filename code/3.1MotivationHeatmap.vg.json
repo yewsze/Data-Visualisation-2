@@ -1,5 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Main reasons for taking part, by age group, 2025",
+    "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+  },
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/MotivationAge.csv",
     "format": {

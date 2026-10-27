@@ -10,13 +10,13 @@
     "bottom": 20
   },
   "title": {
-    "text": "Nearly Half of Active Adults Work Full-Time",
-    "subtitle": "Employment status of active adults, Jan-Dec 2025. Column width = number of active adults.",
+    "text": "Activity level of adults by employment status, 2025",
     "anchor": "start",
-    "fontSize": 20,
-    "subtitleFontSize": 13,
-    "subtitleColor": "#555555",
-    "offset": 12
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
   },
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/employment.csv",

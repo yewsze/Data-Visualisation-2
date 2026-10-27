@@ -1,12 +1,21 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Alluvial: age group -> informal/organised -> way of taking part (AusPlay National Table 4, Jan-Dec 2025, adults, all genders). Layout computed in Vega.",
+  "title": {
+    "text": "How activity is organised, by age group, 2025",
+    "subtitle": "Band Width = Number of Adults",
+    "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+  },
   "width": 800,
-  "height": 600,
+  "height": 580,
   "padding": {
     "left": 10,
     "right": 100,
-    "top": 70,
+    "top": 100,
     "bottom": 20
   },
   "autosize": "none",

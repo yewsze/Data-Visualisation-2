@@ -1,8 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": {
-    "text": "Participation in Outdoor Recreational Activities by Age Group",
-    "anchor": "start"
+    "text": "Participation in core outdoor activities by age group, 2025",
+    "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
   },
   "width": {"step": 120},
   "height": {"step": 60},

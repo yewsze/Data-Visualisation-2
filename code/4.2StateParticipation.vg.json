@@ -1,10 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Adult participation rate by state/territory, 2025",
+    "text": "Adults Activeness by State and Territory, 2025",
     "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
     "fontSize": 18,
-    "offset": 14
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
   },
   "data": {
     "url": "https://yewsze.github.io/Data-Visualisation-2/data/finalized/StateParticipation.csv",
@@ -53,8 +56,9 @@
       "title": {
         "text": "At least once a year",
         "anchor": "middle",
+        "dy": 8,
         "fontSize": 13,
-        "fontWeight": "bold"
+        "fontWeight": "normal"
       },
       "transform": [
         {
@@ -404,9 +408,9 @@
         {
           "title": {
             "text": "ACT",
-            "anchor": "start",
+            "anchor": "middle",
             "fontSize": 10,
-            "offset": 2
+            "offset": 0
           },
           "transform": [
             {
@@ -528,8 +532,9 @@
       "title": {
         "text": "At least once a week",
         "anchor": "middle",
+        "dy": 8,
         "fontSize": 13,
-        "fontWeight": "bold"
+        "fontWeight": "normal"
       },
       "transform": [
         {
@@ -879,9 +884,9 @@
         {
           "title": {
             "text": "ACT",
-            "anchor": "start",
+            "anchor": "middle",
             "fontSize": 10,
-            "offset": 2
+            "offset": 0
           },
           "transform": [
             {
@@ -1003,8 +1008,9 @@
       "title": {
         "text": "At least 3 times a week",
         "anchor": "middle",
+        "dy": 8,
         "fontSize": 13,
-        "fontWeight": "bold"
+        "fontWeight": "normal"
       },
       "transform": [
         {
@@ -1362,9 +1368,9 @@
         {
           "title": {
             "text": "ACT",
-            "anchor": "start",
+            "anchor": "middle",
             "fontSize": 10,
-            "offset": 2
+            "offset": 0
           },
           "transform": [
             {

@@ -1,6 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Bump chart: rank of the places adults were active, by age group, Jan-Dec 2025 (AusPlay National data tables, 30 April 2026, Table 7). Circles show the share of adults who were active at each place.",
+  "title": {
+    "text": "Rank of places where adults are active, by age group, 2025",
+    "subtitle": "Ranked in Ascending Order (1 = most popular)",
+    "anchor": "start",
+    "font": "Vanio, serif",
+    "subtitleFont": "Vanio, serif",
+    "fontSize": 18,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+  },
   "width": "container",
   "height": 400,
   "padding": {
